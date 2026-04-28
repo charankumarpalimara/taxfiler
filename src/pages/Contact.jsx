@@ -30,19 +30,19 @@ const socials = [
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-brand-dark pt-20">
+    <div className="min-h-screen bg-bg-light pt-24">
 
       {/* ── Hero Banner ─────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-brand-purple/30 rounded-full blur-[140px]" />
-          <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-brand-orange/20 rounded-full blur-[140px]" />
+          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-brand-purple/5 rounded-full blur-[140px]" />
+          <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[140px]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6"
+            className="section-tag border-brand-orange text-brand-orange bg-brand-orange/5"
           >
             Contact Us
           </motion.span>
@@ -50,16 +50,16 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 font-heading"
+            className="text-5xl md:text-7xl font-black text-brand-purple leading-tight mb-6 font-heading"
           >
             Let's Talk<br />
-            <span className="text-brand-orange">Business</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">Business</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-white/60 max-w-xl mx-auto"
+            className="text-xl text-text-mid max-w-xl mx-auto font-sans"
           >
             Reach out anytime — our team is ready to simplify your taxes and accounting needs.
           </motion.p>
@@ -111,19 +111,19 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative bg-white/5 border border-white/10 rounded-3xl p-7 hover:bg-white/10 transition-all hover:-translate-y-1 overflow-hidden"
+                className="glass-card group p-8 relative overflow-hidden"
               >
-                <div className={`w-12 h-12 ${item.accent} rounded-2xl flex items-center justify-center text-white mb-5`}>
+                <div className={`w-12 h-12 ${item.accent} rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-black/10`}>
                   {item.icon}
                 </div>
-                <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-2">{item.label}</p>
-                <p className="text-white font-semibold text-base leading-relaxed whitespace-pre-line mb-4">{item.value}</p>
+                <p className="text-text-light text-xs font-bold uppercase tracking-widest mb-2 font-heading">{item.label}</p>
+                <p className="text-brand-purple font-bold text-base leading-relaxed whitespace-pre-line mb-5 font-sans">{item.value}</p>
                 {item.href && item.cta && (
                   <a
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-bold text-brand-orange hover:text-white transition-colors"
+                    className="inline-flex items-center gap-1 text-sm font-bold text-brand-orange hover:text-brand-orange-dark transition-colors font-sans"
                   >
                     {item.cta} →
                   </a>
@@ -141,14 +141,14 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl h-[420px]"
+            className="rounded-[2.5rem] overflow-hidden border border-black/5 shadow-2xl h-[420px]"
           >
             <iframe
               title="Pumpkin Tax Co Location"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3461.5!2d-95.6739945!3d29.9465986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640d42711f1f7fb%3A0xdac1dbea997fc0db!2s12234%20Queenston%20Blvd%20%23200%2C%20Houston%2C%20TX%2077095!5e0!3m2!1sen!2sus!4v1700000000000"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(30%) contrast(1.1)" }}
+              style={{ border: 0, filter: "grayscale(10%) contrast(1.05)" }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -160,10 +160,10 @@ export default function Contact() {
       {/* ── Social Media ─────────────────────────────────────── */}
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-t border-white/10 pt-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 border-t border-black/5 pt-12">
             <div>
-              <h3 className="text-2xl font-bold text-white font-heading mb-1">Follow Along</h3>
-              <p className="text-white/50 text-sm">Get tax tips, updates & company news.</p>
+              <h3 className="text-2xl font-bold text-brand-purple font-heading mb-1">Follow Along</h3>
+              <p className="text-text-mid text-sm font-sans">Get tax tips, updates & company news.</p>
             </div>
             <div className="flex items-center gap-4">
               {socials.map((s) => (
@@ -174,7 +174,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   title={s.name}
                   whileHover={{ scale: 1.15, y: -4 }}
-                  className="w-12 h-12 bg-white/8 border border-white/10 rounded-2xl flex items-center justify-center text-white/60 hover:text-white hover:border-brand-orange/50 transition-all"
+                  className="w-12 h-12 bg-white border border-black/5 rounded-2xl flex items-center justify-center text-text-light hover:text-brand-orange hover:border-brand-orange/50 transition-all shadow-sm"
                 >
                   <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">{s.svg}</svg>
                 </motion.a>

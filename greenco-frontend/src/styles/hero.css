@@ -1,0 +1,404 @@
+/* ============================================
+   HERO STYLES — hero.css  [ ULTRA MODERN ]
+   ============================================ */
+
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── Background ──────────────────────────────── */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: center center;
+    filter: brightness(0.85) contrast(1.15);
+    animation: cinematicDrone 30s linear infinite;
+    transition: filter 0.8s ease;
+}
+
+@keyframes cinematicDrone {
+    0% {
+        transform: scale(1.1) translate(0%, 0%);
+    }
+
+    25% {
+        transform: scale(1.15) translate(-2%, 1%);
+    }
+
+    50% {
+        transform: scale(1.2) translate(-1%, -1%);
+    }
+
+    75% {
+        transform: scale(1.15) translate(1%, 2%);
+    }
+
+    100% {
+        transform: scale(1.1) translate(0%, 0%);
+    }
+}
+
+.hero:hover .hero-bg img {
+    filter: brightness(0.95) contrast(1.2);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(8, 28, 21, 0.8) 0%, rgba(8, 28, 21, 0.3) 50%, transparent 100%),
+        linear-gradient(to top, rgba(8, 28, 21, 0.9) 0%, transparent 40%);
+    z-index: 1;
+}
+
+/* Modern particle effects */
+.hero-overlay::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 168, 107, 0.15) 0%, transparent 70%);
+    animation: morph 15s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.hero-overlay::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 33, 71, 0.3) 0%, transparent 70%);
+    animation: morph 12s ease-in-out infinite reverse;
+    filter: blur(1px);
+}
+
+/* Floating particles */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-particles::before,
+.hero-particles::after,
+.hero-particles span:nth-child(1),
+.hero-particles span:nth-child(2),
+.hero-particles span:nth-child(3) {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: particleFloat 8s ease-in-out infinite;
+}
+
+.hero-particles::before {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    width: 6px;
+    height: 6px;
+    background: var(--secondary);
+}
+
+.hero-particles::after {
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+    width: 3px;
+    height: 3px;
+    background: var(--accent-ruby);
+}
+
+.hero-particles span:nth-child(1) {
+    top: 40%;
+    left: 20%;
+    animation-delay: 4s;
+    background: var(--accent-amethyst);
+}
+
+.hero-particles span:nth-child(2) {
+    top: 70%;
+    right: 25%;
+    animation-delay: 6s;
+    width: 5px;
+    height: 5px;
+    background: var(--primary);
+}
+
+.hero-particles span:nth-child(3) {
+    top: 30%;
+    right: 10%;
+    animation-delay: 1s;
+    background: var(--accent-topaz);
+}
+
+
+/* ── Content ─────────────────────────────────── */
+.hero .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 0 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.hero-inner {
+    max-width: 780px;
+    animation: slideInUp 1s ease-out;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 22px;
+    background: rgba(0, 168, 107, 0.08);
+    border: 1px solid rgba(0, 168, 107, 0.3);
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(12px);
+    animation: bounceIn 0.8s ease-out;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hero-tag:hover {
+    transform: scale(1.05);
+    background: rgba(0, 168, 107, 0.15);
+    border-color: rgba(0, 168, 107, 0.5);
+}
+
+.hero-tag-line {
+    width: 28px;
+    height: 2px;
+    background: var(--secondary-light);
+    border-radius: var(--radius-full);
+    animation: shimmer 2s infinite;
+}
+
+.hero-title {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.08;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-title .highlight {
+    color: var(--secondary);
+    display: inline;
+    text-shadow: 0 4px 15px rgba(0, 168, 107, 0.4);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.82);
+    margin-bottom: 42px;
+    max-width: 560px;
+    line-height: 1.75;
+    animation: slideInLeft 1.2s ease-out;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    animation: slideInRight 1.4s ease-out;
+}
+
+/* ── Scroll Indicator ────────────────────────── */
+.hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: var(--transition);
+}
+
+.hero-scroll:hover {
+    opacity: 1;
+}
+
+.hero-scroll span {
+    font-size: 0.62rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+.scroll-indicator {
+    width: 28px;
+    height: 46px;
+    border: 2px solid rgba(0, 168, 107, 0.3);
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+}
+
+.scroll-dot {
+    width: 4px;
+    height: 8px;
+    background: var(--secondary);
+    border-radius: 2px;
+    animation: scrollBounce 1.8s ease infinite;
+}
+
+@keyframes scrollBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(10px);
+        opacity: 0.3;
+    }
+}
+
+/* ── Stats Bar ───────────────────────────────── */
+.hero-stats {
+    position: relative;
+    z-index: 2;
+    background: rgba(8, 28, 21, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 2px solid var(--secondary);
+    margin-top: auto;
+}
+
+.hero-stats-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.hero-stat-item {
+    padding: 22px 24px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+    position: relative;
+}
+
+.hero-stat-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+.hero-stat-item:hover::before {
+    width: 60%;
+}
+
+.hero-stat-item:last-child {
+    border-right: none;
+}
+
+.hero-stat-item:hover {
+    background: rgba(255, 184, 0, 0.10);
+}
+
+.hero-stat-number {
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--secondary);
+    line-height: 1;
+    margin-bottom: 5px;
+    background: var(--grad-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-stat-label {
+    font-size: 0.70rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.60);
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 640px) {
+    .hero .hero-content {
+        padding: 100px 0 60px;
+        /* Matches standardized mobile clearance */
+    }
+
+    .hero-stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-stat-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .hero-stat-item:nth-child(3),
+    .hero-stat-item:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-stat-item {
+        padding: 16px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -26,13 +26,13 @@ const stats = [
 
 export default function Payroll() {
   return (
-    <div className="min-h-screen bg-brand-dark">
+    <div className="min-h-screen bg-bg-light pt-24">
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-12 pb-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -left-40 w-[700px] h-[700px] bg-brand-purple/30 rounded-full blur-[160px]" />
-          <div className="absolute bottom-0 -right-40 w-[500px] h-[500px] bg-brand-orange/20 rounded-full blur-[140px]" />
+          <div className="absolute -top-40 -left-40 w-[700px] h-[700px] bg-brand-purple/5 rounded-full blur-[160px]" />
+          <div className="absolute bottom-0 -right-40 w-[500px] h-[500px] bg-brand-orange/10 rounded-full blur-[140px]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -42,26 +42,24 @@ export default function Payroll() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <span className="inline-block px-5 py-2 rounded-full border border-brand-purple/40 text-brand-purple text-sm font-semibold tracking-widest uppercase mb-6">
-                Payroll Services
-              </span>
-              <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 font-heading">
+              <span className="section-tag">Payroll Services</span>
+              <h1 className="text-5xl md:text-6xl font-black text-brand-purple leading-tight mb-6 font-heading">
                 AI Payroll <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-orange">Done Right.</span>
+                <span className="gradient-text">Done Right.</span>
               </h1>
-              <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-lg">
+              <p className="text-xl text-text-mid leading-relaxed mb-10 max-w-lg">
                 Ditch the spreadsheets. Embrace next-generation payroll powered by cutting-edge AI — secure, seamless, and built for your team.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-brand-purple text-white px-8 py-4 rounded-full font-bold hover:bg-[#3b1d5a] transition-all shadow-lg shadow-brand-purple/30 hover:-translate-y-1"
+                  className="btn-primary bg-brand-purple hover:bg-brand-purple-dark shadow-brand-purple/20"
                 >
-                  Get Started <ArrowRight className="w-5 h-5" />
+                  Get Started <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
                 <a
                   href="#features"
-                  className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all hover:-translate-y-1"
+                  className="btn-secondary"
                 >
                   See All Features
                 </a>
@@ -75,11 +73,11 @@ export default function Payroll() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/40 to-brand-orange/20 rounded-[2.5rem] blur-[30px]" />
+              <div className="absolute inset-0 bg-brand-purple/15 rounded-[2.5rem] blur-[30px]" />
               <img
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2000&auto=format&fit=crop"
                 alt="Payroll Automation"
-                className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-white/10 shadow-2xl"
+                className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-black/5 shadow-2xl"
               />
             </motion.div>
           </div>
@@ -87,7 +85,7 @@ export default function Payroll() {
       </section>
 
       {/* ── Stats Bar ────────────────────────────────────────── */}
-      <section className="py-10 border-y border-white/10 bg-white/5 backdrop-blur">
+      <section className="py-10 border-y border-black/5 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((s, i) => (
@@ -100,7 +98,7 @@ export default function Payroll() {
                 className="text-center"
               >
                 <div className="text-4xl font-black text-brand-purple font-heading mb-1">{s.value}</div>
-                <div className="text-white/50 text-sm font-medium">{s.label}</div>
+                <div className="text-text-mid text-sm font-medium">{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -116,8 +114,8 @@ export default function Payroll() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">Complete Payroll Automation</h2>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">Everything you need to manage your team effectively and compliantly.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">Complete Payroll Automation</h2>
+            <p className="text-text-mid text-lg max-w-xl mx-auto">Everything you need to manage your team effectively and compliantly.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -128,14 +126,14 @@ export default function Payroll() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (idx % 4) * 0.1 }}
-                className="group relative bg-white/5 border border-white/10 rounded-3xl p-7 hover:bg-white/10 hover:border-brand-purple/40 transition-all hover:-translate-y-1 overflow-hidden"
+                className="glass-card group p-7 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-full blur-[30px] pointer-events-none group-hover:bg-brand-purple/10 transition-all" />
-                <div className="w-11 h-11 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-purple mb-5 group-hover:bg-brand-purple group-hover:text-white transition-all">
+                <div className="w-11 h-11 bg-brand-purple/10 rounded-xl flex items-center justify-center text-brand-purple mb-5 group-hover:bg-brand-purple group-hover:text-white transition-all">
                   {feature.icon}
                 </div>
-                <h3 className="text-base font-bold text-white mb-2 font-heading">{feature.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-base font-bold text-brand-purple mb-2 font-heading">{feature.title}</h3>
+                <p className="text-text-light text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -149,19 +147,19 @@ export default function Payroll() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-brand-purple to-[#3b1d5a] rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center"
+            className="relative bg-gradient-to-br from-brand-purple to-brand-purple-dark rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.12),transparent_60%)] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-heading relative z-10">
               Ready to experience the future of payroll?
             </h2>
-            <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+            <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto relative z-10">
               Texas payroll success with AI! Our solutions help you focus on what matters. Explore payroll services powered by AI.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-black text-lg hover:bg-[#e67c00] transition-all hover:-translate-y-1 shadow-xl shadow-brand-orange/30 relative z-10"
+              className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-black text-lg hover:bg-brand-orange-dark transition-all hover:-translate-y-1 shadow-xl shadow-brand-orange/30 relative z-10"
             >
               Contact Pumpkin Today <ArrowRight className="w-5 h-5" />
             </Link>

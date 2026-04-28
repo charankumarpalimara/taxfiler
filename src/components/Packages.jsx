@@ -13,43 +13,73 @@ export default function Packages() {
   ];
 
   return (
-    <section id="packages" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="packages" className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-bg-light to-white" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-6 font-heading">Pumpkin Packages</h2>
-          <p className="text-lg text-slate-600">
-            Choose the right plan for your business structure.
+          <span className="section-tag-orange">Our Plans</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-6 font-heading">Pumpkin Packages</h2>
+          <p className="text-lg text-text-mid font-sans">
+            Tailored tax solutions for every business structure. Choose the plan that fits your growth.
           </p>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full bg-white rounded-[2rem] overflow-hidden shadow-xl border-collapse">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="overflow-x-auto rounded-[2rem] shadow-2xl shadow-black/5 border border-black/5 bg-white"
+        >
+          <table className="w-full border-collapse min-w-[800px]">
             <thead>
-              <tr className="bg-brand-dark text-white">
-                <th className="p-6 text-left font-heading">Taxation Deliverables</th>
-                <th className="p-6 text-center font-heading">Solo</th>
-                <th className="p-6 text-center font-heading">Partnership</th>
-                <th className="p-6 text-center font-heading">LLC</th>
-                <th className="p-6 text-center font-heading">S-Corp</th>
+              <tr className="bg-brand-purple text-white">
+                <th className="p-8 text-left font-heading text-lg">Taxation Deliverables</th>
+                <th className="p-8 text-center font-heading text-lg">Solo</th>
+                <th className="p-8 text-center font-heading text-lg">Partnership</th>
+                <th className="p-8 text-center font-heading text-lg">LLC</th>
+                <th className="p-8 text-center font-heading text-lg">S-Corp</th>
               </tr>
             </thead>
             <tbody>
               {taxPackages.slice(1).map((pkg, idx) => (
-                <tr key={idx} className="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                  <td className="p-6 text-slate-700 font-medium">{pkg.name}</td>
-                  <td className="p-6 text-center text-brand-orange"><Check className="mx-auto w-6 h-6" /></td>
-                  <td className="p-6 text-center text-brand-orange"><Check className="mx-auto w-6 h-6" /></td>
-                  <td className="p-6 text-center text-brand-orange"><Check className="mx-auto w-6 h-6" /></td>
-                  <td className="p-6 text-center text-brand-orange"><Check className="mx-auto w-6 h-6" /></td>
+                <tr key={idx} className="border-b border-black/5 hover:bg-brand-purple/[0.02] transition-colors group">
+                  <td className="p-6 px-8 text-text-dark font-semibold font-sans group-hover:text-brand-purple transition-colors">{pkg.name}</td>
+                  <td className="p-6 text-center">
+                    <div className="w-8 h-8 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto text-brand-orange">
+                      <Check className="w-5 h-5" />
+                    </div>
+                  </td>
+                  <td className="p-6 text-center">
+                    <div className="w-8 h-8 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto text-brand-orange">
+                      <Check className="w-5 h-5" />
+                    </div>
+                  </td>
+                  <td className="p-6 text-center">
+                    <div className="w-8 h-8 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto text-brand-orange">
+                      <Check className="w-5 h-5" />
+                    </div>
+                  </td>
+                  <td className="p-6 text-center">
+                    <div className="w-8 h-8 bg-brand-orange/10 rounded-full flex items-center justify-center mx-auto text-brand-orange">
+                      <Check className="w-5 h-5" />
+                    </div>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </motion.div>
         
-        <p className="text-center text-slate-500 mt-8 text-sm italic">
-          * Tables for Bookkeeping and Payroll also available in detailed consultation.
-        </p>
+        <div className="flex flex-col md:flex-row items-center justify-between mt-10 gap-6">
+          <p className="text-text-light text-sm italic font-sans">
+            * Detailed tables for Bookkeeping and Payroll are available during consultation.
+          </p>
+          <button className="bg-brand-purple text-white px-8 py-3 rounded-full font-bold hover:bg-brand-purple-dark transition-all hover:scale-105 shadow-lg shadow-brand-purple/20 font-sans">
+            Download Full Price List
+          </button>
+        </div>
       </div>
     </section>
   );

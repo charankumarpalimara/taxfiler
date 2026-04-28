@@ -1,0 +1,361 @@
+/* ============================================
+   CAREERS PAGE — Ticker / Marquee Hero
+   ============================================ */
+
+.careers-page {
+    background: var(--bg-white);
+}
+
+/* ── Ticker Hero ─────────────────────────────── */
+.careers-hero-ticker {
+    min-height: 100vh;
+    background: #030d16;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.careers-ticker-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(0, 168, 107, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Rolling ticker strip */
+.careers-ticker-strip {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 0;
+    background: rgba(0, 168, 107, 0.05);
+}
+
+.careers-ticker-track {
+    display: flex;
+    white-space: nowrap;
+    animation: tickerScroll 20s linear infinite;
+}
+
+.ticker-item {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.35);
+    margin-right: 32px;
+    flex-shrink: 0;
+}
+
+.ticker-dot {
+    color: var(--secondary);
+    margin-left: 32px;
+}
+
+@keyframes tickerScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Left — large typography */
+.contact-hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Two-column content */
+.careers-ticker-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 0 50px;
+}
+
+/* Left column (heading/desc/cta) */
+.careers-ticker-left {
+    flex: 1;
+}
+
+.careers-ticker-eyebrow {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 24px;
+    opacity: 0.85;
+}
+
+.careers-ticker-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 700;
+    line-height: 0.88;
+    color: #fff;
+    letter-spacing: -4px;
+    margin-bottom: 28px;
+}
+
+.careers-ticker-heading em {
+    color: var(--secondary);
+    font-style: italic;
+    display: block;
+}
+
+.careers-ticker-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 380px;
+    margin-bottom: 36px;
+}
+
+/* Right */
+.careers-ticker-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.careers-openings-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--secondary);
+    color: var(--primary-dark);
+    padding: 14px 24px;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.pill-num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.pill-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.75;
+}
+
+.careers-roles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.careers-role-chip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.careers-role-chip:hover {
+    background: rgba(0, 168, 107, 0.08);
+    border-color: rgba(0, 168, 107, 0.25);
+}
+
+.careers-role-chip .role-tag {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary);
+    background: rgba(0, 168, 107, 0.12);
+    padding: 3px 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.careers-role-chip .role-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    flex: 1;
+}
+
+.careers-role-chip svg {
+    color: rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .careers-ticker-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 130px 0 100px;
+    }
+
+    .careers-ticker-heading {
+        letter-spacing: -2px;
+        font-size: clamp(2.4rem, 8vw, 4rem);
+    }
+}
+
+
+.careers-perks-section {
+    background: #f8fbfa;
+    padding: 50px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.careers-perks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.careers-perk {
+    text-align: center;
+    padding: 20px;
+}
+
+.perk-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--grad-secondary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-dark);
+    margin: 0 auto 16px;
+}
+
+.careers-perk h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+.careers-perk p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* ── Jobs Section ───────────────────────────── */
+.careers-section {
+    padding: 60px 0;
+}
+
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px;
+}
+
+.job-card {
+    background: white;
+    padding: 32px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid rgba(10, 37, 64, 0.06);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.job-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--grad-secondary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.job-card:hover::before {
+    transform: scaleX(1);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+}
+
+.job-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary);
+    background: rgba(0, 168, 107, 0.08);
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 14px;
+}
+
+.job-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+}
+
+.job-meta {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.job-desc {
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-size: 0.92rem;
+}
+
+@media (max-width: 768px) {
+    .careers-perks-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .jobs-grid {
+        grid-template-columns: 1fr;
+    }
+}

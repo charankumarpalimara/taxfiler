@@ -51,38 +51,25 @@ export default function Deliverables() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="services" className="py-16 bg-brand-dark text-white relative overflow-hidden">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay"></div>
-      <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[800px] h-[800px] rounded-full bg-brand-purple/20 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-64 -mb-64 w-[800px] h-[800px] rounded-full bg-brand-orange/10 blur-[120px] pointer-events-none" />
+    <section id="deliverables" className="py-24 bg-white relative overflow-hidden">
+      {/* Background blurs */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-purple/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row gap-12 items-end mb-20">
-          <div className="flex-1">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-semibold mb-6 leading-snug"
-            >
-              Comprehensive <span className="text-brand-orange">Deliverables</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-base text-slate-400 max-w-2xl leading-relaxed"
-            >
-              For small businesses, staying compliant means staying on top of many forms. We handle the heavy lifting.
-            </motion.p>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="section-tag">Forms & Filings</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-6 font-heading">
+            Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">Deliverables</span>
+          </h2>
+          <p className="text-lg text-text-mid font-sans">
+            For small businesses, staying compliant means staying on top of many forms. We handle the heavy lifting.
+          </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Sidebar Tabs */}
-          <div className="lg:w-1/3 flex flex-row overflow-x-auto lg:flex-col gap-3 lg:gap-4 pb-4 lg:pb-0 snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="lg:w-1/3 flex flex-row overflow-x-auto lg:flex-col gap-4 pb-4 lg:pb-0 snap-x hide-scrollbar">
             {deliverables.map((category, idx) => (
               <motion.button
                 key={idx}
@@ -91,21 +78,19 @@ export default function Deliverables() {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 onClick={() => setActiveTab(idx)}
-                className={`text-left p-3 lg:p-6 rounded-2xl transition-all duration-300 border shrink-0 snap-start flex items-center gap-3 lg:gap-4 ${activeTab === idx
-                  ? "bg-white/10 border-brand-orange shadow-[0_0_30px_rgba(255,138,0,0.15)]"
-                  : "bg-white/5 border-transparent hover:bg-white/10 hover:border-white/20"
+                className={`text-left p-6 rounded-2xl transition-all duration-300 border flex items-center gap-4 shrink-0 snap-start ${activeTab === idx
+                  ? "bg-white border-brand-orange shadow-xl shadow-brand-orange/10 scale-105 z-10"
+                  : "bg-bg-light border-transparent hover:bg-white hover:border-black/10"
                   }`}
               >
-                <div className={`p-2 lg:p-3 rounded-xl shrink-0 flex items-center justify-center ${activeTab === idx ? "bg-brand-orange text-white" : "bg-white/10 text-slate-400"}`}>
-                  <div className="scale-75 lg:scale-100 flex items-center justify-center origin-center">
-                    {category.icon}
-                  </div>
+                <div className={`w-12 h-12 rounded-xl shrink-0 flex items-center justify-center transition-all ${activeTab === idx ? "bg-brand-orange text-white" : "bg-white text-text-light"}`}>
+                  {category.icon}
                 </div>
-                <div>
-                  <h3 className={`whitespace-nowrap lg:whitespace-normal text-sm lg:text-lg font-medium ${activeTab === idx ? "text-white" : "text-slate-300"}`}>
+                <div className="min-w-0">
+                  <h3 className={`text-lg font-bold truncate ${activeTab === idx ? "text-brand-purple" : "text-text-mid"}`}>
                     {category.title}
                   </h3>
-                  <p className={`hidden lg:block text-sm mt-1 ${activeTab === idx ? "text-slate-300" : "text-slate-500"}`}>
+                  <p className={`text-sm mt-1 line-clamp-1 ${activeTab === idx ? "text-text-mid" : "text-text-light"}`}>
                     {category.description}
                   </p>
                 </div>
@@ -117,32 +102,32 @@ export default function Deliverables() {
           <div className="lg:w-2/3">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 p-5 md:p-14 rounded-[3rem] h-full shadow-2xl relative overflow-hidden"
+              className="glass-card p-8 md:p-14 h-full relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 rounded-full blur-[80px]" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/5 rounded-full blur-[80px]" />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-6 mb-10 border-b border-white/10 pb-8">
-                  <div className="w-20 h-20 bg-brand-orange rounded-3xl flex items-center justify-center text-white shadow-xl shadow-brand-orange/20 transform -rotate-6">
+                <div className="flex items-center gap-6 mb-10 border-b border-black/5 pb-8">
+                  <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange shadow-sm transform -rotate-3">
                     {deliverables[activeTab].icon}
                   </div>
-                  <h3 className="text-2xl font-semibold text-white">{deliverables[activeTab].title}</h3>
+                  <h3 className="text-2xl font-bold text-brand-purple font-heading">{deliverables[activeTab].title}</h3>
                 </div>
 
-                <ul className="space-y-6">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {deliverables[activeTab].items.map((item, itemIdx) => (
                     <motion.li
                       key={itemIdx}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: itemIdx * 0.1 }}
-                      className="flex items-start bg-white/[0.02] p-5 rounded-2xl hover:bg-white/[0.05] transition-colors border border-transparent hover:border-white/5"
+                      className="flex items-start bg-bg-light/50 p-5 rounded-2xl hover:bg-white hover:shadow-md transition-all border border-transparent hover:border-black/5"
                     >
-                      <CheckCircle className="w-7 h-7 text-brand-orange mr-4 shrink-0 mt-0.5" />
-                      <span className="text-slate-300 leading-relaxed text-sm">{item}</span>
+                      <CheckCircle className="w-5 h-5 text-brand-orange mr-3 shrink-0 mt-0.5" />
+                      <span className="text-text-mid leading-relaxed text-sm font-sans">{item}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -150,17 +135,6 @@ export default function Deliverables() {
             </motion.div>
           </div>
         </div>
-
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 p-8 bg-brand-purple/30 border border-brand-purple/50 rounded-3xl text-center shadow-lg backdrop-blur-md"
-        >
-          <p className="text-brand-light text-sm">
-            <strong className="text-white font-semibold">Important Note:</strong> This is not an exhaustive list. Consulting with a professional is highly recommended to ensure you comply with all applicable tax regulations.
-          </p>
-        </motion.div> */}
       </div>
     </section>
   );

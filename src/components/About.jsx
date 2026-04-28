@@ -9,11 +9,10 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-14 relative overflow-hidden bg-brand-dark">
-      {/* Glows */}
-      <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-brand-orange/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-brand-purple/15 rounded-full blur-[120px] pointer-events-none" />
-
+    <section id="about" className="py-20 relative overflow-hidden bg-white">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-purple/5 pointer-events-none rounded-bl-[100px]" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
 
@@ -25,11 +24,11 @@ export default function About() {
             transition={{ duration: 0.7 }}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/30 to-brand-purple/20 rounded-[2.5rem] blur-[30px]" />
+            <div className="absolute inset-0 bg-brand-orange/20 rounded-[2.5rem] blur-[30px]" />
             <img
               src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
               alt="Our Team"
-              className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-white/10 shadow-2xl"
+              className="relative rounded-[2.5rem] w-full h-[480px] object-cover shadow-2xl border border-black/5"
             />
             {/* Floating badge */}
             <motion.div
@@ -37,10 +36,10 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="absolute -bottom-6 -right-6 lg:-right-10 bg-brand-orange px-6 py-4 rounded-2xl shadow-2xl z-20"
+              className="absolute -bottom-6 -right-6 lg:-right-10 bg-brand-orange px-6 py-4 rounded-2xl shadow-xl z-20 border border-brand-orange-light/20"
             >
               <div className="text-4xl font-black text-white font-heading leading-none">15+</div>
-              <div className="text-white/80 text-sm font-medium mt-1">Years of Experience</div>
+              <div className="text-white/90 text-sm font-medium mt-1 font-sans">Years of Experience</div>
             </motion.div>
           </motion.div>
 
@@ -52,22 +51,22 @@ export default function About() {
             transition={{ duration: 0.7 }}
             className="w-full lg:w-1/2"
           >
-            <span className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6">
+            <span className="section-tag">
               About Pumpkin Tax Co
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-snug font-heading">
+            <h2 className="mb-6">
               More than just accountants. <br className="hidden lg:block" />
               We are your{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-purple">
+              <span className="gradient-text">
                 financial partners.
               </span>
             </h2>
 
-            <p className="text-white/60 leading-relaxed mb-5 text-base">
+            <p className="text-text-mid leading-relaxed mb-5 text-base font-sans">
               At Pumpkin Tax Co, we believe understanding your finances shouldn't be a terrifying experience. We take the "spooky" out of tax season by combining industry-leading expertise with straightforward, transparent communication.
             </p>
-            <p className="text-white/60 leading-relaxed mb-8 text-base">
+            <p className="text-text-mid leading-relaxed mb-8 text-base font-sans">
               Our mission is simple: to help small businesses and individuals thrive by taking the heavy lifting off your shoulders. We handle complex compliance so you can focus on what matters most.
             </p>
 
@@ -75,7 +74,7 @@ export default function About() {
               {points.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand-orange shrink-0" />
-                  <span className="text-sm font-medium text-white/70">{item}</span>
+                  <span className="text-sm font-medium text-text-dark font-sans">{item}</span>
                 </div>
               ))}
             </div>
@@ -86,7 +85,7 @@ export default function About() {
                 e.preventDefault();
                 document.querySelector("#features")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold text-white bg-brand-purple rounded-full hover:bg-brand-orange transition-all duration-300 shadow-lg shadow-brand-purple/30 hover:-translate-y-1"
+              className="btn-primary bg-brand-purple hover:bg-brand-orange shadow-brand-purple/20"
             >
               Explore Our Services
             </a>

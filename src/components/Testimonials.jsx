@@ -12,8 +12,8 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-14 relative overflow-hidden bg-brand-dark border-t border-white/5">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-purple/10 rounded-full blur-[120px] pointer-events-none" />
+    <section id="testimonials" className="py-20 relative overflow-hidden bg-white border-y border-black/5">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-purple/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -22,11 +22,11 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6">
+          <span className="section-tag">
             Client Reviews
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">What Our Clients Say</h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">What Our Clients Say</h2>
+          <p className="text-text-mid text-lg max-w-xl mx-auto font-sans">
             Trusted by businesses and individuals for fast, reliable, and professional tax services.
           </p>
         </motion.div>
@@ -39,9 +39,9 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/8 hover:border-brand-orange/30 transition-all hover:-translate-y-1 flex flex-col overflow-hidden"
+              className="glass-card group p-8 flex flex-col relative overflow-hidden"
             >
-              <div className="absolute top-6 right-6 text-white/5 group-hover:text-brand-orange/10 transition-colors">
+              <div className="absolute top-6 right-6 text-black/[0.03] group-hover:text-brand-orange/10 transition-colors">
                 <Quote className="w-12 h-12" />
               </div>
 
@@ -51,11 +51,11 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-white/70 leading-relaxed mb-6 relative z-10 italic text-sm flex-1">"{t.review}"</p>
+              <p className="text-text-mid leading-relaxed mb-6 relative z-10 italic text-sm flex-1 font-sans">"{t.review}"</p>
 
-              <div className="flex items-center justify-between border-t border-white/10 pt-5 mt-auto relative z-10">
-                <div className="font-bold text-white font-heading text-sm">{t.name}</div>
-                <div className="flex items-center gap-1.5 text-xs font-medium text-white/40">
+              <div className="flex items-center justify-between border-t border-black/5 pt-5 mt-auto relative z-10">
+                <div className="font-bold text-brand-purple font-heading text-sm">{t.name}</div>
+                <div className="flex items-center gap-1.5 text-xs font-medium text-text-light font-sans">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
                     alt="Google"

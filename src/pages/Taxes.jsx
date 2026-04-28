@@ -24,13 +24,13 @@ const stats = [
 
 export default function Taxes() {
   return (
-    <div className="min-h-screen bg-brand-dark">
+    <div className="min-h-screen bg-bg-light pt-24">
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-12 pb-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-brand-orange/20 rounded-full blur-[160px]" />
-          <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-brand-purple/25 rounded-full blur-[140px]" />
+          <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-brand-orange/10 rounded-full blur-[160px]" />
+          <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-brand-purple/5 rounded-full blur-[140px]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -41,26 +41,26 @@ export default function Taxes() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <span className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6">
+              <span className="section-tag">
                 Tax Services
               </span>
-              <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 font-heading">
+              <h1 className="text-5xl md:text-6xl font-black text-brand-purple leading-tight mb-6 font-heading">
                 Don't Let Taxes Bite! <br />
-                <span className="text-brand-orange">Let Pumpkin Simplify It.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">Let Pumpkin Simplify It.</span>
               </h1>
-              <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-lg">
+              <p className="text-xl text-text-mid leading-relaxed mb-10 max-w-lg font-sans">
                 Taxes don't have to be a complex puzzle. Our experts guide you through comprehensive tax filing, planning, and resolution — stress-free.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-bold hover:bg-[#e67c00] transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-1"
+                  className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-bold hover:bg-brand-orange-dark transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-1 font-sans"
                 >
                   Get a Free Consultation <ArrowRight className="w-5 h-5" />
                 </Link>
                 <a
                   href="#features"
-                  className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all hover:-translate-y-1"
+                  className="inline-flex items-center gap-2 bg-white border border-brand-purple/20 text-brand-purple px-8 py-4 rounded-full font-bold hover:bg-brand-purple/5 transition-all hover:-translate-y-1 font-sans"
                 >
                   Explore Services
                 </a>
@@ -74,11 +74,11 @@ export default function Taxes() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/30 to-brand-purple/20 rounded-[2.5rem] blur-[30px]" />
+              <div className="absolute inset-0 bg-brand-orange/20 rounded-[2.5rem] blur-[30px]" />
               <img
                 src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop"
                 alt="Tax Services"
-                className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-white/10 shadow-2xl"
+                className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-black/5 shadow-2xl"
               />
             </motion.div>
           </div>
@@ -86,7 +86,7 @@ export default function Taxes() {
       </section>
 
       {/* ── Stats Bar ────────────────────────────────────────── */}
-      <section className="py-10 border-y border-white/10 bg-white/5 backdrop-blur">
+      <section className="py-10 border-y border-black/5 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((s, i) => (
@@ -99,7 +99,7 @@ export default function Taxes() {
                 className="text-center"
               >
                 <div className="text-4xl font-black text-brand-orange font-heading mb-1">{s.value}</div>
-                <div className="text-white/50 text-sm font-medium">{s.label}</div>
+                <div className="text-text-mid text-sm font-medium font-sans">{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -115,8 +115,8 @@ export default function Taxes() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">Complete Tax Solutions</h2>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">Everything you need to stay compliant and maximize your financial health.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">Complete Tax Solutions</h2>
+            <p className="text-text-mid text-lg max-w-xl mx-auto font-sans">Everything you need to stay compliant and maximize your financial health.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -127,14 +127,14 @@ export default function Taxes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (idx % 3) * 0.1 }}
-                className="group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/30 transition-all hover:-translate-y-1 overflow-hidden"
+                className="glass-card group p-8 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
-                <div className="w-12 h-12 bg-brand-orange/20 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
+                <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 font-heading">{feature.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-bold text-brand-purple mb-3 font-heading">{feature.title}</h3>
+                <p className="text-text-light text-sm leading-relaxed font-sans">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -148,19 +148,19 @@ export default function Taxes() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-brand-dark to-[#1a0f2e] border border-white/10 rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center"
+            className="relative bg-brand-purple border border-black/5 rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center shadow-2xl"
           >
             <div className="absolute -top-20 -right-20 w-80 h-80 bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-purple/20 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-white/10 rounded-full blur-[100px] pointer-events-none" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-heading relative z-10">
               Expert Tax Resolution for <br className="hidden md:block" />Unexpected Challenges
             </h2>
-            <p className="text-white/60 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+            <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto relative z-10 font-sans">
               Our business tax specialists can guide you to a brighter financial future — stress-free and compliant.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-black text-lg hover:bg-[#e67c00] transition-all hover:-translate-y-1 shadow-xl shadow-brand-orange/30 relative z-10"
+              className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-black text-lg hover:bg-brand-orange-dark transition-all hover:-translate-y-1 shadow-xl shadow-brand-orange/30 relative z-10 font-sans"
             >
               Get a Free Consultation Today <ArrowRight className="w-5 h-5" />
             </Link>

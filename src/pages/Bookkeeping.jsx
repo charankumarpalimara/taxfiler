@@ -3,36 +3,12 @@ import { CheckCircle2, ArrowRight, BarChart2, FileText, Clock, ShieldCheck, Tren
 import { Link } from "react-router-dom";
 
 const features = [
-  {
-    icon: <BarChart2 className="w-6 h-6" />,
-    title: "Expert Transaction Categorization",
-    description: "We meticulously categorize your transactions, providing a clear understanding of where your money is flowing.",
-  },
-  {
-    icon: <FileText className="w-6 h-6" />,
-    title: "Actionable Financial Reports",
-    description: "Gain valuable insights with customizable Profit & Loss statements and Balance Sheets.",
-  },
-  {
-    icon: <Clock className="w-6 h-6" />,
-    title: "Save Time & Resources",
-    description: "Focus on your core business activities while we handle the bookkeeping.",
-  },
-  {
-    icon: <ShieldCheck className="w-6 h-6" />,
-    title: "Improved Accuracy & Transparency",
-    description: "Gain confidence in your financial data with our meticulous record-keeping.",
-  },
-  {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: "Enhanced Decision-Making",
-    description: "Make informed business decisions based on accurate financial insights.",
-  },
-  {
-    icon: <Users className="w-6 h-6" />,
-    title: "Streamlined Operations",
-    description: "Free yourself from the burden of complex financial tasks.",
-  },
+  { icon: <BarChart2 className="w-6 h-6" />, title: "Expert Transaction Categorization", description: "We meticulously categorize your transactions, providing a clear understanding of where your money is flowing." },
+  { icon: <FileText className="w-6 h-6" />, title: "Actionable Financial Reports", description: "Gain valuable insights with customizable Profit & Loss statements and Balance Sheets." },
+  { icon: <Clock className="w-6 h-6" />, title: "Save Time & Resources", description: "Focus on your core business activities while we handle the bookkeeping." },
+  { icon: <ShieldCheck className="w-6 h-6" />, title: "Improved Accuracy & Transparency", description: "Gain confidence in your financial data with our meticulous record-keeping." },
+  { icon: <TrendingUp className="w-6 h-6" />, title: "Enhanced Decision-Making", description: "Make informed business decisions based on accurate financial insights." },
+  { icon: <Users className="w-6 h-6" />, title: "Streamlined Operations", description: "Free yourself from the burden of complex financial tasks." },
 ];
 
 const stats = [
@@ -44,13 +20,13 @@ const stats = [
 
 export default function Bookkeeping() {
   return (
-    <div className="min-h-screen bg-brand-dark">
+    <div className="min-h-screen bg-bg-light pt-24">
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
+      <section className="relative pt-12 pb-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-brand-orange/20 rounded-full blur-[160px]" />
-          <div className="absolute top-1/2 -left-40 w-[500px] h-[500px] bg-brand-purple/30 rounded-full blur-[140px]" />
+          <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-brand-orange/10 rounded-full blur-[160px]" />
+          <div className="absolute top-1/2 -left-40 w-[500px] h-[500px] bg-brand-purple/5 rounded-full blur-[140px]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -60,26 +36,24 @@ export default function Bookkeeping() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <span className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6">
-                Bookkeeping Services
-              </span>
-              <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 font-heading">
+              <span className="section-tag">Bookkeeping Services</span>
+              <h1 className="text-5xl md:text-6xl font-black text-brand-purple leading-tight mb-6 font-heading">
                 AI Bookkeeping <br />
-                <span className="text-brand-orange">Simplified!</span>
+                <span className="gradient-text">Simplified!</span>
               </h1>
-              <p className="text-xl text-white/60 leading-relaxed mb-10 max-w-lg">
+              <p className="text-xl text-text-mid leading-relaxed mb-10 max-w-lg font-sans">
                 Pumpkin's comprehensive bookkeeping empowers you to focus on running your business. We handle the numbers so you can drive growth.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-bold hover:bg-[#e67c00] transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-1"
+                  className="btn-primary"
                 >
-                  Get Started <ArrowRight className="w-5 h-5" />
+                  Get Started <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
                 <a
                   href="#features"
-                  className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 transition-all hover:-translate-y-1"
+                  className="btn-secondary"
                 >
                   Explore Features
                 </a>
@@ -93,11 +67,11 @@ export default function Bookkeeping() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/30 to-brand-purple/30 rounded-[2.5rem] blur-[30px]" />
+              <div className="absolute inset-0 bg-brand-orange/15 rounded-[2.5rem] blur-[30px]" />
               <img
                 src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2000&auto=format&fit=crop"
                 alt="Bookkeeping Dashboard"
-                className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-white/10 shadow-2xl"
+                className="relative rounded-[2.5rem] w-full h-[480px] object-cover border border-black/5 shadow-2xl"
               />
             </motion.div>
           </div>
@@ -105,7 +79,7 @@ export default function Bookkeeping() {
       </section>
 
       {/* ── Stats Bar ────────────────────────────────────────── */}
-      <section className="py-10 border-y border-white/10 bg-white/5 backdrop-blur">
+      <section className="py-10 border-y border-black/5 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((s, i) => (
@@ -118,7 +92,7 @@ export default function Bookkeeping() {
                 className="text-center"
               >
                 <div className="text-4xl font-black text-brand-orange font-heading mb-1">{s.value}</div>
-                <div className="text-white/50 text-sm font-medium">{s.label}</div>
+                <div className="text-text-mid text-sm font-medium">{s.label}</div>
               </motion.div>
             ))}
           </div>
@@ -134,8 +108,8 @@ export default function Bookkeeping() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">Everything You Need</h2>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">Comprehensive tools and services to manage your finances perfectly.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">Everything You Need</h2>
+            <p className="text-text-mid text-lg max-w-xl mx-auto">Comprehensive tools and services to manage your finances perfectly.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -146,14 +120,14 @@ export default function Bookkeeping() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/30 transition-all hover:-translate-y-1 overflow-hidden"
+                className="glass-card group p-8 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
-                <div className="w-12 h-12 bg-brand-orange/20 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
+                <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
                   {feature.icon}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3 font-heading">{feature.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-bold text-brand-purple mb-3 font-heading">{feature.title}</h3>
+                <p className="text-text-light text-sm leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -167,13 +141,13 @@ export default function Bookkeeping() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-brand-orange to-[#e67c00] rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center"
+            className="relative bg-gradient-to-br from-brand-orange to-brand-orange-dark rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)] pointer-events-none" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-heading relative z-10">
               Ready to unlock the power of expert bookkeeping?
             </h2>
-            <p className="text-white/80 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+            <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto relative z-10">
               Take control of your finances. We'll streamline your records, provide valuable insights, and help you achieve your business growth goals.
             </p>
             <Link

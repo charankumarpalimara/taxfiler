@@ -1,0 +1,290 @@
+/* ============================================
+   EDITORIAL MINIMALIST FOOTER — footer.css
+   ============================================ */
+
+.footer {
+    background: #040e1a;
+    /* Deep Minimalist Navy */
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Subtle Branding Watermark */
+.footer::before {
+    content: 'GREENCO';
+    position: absolute;
+    top: 50px;
+    right: -100px;
+    font-size: 20rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.02);
+    letter-spacing: 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Container & Grid */
+.footer-main {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 80px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 80px;
+}
+
+/* Brand Pillar */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.footer-logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -2px;
+}
+
+.footer-logo-text span {
+    color: var(--secondary);
+}
+
+.footer-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.5);
+    max-width: 320px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social-btn {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+
+.footer-social-btn:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: #040e1a;
+    transform: translateY(-5px);
+}
+
+/* Heading Systems */
+.footer-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--secondary);
+    margin-bottom: 40px;
+}
+
+/* Vertical Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.footer-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    transform: translateX(10px);
+}
+
+.footer-link svg:last-child {
+    margin-left: auto;
+    opacity: 0;
+    color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover svg:last-child {
+    opacity: 1;
+}
+
+/* Services Pill List */
+.footer-services {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-service-item {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-service-item svg {
+    color: var(--secondary);
+}
+
+/* Contact Block */
+.footer-contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.footer-contact-item {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-contact-info span {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
+}
+
+.footer-contact-info p,
+.footer-contact-info a {
+    color: #ffffff;
+    font-size: 1rem;
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.footer-contact-info a:hover {
+    color: var(--secondary);
+}
+
+/* Bottom Cinematic Bar */
+.footer-bottom {
+    background: #02060d;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-bottom-link {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-link:hover {
+    color: var(--secondary);
+}
+
+/* Responsive Editorial */
+@media (max-width: 1200px) {
+    .footer-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+
+    .footer-brand {
+        grid-column: span 2;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding-top: 80px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+
+    .footer-brand {
+        grid-column: span 2;
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer-section:nth-child(4) {
+        grid-column: span 2;
+        text-align: center;
+    }
+
+    .footer-link,
+    .footer-service-item,
+    .footer-contact-item {
+        justify-content: flex-start;
+    }
+
+    .footer-section:nth-child(4) .footer-contact-item {
+        justify-content: center;
+    }
+
+    .footer-link svg:last-child {
+        display: none;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
+}

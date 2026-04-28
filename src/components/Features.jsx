@@ -15,19 +15,8 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-14 relative overflow-hidden bg-brand-dark border-t border-white/5">
-      {/* Animated glows */}
-      <motion.div
-        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 -left-20 w-[500px] h-[500px] bg-brand-purple/20 rounded-full blur-[120px] pointer-events-none"
-      />
-      <motion.div
-        animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.5, 0.2] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-10 -right-20 w-[500px] h-[500px] bg-brand-orange/15 rounded-full blur-[120px] pointer-events-none"
-      />
-
+    <section id="features" className="py-20 relative overflow-hidden bg-bg-light border-y border-black/5">
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
@@ -36,7 +25,7 @@ export default function Features() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6"
+              className="section-tag"
             >
               Why Choose Pumpkin Tax Co
             </motion.span>
@@ -45,7 +34,6 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl font-bold text-white leading-snug font-heading"
             >
               Spooktacularly Simple Solutions
             </motion.h2>
@@ -55,14 +43,14 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-white/50 max-w-sm leading-relaxed text-sm"
+            className="text-text-mid max-w-sm leading-relaxed text-sm font-sans"
           >
             Tired of tax season scares? We offer tailored tax services and bookkeeping packages for all business entities.
           </motion.p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -70,16 +58,18 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.5 }}
-              className="group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/30 transition-all hover:-translate-y-1 overflow-hidden"
+              className="glass-card group p-8 overflow-hidden relative"
             >
-              <div className="absolute top-0 right-0 w-28 h-28 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
-              <div className="w-12 h-12 bg-brand-orange/20 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
+              {/* Subtle hover background accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
+              
+              <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-brand-orange transition-colors font-heading">
+              <h3 className="text-lg font-bold text-brand-purple mb-2 group-hover:text-brand-orange transition-colors font-heading">
                 {feature.title}
               </h3>
-              <p className="text-white/50 text-sm leading-relaxed">{feature.description}</p>
+              <p className="text-text-light text-sm leading-relaxed font-sans">{feature.description}</p>
             </motion.div>
           ))}
         </div>

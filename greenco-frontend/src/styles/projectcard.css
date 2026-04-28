@@ -1,0 +1,245 @@
+/* ============================================
+   PREMIUM PROJECT CARD — GreenCo Estate
+   ============================================ */
+
+.project-card-premium {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(27, 67, 50, 0.08);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-premium:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    border-color: var(--secondary);
+}
+
+/* ── Media Section ──────────────────────────── */
+.card-media {
+    position: relative;
+    height: 180px;
+    /* Reduced from 200px */
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card-premium:hover .media-img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.media-overlay {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.badge {
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.status-upcoming {
+    background: var(--grad-primary);
+}
+
+.status-completed {
+    background: #1a1a1a;
+}
+
+.status-ongoing {
+    background: var(--secondary);
+    color: var(--primary-dark);
+}
+
+/* ── Body Section ───────────────────────────── */
+.card-body {
+    padding: 24px 20px 20px;
+    /* Reduced padding */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.proj-type {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary);
+}
+
+.proj-loc {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #777;
+}
+
+.proj-loc svg {
+    color: var(--primary);
+}
+
+.proj-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    /* Reduced margin */
+    line-height: 1.2;
+}
+
+.proj-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    /* Reduced margin */
+    padding-bottom: 12px;
+    /* Reduced padding */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    /* Reduced from 0.75rem */
+    font-weight: 700;
+    color: #555;
+    background: #f8f9f8;
+    padding: 5px 8px;
+    /* Reduced from 6px 10px */
+    border-radius: 8px;
+}
+
+.meta-item svg {
+    color: var(--secondary);
+}
+
+/* ── Bottom Section ─────────────────────────── */
+.card-bottom {
+    margin-top: auto;
+    padding-top: 12px;
+    /* Reduced padding */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+}
+
+.proj-pricing .price-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+.price-val {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ── Floating Seam Button ────────────────────── */
+.proj-btn-float {
+    position: absolute;
+    bottom: -22px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: var(--primary);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(27, 67, 50, 0.35);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 5;
+}
+
+.proj-btn-float:hover {
+    background: var(--secondary);
+    color: var(--primary-dark);
+    transform: scale(1.15);
+    box-shadow: 0 10px 28px rgba(27, 67, 50, 0.3);
+}
+
+/* ── Text Link Footer ───────────────────────── */
+.proj-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    text-decoration: none;
+    position: relative;
+    transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.proj-text-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--secondary);
+    transition: width 0.35s ease;
+}
+
+.proj-text-link:hover {
+    color: var(--secondary);
+    gap: 10px;
+}
+
+.proj-text-link:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 640px) {
+    .proj-title {
+        font-size: 1.15rem;
+    }
+
+    .card-media {
+        height: 160px;
+    }
+}

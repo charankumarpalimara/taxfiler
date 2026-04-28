@@ -10,8 +10,8 @@ const steps = [
 
 export default function Process() {
   return (
-    <section id="process" className="py-14 relative overflow-hidden bg-brand-dark border-t border-white/5">
-      <div className="absolute -bottom-40 right-0 w-[500px] h-[500px] bg-brand-orange/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="process" className="py-20 relative overflow-hidden bg-bg-light border-y border-black/5">
+      <div className="absolute -bottom-40 right-0 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -21,16 +21,16 @@ export default function Process() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <span className="inline-block px-5 py-2 rounded-full border border-brand-orange/40 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-6">
+          <span className="section-tag">
             How It Works
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-heading">
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">
             Tired of Tedious{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-purple">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">
               Bookkeeping?
             </span>
           </h2>
-          <p className="text-white/50 leading-relaxed">
+          <p className="text-text-mid leading-relaxed font-sans">
             Ditch the stress and focus on what you do best. Our 4-step process ensures accuracy, saves time, and gives you ultimate peace of mind.
           </p>
         </motion.div>
@@ -44,19 +44,19 @@ export default function Process() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="group relative bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/30 transition-all hover:-translate-y-1 overflow-hidden"
+              className="glass-card group p-8 relative overflow-hidden"
             >
               {/* Step number watermark */}
-              <div className="absolute top-4 right-6 text-[5rem] font-black text-white/5 leading-none pointer-events-none font-heading select-none">
+              <div className="absolute top-4 right-6 text-[5rem] font-black text-black/[0.03] leading-none pointer-events-none font-heading select-none transition-colors group-hover:text-brand-orange/10">
                 {step.number}
               </div>
               {/* Icon */}
-              <div className="w-14 h-14 bg-brand-orange/20 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
+              <div className="w-14 h-14 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
                 {step.icon}
               </div>
-              <div className="text-xs font-bold text-brand-orange tracking-widest uppercase mb-2">{step.number}</div>
-              <h3 className="text-lg font-bold text-white mb-3 font-heading">{step.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{step.description}</p>
+              <div className="text-xs font-bold text-brand-orange tracking-widest uppercase mb-2 font-sans">{step.number}</div>
+              <h3 className="text-lg font-bold text-brand-purple mb-3 font-heading">{step.title}</h3>
+              <p className="text-text-light text-sm leading-relaxed font-sans">{step.description}</p>
             </motion.div>
           ))}
         </div>

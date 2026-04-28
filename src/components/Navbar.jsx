@@ -71,9 +71,9 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="bg-brand-dark border-b border-white/8 overflow-hidden hidden md:block"
+            className="bg-brand-purple border-b border-white/10 overflow-hidden hidden md:block"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2 text-[12px] font-medium text-white/60">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2 text-[12px] font-medium text-white/80">
               <div className="flex items-center gap-6">
                 <a href="mailto:info@pumpkintaxco.com" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
                   <Mail className="w-3 h-3 text-brand-orange" />
@@ -87,7 +87,7 @@ export default function Navbar() {
               <div className="flex items-center gap-4">
                 {socials.map((s, i) => (
                   <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
-                    className="text-white/50 hover:text-brand-orange transition-colors">
+                    className="text-white/70 hover:text-brand-orange transition-colors">
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d={s.d} /></svg>
                   </a>
                 ))}
@@ -99,29 +99,29 @@ export default function Navbar() {
 
       {/* ── Main Nav Bar ──────────────────────────────────── */}
       <div className={`transition-all duration-300 ${isScrolled
-        ? "bg-brand-dark/95 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
-        : "bg-brand-dark/60 backdrop-blur-md border-b border-white/5"
-        }`}>
+        ? "bg-white/95 backdrop-blur-xl border-b border-black/5 shadow-sm"
+        : "bg-white/80 backdrop-blur-md border-b border-black/5"
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "py-3" : "py-4"}`}>
 
             {/* Logo */}
             <a href="/" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300 shadow-lg shadow-brand-orange/30">
+              <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300 shadow-md">
                 <span className="font-black text-xl text-white font-heading">P</span>
               </div>
-              <span className="text-xl font-black tracking-tight text-white font-heading">
+              <span className="text-xl font-black tracking-tight text-brand-purple font-heading">
                 Pumpkin <span className="text-brand-orange">Tax Co</span>
               </span>
             </a>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-1 font-sans">
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div key={link.name} className="relative group">
                     <button
-                      className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-semibold text-white/80 hover:text-white hover:bg-white/8 transition-all"
+                      className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-semibold text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all"
                       onMouseEnter={() => setOpenDropdown(link.name)}
                       onMouseLeave={() => setOpenDropdown(null)}
                     >
@@ -134,13 +134,13 @@ export default function Navbar() {
                       onMouseLeave={() => setOpenDropdown(null)}
                       className={`absolute top-full left-0 pt-2 z-50 transition-all duration-200 ${openDropdown === link.name ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
                     >
-                      <div className="bg-brand-dark border border-white/10 rounded-2xl shadow-2xl w-48 overflow-hidden py-2">
+                      <div className="bg-white border border-black/5 rounded-2xl shadow-xl w-48 overflow-hidden py-2">
                         {link.dropdown.map((item) => (
                           <a
                             key={item.name}
                             href={item.path}
                             onClick={(e) => handleNavClick(e, item.path)}
-                            className="flex items-center gap-2 px-5 py-3 text-sm font-medium text-white/70 hover:text-white hover:bg-white/8 transition-all"
+                            className="flex items-center gap-2 px-5 py-3 text-sm font-medium text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all"
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
                             {item.name}
@@ -154,7 +154,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className="px-4 py-2 rounded-xl text-sm font-semibold text-white/80 hover:text-white hover:bg-white/8 transition-all"
+                    className="px-4 py-2 rounded-xl text-sm font-semibold text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all"
                   >
                     {link.name}
                   </a>
@@ -163,20 +163,20 @@ export default function Navbar() {
             </nav>
 
             {/* CTA Buttons */}
-            <div className="hidden md:flex items-center gap-3">
-              {/* <a
+            <div className="hidden md:flex items-center gap-3 font-sans">
+              <a
                 href="https://pumpkin.mytaxportal.online/#/registration"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-white/70 hover:text-white px-4 py-2 rounded-xl hover:bg-white/8 transition-all"
+                className="text-sm font-semibold text-text-mid hover:text-brand-purple px-4 py-2 rounded-xl hover:bg-brand-purple/5 transition-all"
               >
                 Register
-              </a> */}
+              </a>
               <a
                 href="https://pumpkintaxco.com/book-a-demo/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-[#e67c00] transition-all shadow-lg shadow-brand-orange/25 hover:-translate-y-0.5"
+                className="flex items-center gap-2 bg-brand-orange text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-brand-orange-dark transition-all shadow-md hover:-translate-y-0.5"
               >
                 Schedule a Call
                 <ArrowRight className="w-4 h-4" />
@@ -185,7 +185,7 @@ export default function Navbar() {
 
             {/* Mobile Toggle */}
             <button
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-2 text-brand-purple"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -202,7 +202,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-brand-dark/98 backdrop-blur-xl border-b border-white/10 px-6 py-6 flex flex-col gap-5"
+            className="md:hidden bg-white/98 backdrop-blur-xl border-b border-black/5 px-6 py-6 flex flex-col gap-5 shadow-xl font-sans"
           >
             {navLinks.map((link, i) => (
               <motion.div
@@ -213,14 +213,14 @@ export default function Navbar() {
               >
                 {link.dropdown ? (
                   <div>
-                    <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-2">{link.name}</p>
-                    <div className="flex flex-col gap-1 pl-3 border-l border-white/10">
+                    <p className="text-xs font-bold text-text-light uppercase tracking-widest mb-2 font-heading">{link.name}</p>
+                    <div className="flex flex-col gap-1 pl-3 border-l border-black/5">
                       {link.dropdown.map((item) => (
                         <a
                           key={item.name}
                           href={item.path}
                           onClick={(e) => handleNavClick(e, item.path)}
-                          className="text-white font-semibold text-lg py-1 hover:text-brand-orange transition-colors"
+                          className="text-text-dark font-semibold text-lg py-1 hover:text-brand-orange transition-colors"
                         >
                           {item.name}
                         </a>
@@ -231,7 +231,7 @@ export default function Navbar() {
                   <a
                     href={link.path}
                     onClick={(e) => handleNavClick(e, link.path)}
-                    className="block text-white font-semibold text-xl hover:text-brand-orange transition-colors"
+                    className="block text-text-dark font-semibold text-xl hover:text-brand-orange transition-colors"
                   >
                     {link.name}
                   </a>
@@ -239,12 +239,12 @@ export default function Navbar() {
               </motion.div>
             ))}
 
-            <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+            <div className="pt-4 border-t border-black/5 flex flex-col gap-3">
               <a
                 href="https://pumpkin.mytaxportal.online/#/registration"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3 rounded-xl border border-white/20 text-white font-semibold text-sm"
+                className="w-full text-center py-3 rounded-xl border border-black/10 text-brand-purple font-semibold text-sm"
               >
                 Register
               </a>
@@ -252,7 +252,7 @@ export default function Navbar() {
                 href="https://pumpkintaxco.com/book-a-demo/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white font-bold py-3 rounded-xl text-sm"
+                className="w-full flex items-center justify-center gap-2 bg-brand-orange text-white font-bold py-3 rounded-xl text-sm shadow-md"
               >
                 Schedule a Call <ArrowRight className="w-4 h-4" />
               </a>

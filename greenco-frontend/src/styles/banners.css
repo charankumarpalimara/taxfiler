@@ -1,0 +1,107 @@
+/* ─── Premium Banners ────────────────────────── */
+.wide-banner {
+    position: relative;
+    padding: 100px 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    overflow: hidden;
+}
+
+.wide-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 37, 64, 0.9) 0%, rgba(10, 37, 64, 0.4) 100%);
+    z-index: 1;
+}
+
+.wide-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.wide-banner h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.wide-banner p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+}
+
+/* ─── Search Bar UI ────────────────────────── */
+.hero-search-wrapper {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    max-width: 800px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-item {
+    flex: 1;
+    min-width: 150px;
+    background: white;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.search-item label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.search-item select,
+.search-item input {
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: transparent;
+}
+
+.search-btn {
+    background: var(--secondary);
+    color: var(--primary-dark);
+    border: none;
+    padding: 0 30px;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background: var(--secondary-light);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero-search-wrapper {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        padding: 15px;
+    }
+}
