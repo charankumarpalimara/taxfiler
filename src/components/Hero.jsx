@@ -32,40 +32,36 @@ export default function Hero() {
               className="section-tag flex items-center gap-2 w-fit mx-auto lg:mx-0"
             >
               <Sparkles className="w-4 h-4 text-brand-orange" />
-              <span>Smart & Simple Tax Solutions</span>
+              <span>Tax Filed in 24 Hours • Expert Consultation</span>
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-5xl lg:text-7xl font-black text-brand-purple tracking-tight mb-8 leading-[1.05] font-heading">
-              Unlock the power of{" "}
+            <h1 className="text-5xl lg:text-7xl font-bold text-brand-purple tracking-tight mb-8 leading-[1.05] font-heading">
+              Expert Tax filing for{" "}
               <span className="gradient-text">
-                AI for your business
+                Individuals & Businesses
               </span>
             </h1>
 
             <p className="text-lg lg:text-xl text-text-mid mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              Accounting, Payroll, and Tax Services designed to simplify your finances, keep you compliant, and let you focus on growth.
+              Get your taxes filed accurately and on time with our AI-powered platform and expert CPA support. 15+ years of experience in US and International tax compliance.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <a
-                href="https://pumpkintaxco.com/book-a-demo/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/contact"
                 className="btn-primary"
               >
-                Schedule a Call
+                Schedule Appointment
                 <ArrowRight className="w-5 h-5 ml-2" />
-              </a>
-              {/* <a
-                href="https://pumpkin.mytaxportal.online/#/registration"
-                target="_blank"
-                rel="noopener noreferrer"
+              </Link>
+              <Link
+                to="/taxes"
                 className="btn-secondary"
               >
-                Register Your Company
-              </a> */}
+                Explore Services
+              </Link>
             </div>
 
             {/* Trust badges */}

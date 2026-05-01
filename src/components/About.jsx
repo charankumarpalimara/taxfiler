@@ -12,7 +12,7 @@ export default function About() {
     <section id="about" className="py-20 relative overflow-hidden bg-white">
       {/* Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-purple/5 pointer-events-none rounded-bl-[100px]" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16">
 
@@ -52,7 +52,7 @@ export default function About() {
             className="w-full lg:w-1/2"
           >
             <span className="section-tag">
-              About Pumpkin Tax Co
+              About TaxCount
             </span>
 
             <h2 className="mb-6">
@@ -64,10 +64,10 @@ export default function About() {
             </h2>
 
             <p className="text-text-mid leading-relaxed mb-5 text-base font-sans">
-              At Pumpkin Tax Co, we believe understanding your finances shouldn't be a terrifying experience. We take the "spooky" out of tax season by combining industry-leading expertise with straightforward, transparent communication.
+              At TaxCount, we specialize in simplifying complex financial landscapes for individuals and businesses worldwide. With over 15 years of dedicated experience, we've helped more than 10,000 clients navigate US and International tax compliance with ease.
             </p>
             <p className="text-text-mid leading-relaxed mb-8 text-base font-sans">
-              Our mission is simple: to help small businesses and individuals thrive by taking the heavy lifting off your shoulders. We handle complex compliance so you can focus on what matters most.
+              Our team of expert CPAs and tax professionals combines cutting-edge AI technology with personalized consultation to ensure you save more and stay compliant. Whether you're a US expat, a global entrepreneur, or a local business, we are your trusted partners in growth.
             </p>
 
             <div className="space-y-4 mb-10">

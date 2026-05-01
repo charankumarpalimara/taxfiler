@@ -100,7 +100,7 @@ export default function Contact() {
             {/* CTA to full contact page */}
             <Link
               to="/contact"
-              className="group mt-2 flex items-center justify-between bg-gradient-to-r from-brand-orange to-brand-orange-dark rounded-2xl p-5 hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-orange/20"
+              className="group mt-2 flex items-center justify-between bg-brand-orange rounded-2xl p-5 hover:bg-brand-orange-dark transition-all border border-brand-orange/10"
             >
               <div>
                 <p className="text-white font-bold font-heading text-sm">Visit our full contact page</p>
@@ -124,7 +124,7 @@ export default function Contact() {
                   <label className="block text-xs font-semibold text-text-light uppercase tracking-widest mb-2">First Name</label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-orange focus:bg-white focus:outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-purple focus:bg-white focus:outline-none transition-all"
                     placeholder="John"
                   />
                 </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                   <label className="block text-xs font-semibold text-text-light uppercase tracking-widest mb-2">Last Name</label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-orange focus:bg-white focus:outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-purple focus:bg-white focus:outline-none transition-all"
                     placeholder="Doe"
                   />
                 </div>
@@ -142,7 +142,7 @@ export default function Contact() {
                   <label className="block text-xs font-semibold text-text-light uppercase tracking-widest mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-orange focus:bg-white focus:outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-purple focus:bg-white focus:outline-none transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -150,14 +150,14 @@ export default function Contact() {
                   <label className="block text-xs font-semibold text-text-light uppercase tracking-widest mb-2">Phone</label>
                   <input
                     type="tel"
-                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-orange focus:bg-white focus:outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-purple focus:bg-white focus:outline-none transition-all"
                     placeholder="(555) 000-0000"
                   />
                 </div>
               </div>
               <div>
                 <label className="block text-xs font-semibold text-text-light uppercase tracking-widest mb-2">Service Needed</label>
-                <select className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-mid text-sm focus:border-brand-orange focus:bg-white focus:outline-none transition-all">
+                <select className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-mid text-sm focus:border-brand-purple focus:bg-white focus:outline-none transition-all">
                   <option value="" className="bg-white">Select a service...</option>
                   <option value="bookkeeping" className="bg-white">Bookkeeping</option>
                   <option value="payroll" className="bg-white">Payroll</option>
@@ -170,13 +170,13 @@ export default function Contact() {
                 <label className="block text-xs font-semibold text-text-light uppercase tracking-widest mb-2">Message</label>
                 <textarea
                   rows="4"
-                  className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-orange focus:bg-white focus:outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-bg-subtle border border-black/5 text-text-dark text-sm placeholder-text-light/50 focus:border-brand-purple focus:bg-white focus:outline-none transition-all resize-none"
                   placeholder="Tell us how we can help..."
                 />
               </div>
               <button
                 type="button"
-                className="group w-full flex items-center justify-center gap-2 btn-primary rounded-xl"
+                className="group w-full flex items-center justify-center gap-2 btn-orange rounded-xl"
               >
                 Send Message
                 <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

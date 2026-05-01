@@ -37,12 +37,12 @@ export default function Bookkeeping() {
               transition={{ duration: 0.7 }}
             >
               <span className="section-tag">Bookkeeping Services</span>
-              <h1 className="text-5xl md:text-6xl font-black text-brand-purple leading-tight mb-6 font-heading">
-                AI Bookkeeping <br />
-                <span className="gradient-text">Simplified!</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-brand-purple leading-tight mb-6 font-heading">
+                Professional <br />
+                <span className="gradient-text">Bookkeeping.</span>
               </h1>
               <p className="text-xl text-text-mid leading-relaxed mb-10 max-w-lg font-sans">
-                Pumpkin's comprehensive bookkeeping empowers you to focus on running your business. We handle the numbers so you can drive growth.
+                Our comprehensive bookkeeping services empower you to focus on growth. We combine AI precision with expert oversight to keep your records flawless.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -120,7 +120,7 @@ export default function Bookkeeping() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="glass-card group p-8 relative overflow-hidden"
+                className="bg-white border border-slate-100 rounded-md p-8 overflow-hidden relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(75,36,116,0.08)] transition-all duration-500 group"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
                 <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
@@ -141,7 +141,7 @@ export default function Bookkeeping() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-brand-orange to-brand-orange-dark rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center shadow-2xl"
+            className="relative bg-brand-purple rounded-[2.5rem] p-12 md:p-16 overflow-hidden text-center shadow-2xl"
           >
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)] pointer-events-none" />
             <h2 className="text-4xl md:text-5xl font-black text-white mb-4 font-heading relative z-10">
@@ -152,9 +152,9 @@ export default function Bookkeeping() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-white text-brand-orange px-8 py-4 rounded-full font-black text-lg hover:bg-slate-100 transition-all hover:-translate-y-1 shadow-xl relative z-10"
+              className="light-primary"
             >
-              Schedule a Free Consultation <ArrowRight className="w-5 h-5" />
+              Schedule a Free Consultation <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </motion.div>
         </div>

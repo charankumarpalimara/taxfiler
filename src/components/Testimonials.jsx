@@ -3,8 +3,8 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   { name: "Rakesh", review: "Very knowledgeable, fast and efficient team with great customer service. I would definitely recommend PTC." },
-  { name: "Sekhar Chebrolu", review: "I recently worked with Pumpkin Tax for my company tax preparation, and I couldn't be more satisfied with the service I received." },
-  { name: "Siva Kavuri", review: "Very knowledgeable and helpful. Great service. I strongly recommend Pumpkin for personal tax filing." },
+  { name: "Sekhar Chebrolu", review: "I recently worked with TaxCount for my company tax preparation, and I couldn't be more satisfied with the service I received." },
+  { name: "Siva Kavuri", review: "Very knowledgeable and helpful. Great service. I strongly recommend TaxCount for personal tax filing." },
   { name: "Srinivasa Rao Nagineni", review: "They are very professional, prompt and great people to work with. I will definitely use them again for 2024 and going forward." },
   { name: "Ravi A", review: "Best bookkeeping services in Tomball and Cypress." },
   { name: "Kris Krishna", review: "Wonderful experience, very easily done." },
@@ -12,7 +12,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 relative overflow-hidden bg-white border-y border-black/5">
+    <section id="testimonials" className="py-20 relative overflow-hidden bg-brand-light border-y border-black/5">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-purple/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

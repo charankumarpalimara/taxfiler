@@ -5,42 +5,54 @@
 
 @theme {
   --color-brand-purple: #4B2474;
-  --color-brand-purple-light: #6d3aad;
+  --color-brand-purple-light: #7c4cb3;
   --color-brand-purple-dark: #321650;
   --color-brand-orange: #FF8A00;
   --color-brand-orange-light: #ffb347;
   --color-brand-orange-dark: #e67c00;
-  --color-brand-light: #F2EEF7;
+  --color-brand-light: #fafafa;
   --color-brand-dark: #1e0e2d;
 
   --color-text-dark: #0f172a;
-  --color-text-mid: #334155;
+  --color-text-mid: #475569;
   --color-text-light: #64748b;
 
   --color-bg-white: #ffffff;
-  --color-bg-light: #f8fafc;
-  --color-bg-subtle: #f1f5f9;
+  --color-bg-light: #ffffff;
+  --color-bg-subtle: #f8fafc;
 
-  --font-sans: "Rubik", system-ui, sans-serif;
+  --font-sans: "Inter", "Rubik", system-ui, sans-serif;
   --font-heading: "Outfit", system-ui, sans-serif;
 
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
 
-  --shadow-premium: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-  --shadow-premium-hover: 0 20px 50px -12px rgba(75, 36, 116, 0.15);
+  --shadow-premium: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-premium-hover: 0 20px 50px rgba(75, 36, 116, 0.08);
 }
 
 /* ── KEYFRAMES ────────────────────────────── */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* ── BASE STYLES ──────────────────────────── */
@@ -48,33 +60,55 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-bg-light text-text-dark font-sans antialiased;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading font-bold text-brand-purple tracking-tight;
   }
 
-  h1 { @apply text-4xl md:text-5xl lg:text-7xl leading-[1.1]; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl leading-[1.2]; }
-  h3 { @apply text-2xl md:text-3xl font-semibold; }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-7xl leading-[1.1];
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl leading-[1.2];
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
 }
 
 /* ── CUSTOM UTILITY CLASSES ──────────────── */
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-brand-orange rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-1 active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-brand-purple rounded-lg transition-all hover:bg-brand-purple-light active:scale-95;
+  }
+
+  .light-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-white border border-brand-purple-light/20 text-brand-purple-light active:scale-95 rounded-lg transition-all;
+
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-base font-bold text-brand-purple bg-white border border-brand-purple/10 rounded-full transition-all shadow-premium hover:shadow-premium-hover hover:-translate-y-1 active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-brand-purple bg-white border border-brand-purple/20 rounded-lg transition-all hover:bg-brand-purple/5 active:scale-95;
+  }
+
+  .btn-orange {
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-brand-orange rounded-lg transition-all hover:bg-brand-orange-light active:scale-95;
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 rounded-3xl shadow-premium transition-all hover:shadow-premium-hover hover:-translate-y-1;
+    @apply bg-white border border-slate-100 rounded-3xl shadow-premium transition-all hover:shadow-premium-hover;
   }
 
   .section-tag {
@@ -82,13 +116,13 @@
   }
 
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-orange;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-purple-light;
   }
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -96,5 +130,5 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-purple/20 rounded-full hover:bg-brand-purple/40 transition-colors;
+  @apply bg-brand-purple/10 rounded-full hover:bg-brand-purple/30 transition-colors;
 }

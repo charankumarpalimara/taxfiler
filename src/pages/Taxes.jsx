@@ -44,23 +44,23 @@ export default function Taxes() {
               <span className="section-tag">
                 Tax Services
               </span>
-              <h1 className="text-5xl md:text-6xl font-black text-brand-purple leading-tight mb-6 font-heading">
-                Don't Let Taxes Bite! <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">Let Pumpkin Simplify It.</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-brand-purple leading-tight mb-6 font-heading">
+                Expert Tax Solutions for <br />
+                <span className="gradient-text">Global Success.</span>
               </h1>
               <p className="text-xl text-text-mid leading-relaxed mb-10 max-w-lg font-sans">
-                Taxes don't have to be a complex puzzle. Our experts guide you through comprehensive tax filing, planning, and resolution — stress-free.
+                Navigate the complexities of US and International tax compliance with our expert CPAs. We simplify filing, planning, and resolution for you.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-bold hover:bg-brand-orange-dark transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-1 font-sans"
+                  className="btn-primary"
                 >
-                  Get a Free Consultation <ArrowRight className="w-5 h-5" />
+                  Book Free Consultation <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
                 <a
                   href="#features"
-                  className="inline-flex items-center gap-2 bg-white border border-brand-purple/20 text-brand-purple px-8 py-4 rounded-full font-bold hover:bg-brand-purple/5 transition-all hover:-translate-y-1 font-sans"
+                  className="btn-secondary"
                 >
                   Explore Services
                 </a>
@@ -127,7 +127,7 @@ export default function Taxes() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (idx % 3) * 0.1 }}
-                className="glass-card group p-8 relative overflow-hidden"
+                className="bg-white border border-slate-100 rounded-md p-8 overflow-hidden relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(75,36,116,0.08)] transition-all duration-500 group"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
                 <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all">
@@ -160,9 +160,9 @@ export default function Taxes() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-black text-lg hover:bg-brand-orange-dark transition-all hover:-translate-y-1 shadow-xl shadow-brand-orange/30 relative z-10 font-sans"
+              className="btn-orange text-lg"
             >
-              Get a Free Consultation Today <ArrowRight className="w-5 h-5" />
+              Get a Free Consultation Today <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </motion.div>
         </div>

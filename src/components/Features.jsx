@@ -15,8 +15,8 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 relative overflow-hidden bg-bg-light border-y border-black/5">
-      
+    <section id="features" className="py-20 relative overflow-hidden bg-brand-light border-y border-black/5">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
@@ -27,7 +27,7 @@ export default function Features() {
               viewport={{ once: true }}
               className="section-tag"
             >
-              Why Choose Pumpkin Tax Co
+              Why Choose Our Services
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -35,7 +35,8 @@ export default function Features() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Spooktacularly Simple Solutions
+              Professional Solutions <br />
+              <span className="gradient-text">for your business.</span>
             </motion.h2>
           </div>
           <motion.p
@@ -45,7 +46,7 @@ export default function Features() {
             transition={{ delay: 0.2 }}
             className="text-text-mid max-w-sm leading-relaxed text-sm font-sans"
           >
-            Tired of tax season scares? We offer tailored tax services and bookkeeping packages for all business entities.
+            Empowering businesses with tailored tax services and bookkeeping packages. We simplify complexity so you can focus on growth.
           </motion.p>
         </div>
 
@@ -58,11 +59,11 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.5 }}
-              className="glass-card group p-8 overflow-hidden relative"
+              className="bg-white border border-slate-100 rounded-md p-8 overflow-hidden relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(75,36,116,0.08)] transition-all duration-500 group"
             >
               {/* Subtle hover background accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
-              
+
               <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
                 {feature.icon}
               </div>

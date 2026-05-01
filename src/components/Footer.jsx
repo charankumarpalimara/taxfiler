@@ -38,10 +38,10 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6 group inline-flex">
               <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center group-hover:rotate-6 transition-all duration-300">
-                <span className="font-black text-xl text-white font-heading">P</span>
+                <span className="font-black text-xl text-white font-heading">T</span>
               </div>
               <span className="text-xl font-black tracking-tight text-white font-heading">
-                Pumpkin <span className="text-brand-orange">Tax Co</span>
+                Tax<span className="text-brand-orange">Count</span>
               </span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6 font-sans">
@@ -144,7 +144,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/40 text-sm font-sans text-center md:text-left">
-            © {currentYear} Pumpkin Tax Co. All rights reserved.
+            © {currentYear} TaxCount. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-white/40 hover:text-white transition-colors font-sans">Privacy Policy</a>

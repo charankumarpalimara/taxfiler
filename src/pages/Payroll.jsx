@@ -43,17 +43,17 @@ export default function Payroll() {
               transition={{ duration: 0.7 }}
             >
               <span className="section-tag">Payroll Services</span>
-              <h1 className="text-5xl md:text-6xl font-black text-brand-purple leading-tight mb-6 font-heading">
-                AI Payroll <br />
-                <span className="gradient-text">Done Right.</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-brand-purple leading-tight mb-6 font-heading">
+                Smart <br />
+                <span className="gradient-text">Payroll Solutions.</span>
               </h1>
               <p className="text-xl text-text-mid leading-relaxed mb-10 max-w-lg">
-                Ditch the spreadsheets. Embrace next-generation payroll powered by cutting-edge AI — secure, seamless, and built for your team.
+                Simplify your workforce management with our automated payroll system. Secure, compliant, and designed to scale with your business.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/contact"
-                  className="btn-primary bg-brand-purple hover:bg-brand-purple-dark shadow-brand-purple/20"
+                  className="btn-primary"
                 >
                   Get Started <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
@@ -126,7 +126,7 @@ export default function Payroll() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (idx % 4) * 0.1 }}
-                className="glass-card group p-7 relative overflow-hidden"
+                className="bg-white border border-slate-100 rounded-md p-8 overflow-hidden relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(75,36,116,0.08)] transition-all duration-500 group"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-full blur-[30px] pointer-events-none group-hover:bg-brand-purple/10 transition-all" />
                 <div className="w-11 h-11 bg-brand-purple/10 rounded-xl flex items-center justify-center text-brand-purple mb-5 group-hover:bg-brand-purple group-hover:text-white transition-all">
@@ -159,9 +159,9 @@ export default function Payroll() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-black text-lg hover:bg-brand-orange-dark transition-all hover:-translate-y-1 shadow-xl shadow-brand-orange/30 relative z-10"
+              className="light-primary"
             >
-              Contact Pumpkin Today <ArrowRight className="w-5 h-5" />
+              Contact Us Today <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </motion.div>
         </div>

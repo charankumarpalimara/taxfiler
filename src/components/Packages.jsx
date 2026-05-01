@@ -20,7 +20,7 @@ export default function Packages() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-tag-orange">Our Plans</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-6 font-heading">Pumpkin Packages</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-6 font-heading">TaxCount Packages</h2>
           <p className="text-lg text-text-mid font-sans">
             Tailored tax solutions for every business structure. Choose the plan that fits your growth.
           </p>

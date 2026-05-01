@@ -14,7 +14,7 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section id="why-choose" className="py-20 relative overflow-hidden bg-white border-y border-black/5">
+    <section id="why-choose" className="py-20 relative overflow-hidden bg-brand-light border-y border-black/5">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-brand-purple/20 to-transparent" />
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-purple/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -25,10 +25,10 @@ export default function WhyChoose() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="section-tag border-brand-purple text-brand-purple bg-brand-purple/5">
+          <span className="section-tag">
             Our Advantages
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">Why Choose Pumpkin</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">The Advantages of <br /><span className="gradient-text">Our Expertise</span></h2>
           <p className="text-text-mid text-lg max-w-xl mx-auto font-sans">
             We combine human expertise with AI precision to deliver unmatched financial services.
           </p>
@@ -42,7 +42,7 @@ export default function WhyChoose() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
-              className="bg-white border border-brand-purple/10 shadow-lg shadow-brand-purple/5 rounded-3xl p-8 relative overflow-hidden group hover:shadow-2xl hover:shadow-brand-purple/15 hover:-translate-y-2 transition-all duration-300"
+              className="bg-white border border-slate-100 rounded-md p-8 relative overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(75,36,116,0.08)] transition-all duration-500"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-purple/5 to-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:from-brand-purple/10 group-hover:to-brand-orange/10 transition-all duration-500" />
 

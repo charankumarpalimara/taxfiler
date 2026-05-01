@@ -25,10 +25,7 @@ export default function Process() {
             How It Works
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-4 font-heading">
-            Tired of Tedious{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-orange-dark">
-              Bookkeeping?
-            </span>
+            Simple & Efficient <span className="gradient-text">Process</span>
           </h2>
           <p className="text-text-mid leading-relaxed font-sans">
             Ditch the stress and focus on what you do best. Our 4-step process ensures accuracy, saves time, and gives you ultimate peace of mind.
