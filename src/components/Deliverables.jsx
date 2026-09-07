@@ -1,48 +1,53 @@
 import { motion } from "framer-motion";
-import { FileText, Building2, BadgePercent, CheckCircle, HelpCircle } from "lucide-react";
+import { FileText, Building2, BadgePercent, CheckCircle, HelpCircle, Sparkles, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const deliverables = [
   {
     title: "Income Tax Returns",
-    description: "Comprehensive federal and state income tax preparation.",
-    icon: <FileText className="w-7 h-7" />,
+    description: "Comprehensive federal, state, and local income tax preparation for individuals and business entities.",
+    icon: <FileText className="w-6 h-6" />,
+    tag: "Individual & Business",
     items: [
-      "Form 1040 (Schedule C/E/F): For sole proprietors, partners, and LLCs.",
-      "Form 1120: For C corporations.",
-      "Form 1120-S: For S corporations.",
-      "State and Local Income Tax Returns: Applicable depending on location."
+      "Form 1040 (Schedule C/E/F): For sole proprietors, partners, and single-member LLCs.",
+      "Form 1120: For C corporations with full multi-state apportionment.",
+      "Form 1120-S: For S corporations and K-1 shareholder distributions.",
+      "State and Local Income Tax Returns: Complete multi-state compliance and filing."
     ]
   },
   {
-    title: "Employment Taxes",
-    description: "Manage your team's payroll and employment tax forms.",
-    icon: <Building2 className="w-7 h-7" />,
+    title: "Employment & Payroll Taxes",
+    description: "Manage team compensation, federal withholdings, and quarterly employment tax filings.",
+    icon: <Building2 className="w-6 h-6" />,
+    tag: "Payroll Compliance",
     items: [
-      "Form 940 or 941: Federal income tax withheld from employee wages.",
-      "Form 940/941 + State Forms: Federal and state unemployment taxes.",
-      "Form W-2: Wage and tax statement for each employee.",
-      "Form 1099-NEC: For non-employee compensation exceeding $600."
+      "Form 941 / 944: Employer's quarterly and annual federal tax return for wages.",
+      "Form 940: Federal Unemployment Tax (FUTA) returns and state unemployment filings.",
+      "Form W-2 & W-3: Annual wage and tax statement generation for employees.",
+      "Form 1099-NEC & 1099-MISC: Independent contractor compensation statements."
     ]
   },
   {
     title: "Sales and Use Tax",
-    description: "Stay fully compliant with state and local sales regulations.",
-    icon: <BadgePercent className="w-7 h-7" />,
+    description: "Stay fully compliant with nexus guidelines and local sales tax remittance.",
+    icon: <BadgePercent className="w-6 h-6" />,
+    tag: "Multi-State Nexus",
     items: [
-      "Sales Tax Returns: Frequency and forms vary depending on the state.",
-      "Use Tax Returns: For purchases made out-of-state but used in your state."
+      "Sales Tax Returns: Monthly, quarterly, or annual filings tailored to state requirements.",
+      "Use Tax Filings: Out-of-state asset and equipment purchase tax reconciliation.",
+      "E-Commerce Nexus Audits: Multi-state revenue threshold tracking for online stores."
     ]
   },
   {
-    title: "Other Deliverables",
-    description: "Additional filings to keep your business running smoothly.",
-    icon: <HelpCircle className="w-7 h-7" />,
+    title: "Specialized Compliance & Filings",
+    description: "Additional statutory filings to keep your business in good standing year-round.",
+    icon: <HelpCircle className="w-6 h-6" />,
+    tag: "Statutory Reporting",
     items: [
-      "Estimated Tax Payments: Quarterly payments made to avoid penalties.",
-      "Information Returns: Depending on activities (e.g. 1099-MISC).",
-      "Business Licenses & Permits: From state and local authorities.",
-      "Bookkeeping Records: Documentation of income, expenses, assets, etc."
+      "Estimated Quarterly Payments: Calculation and submission to prevent IRS underpayment penalties.",
+      "BOI (Beneficial Ownership Information) Reports: FinCEN compliance for registered entities.",
+      "Franchise Tax & Annual Reports: State business license renewals and corporate standing.",
+      "Bookkeeping Ledgers: Reconciled trial balance, income statement, and balance sheet documentation."
     ]
   }
 ];
@@ -51,119 +56,146 @@ export default function Deliverables() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="deliverables" className="py-24 bg-white relative overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-brand-purple/5 rounded-full blur-[140px] -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-brand-orange/5 rounded-full blur-[120px] translate-y-1/2 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:32px_32px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
+    <section id="deliverables" className="py-10 bg-white relative overflow-hidden">
+      {/* Background Subtle Tech Grid */}
+      <div className="absolute inset-0 opacity-[0.35] pointer-events-none bg-[linear-gradient(to_right,#EDF2F7_1px,transparent_1px),linear-gradient(to_bottom,#EDF2F7_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="section-tag">Forms & Filings</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-purple mb-6 font-heading">
-            Comprehensive <span className="gradient-text">Deliverables</span>
-          </h2>
-          <p className="text-lg text-text-mid font-sans">
-            Staying compliant means staying on top of many forms. Our experts handle the heavy lifting for you.
-          </p>
-        </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Sidebar Tabs */}
-          <div className="lg:w-1/4 flex flex-row overflow-x-auto lg:flex-col gap-3 pb-4 lg:pb-0 snap-x hide-scrollbar">
-            {deliverables.map((category, idx) => (
-              <motion.button
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                onClick={() => setActiveTab(idx)}
-                className={`group text-left p-4 rounded-2xl transition-all duration-500 flex items-center gap-4 shrink-0 snap-start relative ${activeTab === idx
-                  ? "bg-white shadow-premium ring-1 ring-black/5"
-                  : "hover:bg-white/40"
-                  }`}
-              >
-                {/* Active Indicator */}
-                {activeTab === idx && (
-                  <motion.div
-                    layoutId="tab-indicator"
-                    className="absolute left-0 top-3 bottom-3 w-1 bg-brand-orange rounded-full"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-
-                <div className={`w-11 h-11 rounded-xl shrink-0 flex items-center justify-center transition-all duration-500 ${activeTab === idx
-                  ? "bg-brand-purple text-white shadow-md shadow-brand-purple/20 rotate-0"
-                  : "bg-slate-100 text-slate-400 group-hover:bg-slate-200 group-hover:text-brand-purple -rotate-3"
-                  }`}>
-                  <div className="scale-75">
-                    {category.icon}
-                  </div>
-                </div>
-
-                <div className="min-w-0 pr-2">
-                  <h3 className={`text-base font-bold leading-tight transition-colors duration-300 ${activeTab === idx ? "text-brand-purple" : "text-slate-500 group-hover:text-brand-purple"}`}>
-                    {category.title}
-                  </h3>
-                  <p className={`text-[11px] mt-0.5 font-medium transition-colors duration-300 ${activeTab === idx ? "text-brand-orange" : "text-slate-400 group-hover:text-slate-500"}`}>
-                    View Details
-                  </p>
-                </div>
-              </motion.button>
-            ))}
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="section-tag inline-flex items-center gap-2 mb-4">
+            <Sparkles className="w-4 h-4 text-brand-accent" />
+            <span>Forms & Deliverables</span>
           </div>
 
-          {/* Content Area */}
-          <div className="lg:w-3/4">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white border border-slate-100 rounded-md p-8 md:p-14 h-full relative overflow-hidden shadow-premium"
-            >
-              {/* Subtle background element */}
-              <div className="absolute top-0 right-0 w-80 h-80 bg-brand-purple/5 rounded-full blur-[100px] -mr-40 -mt-40 pointer-events-none" />
+          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight font-heading leading-[1.15] mb-4">
+            <span className="text-brand-primary">Comprehensive Tax & Accounting</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-bold">
+              Deliverables & Filings.
+            </span>
+          </h2>
 
-              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row md:items-center gap-6 mb-12 border-b border-slate-100 pb-10">
-                  <div className="w-20 h-20 bg-brand-light rounded-3xl flex items-center justify-center text-brand-purple shadow-inner border border-white">
-                    <div className="scale-110">
-                      {deliverables[activeTab].icon}
+          <p className="text-text-mid text-base sm:text-lg font-sans leading-relaxed">
+            Staying compliant means staying on top of complex forms. Our certified team handles every detail with precision.
+          </p>
+        </motion.div>
+
+        {/* Main Content Layout */}
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+
+          {/* Left Sidebar Cards Container */}
+          <div className="w-full lg:w-4/12 flex flex-col gap-3">
+            {deliverables.map((category, idx) => {
+              const isActive = activeTab === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveTab(idx)}
+                  className={`w-full text-left p-5 rounded-lg border transition-all duration-300 flex items-center justify-between group cursor-pointer relative overflow-hidden ${isActive
+                    ? "bg-white border-brand-primary shadow-lg ring-1 ring-brand-primary/20"
+                    : "bg-white border-[#DCE6F2] hover:border-brand-primary/40 hover:shadow-md"
+                    }`}
+                >
+                  {/* Left accent indicator strip for active card */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="deliverable-active-strip"
+                      className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-brand-accent to-brand-primary"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+                    />
+                  )}
+
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div
+                      className={`w-12 h-12 rounded-xl shrink-0 flex items-center justify-center transition-all duration-300 ${isActive
+                        ? "bg-brand-primary text-white shadow-md shadow-brand-primary/20"
+                        : "bg-[#EDF2F7] text-brand-primary group-hover:bg-brand-primary group-hover:text-white"
+                        }`}
+                    >
+                      {category.icon}
+                    </div>
+
+                    <div className="min-w-0">
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-brand-accent-dark mb-0.5 font-heading">
+                        {category.tag}
+                      </div>
+                      <h3
+                        className={`text-base font-bold font-heading truncate transition-colors ${isActive ? "text-brand-primary" : "text-brand-dark group-hover:text-brand-primary"
+                          }`}
+                      >
+                        {category.title}
+                      </h3>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-3xl font-bold text-brand-purple font-heading leading-tight mb-2">
-                      {deliverables[activeTab].title}
-                    </h3>
-                    <p className="text-slate-500 font-sans max-w-xl leading-relaxed">
-                      {deliverables[activeTab].description}
-                    </p>
-                  </div>
+
+                  <ChevronRight
+                    className={`w-5 h-5 shrink-0 transition-transform ${isActive ? "text-brand-primary translate-x-1" : "text-text-light/40 group-hover:text-brand-primary"
+                      }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Main Content Card */}
+          <div className="w-full lg:w-8/12">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="bg-white border border-[#DCE6F2] rounded-lg p-8 sm:p-10 shadow-lg relative overflow-hidden"
+            >
+              {/* Header inside right card */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-5 pb-8 mb-8 border-b border-[#DCE6F2]">
+                <div className="w-16 h-16 rounded-2xl bg-brand-primary/10 border border-brand-primary/15 text-brand-primary flex items-center justify-center shrink-0 shadow-sm">
+                  {deliverables[activeTab].icon}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {deliverables[activeTab].items.map((item, itemIdx) => (
-                    <motion.div
-                      key={itemIdx}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: itemIdx * 0.05 }}
-                      className="group flex items-start bg-slate-50/50 p-6 rounded-3xl hover:bg-white hover:shadow-premium transition-all duration-300 border border-slate-100/50 hover:border-brand-purple/10"
-                    >
-                      <div className="w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center mr-4 shrink-0 mt-1 group-hover:bg-brand-orange group-hover:text-white transition-colors">
-                        <CheckCircle className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="text-slate-600 leading-relaxed text-sm font-sans font-medium">{item}</span>
-                    </motion.div>
-                  ))}
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-widest text-brand-accent-dark bg-brand-accent/15 border border-brand-accent/25 px-3 py-0.5 rounded-full inline-block mb-2 font-heading">
+                    {deliverables[activeTab].tag}
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-semibold text-brand-dark font-heading leading-tight mb-1">
+                    {deliverables[activeTab].title}
+                  </h3>
+                  <p className="text-text-mid font-sans text-sm sm:text-base leading-relaxed">
+                    {deliverables[activeTab].description}
+                  </p>
                 </div>
+              </div>
+
+              {/* Items Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {deliverables[activeTab].items.map((item, itemIdx) => (
+                  <motion.div
+                    key={itemIdx}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: itemIdx * 0.06 }}
+                    className="p-5 rounded-2xl bg-[#F7FAFC] border border-[#DCE6F2] hover:border-brand-primary/30 transition-all flex items-start gap-3.5 group shadow-xs"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-brand-accent/15 border border-brand-accent/30 text-brand-accent-dark flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                      <CheckCircle className="w-4 h-4 text-brand-accent group-hover:text-white" />
+                    </div>
+                    <span className="text-text-dark text-xs sm:text-sm font-medium leading-relaxed font-sans">
+                      {item}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
+
         </div>
       </div>
     </section>
   );
 }
+

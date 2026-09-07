@@ -1,97 +1,154 @@
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Award, Users, Sparkles, ArrowRight, TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function About() {
-  const points = [
-    "Proactive tax planning strategies",
-    "Dedicated support all year round",
-    "Secure, technology-driven processes",
+  const pillars = [
+    {
+      title: "Proactive Tax Planning",
+      description: "We analyze your finances year-round to discover legal tax credits and maximize your savings before deadlines.",
+    },
+    {
+      title: "Dedicated CPA Support",
+      description: "Direct 1-on-1 access to seasoned accounting professionals who understand your specific industry challenges.",
+    },
+    {
+      title: "Bank-Grade Digital Portal",
+      description: "Submit documents safely and track your filing progress in real time with 256-bit SSL encryption.",
+    },
+  ];
+
+  const stats = [
+    { number: "15+", label: "Years Experience" },
+    { number: "10k+", label: "Filings Completed" },
+    { number: "99.8%", label: "Client Satisfaction" },
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden bg-white">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-purple/5 pointer-events-none rounded-bl-[100px]" />
-
+    <section id="about" className="py-10 relative overflow-hidden bg-white ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
-          {/* Image Side */}
+          {/* Left Column — Visual Image & Stats Overlay */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="w-full lg:w-1/2 relative"
           >
-            <div className="absolute inset-0 bg-brand-orange/20 rounded-[2.5rem] blur-[30px]" />
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
-              alt="Our Team"
-              className="relative rounded-[2.5rem] w-full h-[480px] object-cover shadow-2xl border border-black/5"
-            />
-            {/* Floating badge */}
+            <div className="relative rounded-3xl bg-white p-2 border border-[#DCE6F2] shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+                alt="NexGen CPA Advisory Team"
+                className="rounded-2xl w-full h-[460px] sm:h-[500px] object-cover"
+              />
+            </div>
+
+            {/* Top Metric Pill */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="absolute top-6 left-6 bg-white/95 backdrop-blur-md border border-[#DCE6F2] px-4 py-3 rounded-2xl shadow-lg flex items-center gap-3 z-20"
+            >
+              <div className="w-9 h-9 rounded-xl bg-brand-accent/15 flex items-center justify-center text-brand-accent-dark">
+                <TrendingUp className="w-5 h-5 text-brand-accent" />
+              </div>
+              <div>
+                <div className="text-[11px] font-bold text-text-light font-heading uppercase tracking-wider">Client Savings</div>
+                <div className="text-sm font-extrabold text-brand-primary font-sans">$10M+ Retained</div>
+              </div>
+            </motion.div>
+
+            {/* Bottom Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="absolute -bottom-6 -right-6 lg:-right-10 bg-brand-orange px-6 py-4 rounded-2xl shadow-xl z-20 border border-brand-orange-light/20"
+              className="absolute -bottom-6 -right-3 sm:-right-6 bg-brand-primary text-white p-6 rounded-3xl shadow-xl z-20 border border-white/10 max-w-[230px]"
             >
-              <div className="text-4xl font-black text-white font-heading leading-none">15+</div>
-              <div className="text-white/90 text-sm font-medium mt-1 font-sans">Years of Experience</div>
+              <div className="text-4xl font-extrabold font-heading text-white mb-1 leading-none">15+</div>
+              <div className="text-white/90 text-sm font-semibold font-sans mb-1">Years of Excellence</div>
+              <div className="text-white/60 text-xs font-sans">Serving 10,000+ satisfied clients</div>
             </motion.div>
           </motion.div>
 
-          {/* Text Side */}
+          {/* Right Column — Content & Pillars */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
             className="w-full lg:w-1/2"
           >
-            <span className="section-tag">
-              About TaxCount
-            </span>
+            <div className="section-tag flex items-center gap-2 w-fit mb-4">
+              <Sparkles className="w-4 h-4 text-brand-accent" />
+              <span>About NexGen Accounting</span>
+            </div>
 
-            <h2 className="mb-6">
-              More than just accountants. <br className="hidden lg:block" />
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-brand-primary tracking-tight mb-5 leading-[1.15] font-heading">
+              More than just accountants. <br className="hidden sm:inline" />
               We are your{" "}
-              <span className="gradient-text">
-                financial partners.
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-bold">
+                strategic growth partners.
               </span>
             </h2>
 
-            <p className="text-text-mid leading-relaxed mb-5 text-base font-sans">
-              At TaxCount, we specialize in simplifying complex financial landscapes for individuals and businesses worldwide. With over 15 years of dedicated experience, we've helped more than 10,000 clients navigate US and International tax compliance with ease.
-            </p>
-            <p className="text-text-mid leading-relaxed mb-8 text-base font-sans">
-              Our team of expert CPAs and tax professionals combines cutting-edge AI technology with personalized consultation to ensure you save more and stay compliant. Whether you're a US expat, a global entrepreneur, or a local business, we are your trusted partners in growth.
+            <p className="text-text-mid leading-relaxed mb-6 text-sm sm:text-base font-sans">
+              At NexGen Accounting Group, we specialize in simplifying complex tax structures and accounting workflows for individuals, startups, and enterprises across North America.
             </p>
 
-            <div className="space-y-4 mb-10">
-              {points.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-brand-orange shrink-0" />
-                  <span className="text-sm font-medium text-text-dark font-sans">{item}</span>
+            {/* Stats Row */}
+            {/* <div className="grid grid-cols-3 gap-3 mb-6 p-4 rounded-2xl bg-[#F7FAFC] border border-[#DCE6F2]">
+              {stats.map((st, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-xl sm:text-2xl font-extrabold text-brand-primary font-heading">{st.number}</div>
+                  <div className="text-[11px] font-semibold text-text-light font-sans">{st.label}</div>
+                </div>
+              ))}
+            </div> */}
+
+            {/* Pillars */}
+            <div className="space-y-3 mb-8">
+              {pillars.map((pillar, idx) => (
+                <div
+                  key={idx}
+                  className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#DCE6F2] hover:border-brand-primary/30 transition-all flex items-start gap-3.5 group shadow-sm"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-primary group-hover:text-white transition-all">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-brand-dark font-heading mb-0.5 group-hover:text-brand-primary transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-text-mid font-sans leading-relaxed">
+                      {pillar.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <a
-              href="#features"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#features")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="btn-primary bg-brand-purple hover:bg-brand-orange shadow-brand-purple/20"
-            >
-              Explore Our Services
-            </a>
+            {/* Dynamic CTA Button */}
+            <div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary bg-[length:200%_auto] hover:bg-right transition-all duration-500 rounded-xl shadow-lg shadow-brand-accent/25 hover:shadow-brand-secondary/35 hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
+              >
+                <span>Schedule a Consultation</span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
           </motion.div>
         </div>
       </div>
     </section>
   );
 }
+
+

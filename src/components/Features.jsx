@@ -1,80 +1,236 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Users, Zap, ShieldCheck, MessageSquare, Lock, DollarSign, HeartHandshake, Award } from "lucide-react";
+import {
+  CheckCircle2,
+  Users,
+  Zap,
+  ShieldCheck,
+  MessageSquare,
+  Lock,
+  DollarSign,
+  HeartHandshake,
+  Award,
+  Sparkles,
+  ArrowRight,
+  ChevronRight
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
-  { title: "Tailored Solutions", description: "Industry-specific packages for your unique needs.", icon: <CheckCircle2 className="w-6 h-6" /> },
-  { title: "Expert Team", description: "Experienced accountants & tax pros you can trust.", icon: <Users className="w-6 h-6" /> },
-  { title: "Effortless Efficiency", description: "User-friendly tech saves time & minimizes errors.", icon: <Zap className="w-6 h-6" /> },
-  { title: "Compliance Confidence", description: "We handle complex regulations smoothly.", icon: <ShieldCheck className="w-6 h-6" /> },
-  { title: "Transparency", description: "Clear communication, keeping you informed.", icon: <MessageSquare className="w-6 h-6" /> },
-  { title: "Data Security", description: "Industry-leading security measures protect your data.", icon: <Lock className="w-6 h-6" /> },
-  { title: "Cost-effective", description: "Competitive pricing & transparent packages.", icon: <DollarSign className="w-6 h-6" /> },
-  { title: "Dedicated Support", description: "Friendly & responsive team always available.", icon: <HeartHandshake className="w-6 h-6" /> },
-  { title: "Proven Results", description: "Track record of helping businesses thrive.", icon: <Award className="w-6 h-6" /> },
+  {
+    number: "01",
+    title: "Tailored Solutions",
+    tag: "Custom Fit",
+    description: "Industry-specific packages designed precisely for your business entity, revenue model, and growth stage.",
+    icon: <CheckCircle2 className="w-6 h-6" />,
+    highlight: "Custom Tax Strategy",
+  },
+  {
+    number: "02",
+    title: "Expert CPA Team",
+    tag: "Licensed CPAs",
+    description: "Experienced accountants and tax professionals providing strategic guidance and ensuring total IRS compliance.",
+    icon: <Users className="w-6 h-6" />,
+    highlight: "15+ Years Avg. Experience",
+  },
+  {
+    number: "03",
+    title: "Effortless Efficiency",
+    tag: "Automated Tech",
+    description: "Intelligent digital workflows and smart portal uploads that save valuable time and eliminate calculation errors.",
+    icon: <Zap className="w-6 h-6" />,
+    highlight: "24–48h Turnaround",
+  },
+  {
+    number: "04",
+    title: "Compliance Confidence",
+    tag: "Audit Protection",
+    description: "Proactive adherence to multi-state and federal tax regulations, keeping your business safe from penalties.",
+    icon: <ShieldCheck className="w-6 h-6" />,
+    highlight: "100% Accurate Filings",
+  },
+  {
+    number: "05",
+    title: "Transparent Reporting",
+    tag: "Real-Time Tracking",
+    description: "Clear communication, real-time status dashboards, and timely updates so you always know where you stand.",
+    icon: <MessageSquare className="w-6 h-6" />,
+    highlight: "Live Milestone Updates",
+  },
+  {
+    number: "06",
+    title: "Bank-Grade Security",
+    tag: "256-Bit SSL",
+    description: "Institutional-level 256-bit encryption, SOC-2 compliant storage, and strict confidential data handling.",
+    icon: <Lock className="w-6 h-6" />,
+    highlight: "Encrypted Cloud Vault",
+  },
+  {
+    number: "07",
+    title: "Cost-Effective Pricing",
+    tag: "Flat Rate",
+    description: "Transparent, predictable pricing tiers with zero surprise charges or hidden hourly consultation fees.",
+    icon: <DollarSign className="w-6 h-6" />,
+    highlight: "Zero Hidden Fees",
+  },
+  {
+    number: "08",
+    title: "Dedicated Support",
+    tag: "Direct Access",
+    description: "A responsive, friendly team of specialists ready to answer questions and resolve inquiries via phone, email, or chat.",
+    icon: <HeartHandshake className="w-6 h-6" />,
+    highlight: "Prompt Assistance",
+  },
+  {
+    number: "09",
+    title: "Proven Track Record",
+    tag: "5,000+ Clients",
+    description: "Decades of verified client satisfaction helping startups, SMBs, and enterprises optimize cash flow and scale.",
+    icon: <Award className="w-6 h-6" />,
+    highlight: "$10M+ Tax Saved",
+  },
 ];
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 relative overflow-hidden bg-brand-light border-y border-black/5">
+    <section id="features" className="py-10 relative overflow-hidden bg-white ">
+      {/* Background Subtle Tech Grid */}
+      <div className="absolute inset-0 opacity-[0.4] pointer-events-none bg-[linear-gradient(to_right,#EDF2F7_1px,transparent_1px),linear-gradient(to_bottom,#EDF2F7_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
+      {/* Ambient Gradient Glows */}
+      <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-20 left-0 w-[450px] h-[450px] bg-brand-accent/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
-          <div className="max-w-xl">
-            <motion.span
+
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
+          <div className="max-w-2xl">
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="section-tag"
+              className="section-tag flex items-center gap-2 w-fit mb-4"
             >
-              Why Choose Our Services
-            </motion.span>
+              <Sparkles className="w-4 h-4 text-brand-accent" />
+              <span>Why Choose NexGen</span>
+            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
+              className="text-4xl sm:text-5xl font-extrabold tracking-tight font-heading leading-[1.15]"
             >
-              Professional Solutions <br />
-              <span className="gradient-text">for your business.</span>
+              <span className="text-brand-primary">Enterprise-Grade Capabilities,</span> <br className="hidden sm:inline" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary">
+                Personalized for Your Growth.
+              </span>
             </motion.h2>
           </div>
-          <motion.p
+
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-text-mid max-w-sm leading-relaxed text-sm font-sans"
+            className="text-text-mid max-w-md text-base leading-relaxed font-sans"
           >
-            Empowering businesses with tailored tax services and bookkeeping packages. We simplify complexity so you can focus on growth.
-          </motion.p>
+            We eliminate accounting complexity and compliance stress so you can focus on building your business with absolute clarity.
+          </motion.p> */}
         </div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Unique Modern Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
           {features.map((feature, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              key={feature.number}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08, duration: 0.5 }}
-              className="bg-white border border-slate-100 rounded-md p-8 overflow-hidden relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(75,36,116,0.08)] transition-all duration-500 group"
+              transition={{ delay: index * 0.06, duration: 0.45 }}
+              className="group bg-white rounded-xl p-8 border border-[#DCE6F2] hover:border-brand-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between overflow-hidden"
             >
-              {/* Subtle hover background accent */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 rounded-full blur-[40px] pointer-events-none group-hover:bg-brand-orange/10 transition-all" />
+              {/* Subtle top indicator border */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-primary/0 to-transparent group-hover:via-brand-primary transition-all duration-500" />
 
-              <div className="w-12 h-12 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-brand-orange mb-6 group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
-                {feature.icon}
+              {/* Corner soft glow */}
+              <div className="absolute -top-12 -right-12 w-28 h-28 bg-brand-primary/5 rounded-full blur-2xl group-hover:bg-brand-primary/10 transition-all pointer-events-none" />
+
+              <div>
+                {/* Top Row: Icon + Number & Tag Badge */}
+                <div className="flex items-center justify-between gap-3 mb-6">
+                  <div className="w-13 h-13 rounded-2xl bg-brand-primary/10 border border-brand-primary/15 text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                    {feature.icon}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-brand-accent/15 text-brand-accent-dark border border-brand-accent/25 tracking-wide">
+                      {feature.tag}
+                    </span>
+                    <span className="text-sm font-bold text-text-light/50 font-heading">
+                      {feature.number}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Card Title */}
+                <h3 className="text-xl font-bold text-brand-dark mb-3 font-heading group-hover:text-brand-primary transition-colors">
+                  {feature.title}
+                </h3>
+
+                {/* Card Description */}
+                <p className="text-text-mid text-sm leading-relaxed font-sans mb-6">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-brand-purple mb-2 group-hover:text-brand-orange transition-colors font-heading">
-                {feature.title}
-              </h3>
-              <p className="text-text-light text-sm leading-relaxed font-sans">{feature.description}</p>
+
+              {/* Bottom Row: Feature Highlight Tag */}
+              {/* <div className="pt-4 border-t border-[#DCE6F2] flex items-center justify-between">
+                <div className="flex items-center gap-2 text-xs font-semibold text-text-dark font-sans">
+                  <div className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+                  <span>{feature.highlight}</span>
+                </div>
+                <div className="w-6 h-6 rounded-full bg-[#EDF2F7] flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </div> */}
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom Interactive CTA Bar */}
+        {/* <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-14 bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-3xl p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/10 relative overflow-hidden"
+        >
+          <div className="absolute right-0 top-0 w-96 h-96 bg-brand-accent/20 rounded-full blur-[90px] pointer-events-none" />
+
+          <div className="relative z-10 max-w-xl text-center md:text-left">
+            <h4 className="text-2xl sm:text-3xl font-bold mb-2 font-heading">
+              Looking for a custom accounting or tax plan?
+            </h4>
+            <p className="text-white/80 text-sm sm:text-base font-sans">
+              Speak directly with our CPA advisors to design a strategy tailored to your exact needs.
+            </p>
+          </div>
+
+          <div className="relative z-10 flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+            <Link
+              to="/contact"
+              className="btn-orange !py-3.5 !px-7 flex items-center justify-center gap-2 group"
+            >
+              <span>Schedule Free Consultation</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+        </motion.div> */}
+
       </div>
     </section>
   );
 }
+

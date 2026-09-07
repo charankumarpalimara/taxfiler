@@ -73,7 +73,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg-light pt-24 pb-20 overflow-x-hidden">
+    <div className="min-h-screen bg-white pt-24 pb-20 overflow-x-hidden">
 
       {/* ── Hero ─────────────────────────────────────── */}
       <section className="relative py-16 lg:py-24 overflow-hidden">
@@ -121,7 +121,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white rounded-[2rem] p-8 md:p-12 shadow-premium border border-slate-100 relative overflow-hidden"
+              className="bg-white rounded-lg p-8 md:p-12 shadow-premium border border-slate-100 relative overflow-hidden"
             >
               {/* Subtle background element */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/5 rounded-full blur-[80px] -mr-32 -mt-32 pointer-events-none" />
@@ -192,7 +192,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <button className="w-full py-3 text-lg font-bold text-white bg-gradient-to-r from-brand-purple to-[#5D2D8F] rounded-2xl group shadow-xl shadow-brand-purple/20 hover:shadow-2xl hover:shadow-brand-purple/30 transition-all duration-500 flex items-center justify-center">
+                  <button className="w-full py-4 text-lg font-bold text-white bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent rounded-2xl group shadow-xl shadow-brand-secondary/20 hover:shadow-2xl hover:shadow-brand-secondary/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 flex items-center justify-center">
                     Send Secure Message
                     <Send className="ml-3 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </button>
@@ -245,7 +245,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="sticky top-32 bg-brand-purple rounded-[2.5rem] p-8 md:p-12 shadow-2xl text-white overflow-visible"
+              className="sticky top-32 bg-brand-purple rounded-lg p-8 md:p-12 shadow-2xl text-white overflow-visible"
             >
               {/* Background accents (wrapped in overflow-hidden to prevent mobile overflow) */}
               <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none">

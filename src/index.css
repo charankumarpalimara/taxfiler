@@ -4,22 +4,43 @@
 @source "./**/*.{js,jsx,ts,tsx}";
 
 @theme {
-  --color-brand-purple: #4B2474;
-  --color-brand-purple-light: #7c4cb3;
-  --color-brand-purple-dark: #321650;
-  --color-brand-orange: #FF8A00;
-  --color-brand-orange-light: #ffb347;
-  --color-brand-orange-dark: #e67c00;
-  --color-brand-light: #fafafa;
-  --color-brand-dark: #1e0e2d;
+  /* ── Brand Color Palette ─────────────────── */
+  --color-brand-primary: #1455B8;
+  --color-brand-secondary: #1688E8;
+  --color-brand-accent: #72C900;
 
-  --color-text-dark: #0f172a;
-  --color-text-mid: #475569;
-  --color-text-light: #64748b;
+  /* Deep professional blue */
+  --color-brand-blue: #1455B8;
+  --color-brand-blue-light: #1688E8;
+  --color-brand-blue-dark: #0E3E85;
 
-  --color-bg-white: #ffffff;
-  --color-bg-light: #ffffff;
-  --color-bg-subtle: #f8fafc;
+  /* Growth green */
+  --color-brand-green: #72C900;
+  --color-brand-green-light: #8AE012;
+  --color-brand-green-dark: #5CA300;
+
+  /* Theme mappings for existing classes */
+  --color-brand-purple: #1455B8;
+  --color-brand-purple-light: #1688E8;
+  --color-brand-purple-dark: #0E3E85;
+
+  --color-brand-orange: #72C900;
+  --color-brand-orange-light: #8AE012;
+  --color-brand-orange-dark: #5CA300;
+
+  --color-brand-light: #F7FAFC;
+  --color-brand-dark: #172B4D;
+
+  /* Typography & Neutrals */
+  --color-text-dark: #172B4D;
+  --color-text-mid: #42526E;
+  --color-text-light: #6B778C;
+
+  /* Backgrounds & Borders */
+  --color-bg-white: #FFFFFF;
+  --color-bg-light: #F7FAFC;
+  --color-bg-subtle: #EDF2F7;
+  --color-border-subtle: #DCE6F2;
 
   --font-sans: "Inter", "Rubik", system-ui, sans-serif;
   --font-heading: "Outfit", system-ui, sans-serif;
@@ -28,8 +49,8 @@
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
 
-  --shadow-premium: 0 8px 30px rgba(0, 0, 0, 0.04);
-  --shadow-premium-hover: 0 20px 50px rgba(75, 36, 116, 0.08);
+  --shadow-premium: 0 8px 30px rgba(20, 85, 184, 0.06);
+  --shadow-premium-hover: 0 20px 50px rgba(20, 85, 184, 0.14);
 }
 
 /* ── KEYFRAMES ────────────────────────────── */
@@ -62,7 +83,7 @@
   }
 
   body {
-    @apply bg-bg-light text-text-dark font-sans antialiased;
+    @apply bg-white text-text-dark font-sans antialiased;
     overflow-x: hidden;
   }
 
@@ -91,32 +112,33 @@
 /* ── CUSTOM UTILITY CLASSES ──────────────── */
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-brand-purple rounded-lg transition-all hover:bg-brand-purple-light active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-brand-primary rounded-xl transition-all hover:bg-brand-secondary active:scale-95 shadow-md shadow-brand-primary/20 cursor-pointer;
   }
 
   .light-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-white border border-brand-purple-light/20 text-brand-purple-light active:scale-95 rounded-lg transition-all;
-
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-white border border-brand-secondary/30 text-brand-primary active:scale-95 rounded-xl transition-all hover:bg-brand-secondary/5;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-brand-purple bg-white border border-brand-purple/20 rounded-lg transition-all hover:bg-brand-purple/5 active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-brand-primary bg-white border border-[#DCE6F2] rounded-xl transition-all hover:bg-brand-primary/5 active:scale-95 cursor-pointer shadow-sm;
   }
 
-  .btn-orange {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-white bg-brand-orange rounded-lg transition-all hover:bg-brand-orange-light active:scale-95;
+  .btn-orange,
+  .btn-accent,
+  .btn-green {
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white bg-brand-accent rounded-xl transition-all hover:bg-brand-orange-dark active:scale-95 shadow-lg shadow-brand-accent/25 cursor-pointer;
   }
 
   .glass-card {
-    @apply bg-white border border-slate-100 rounded-3xl shadow-premium transition-all hover:shadow-premium-hover;
+    @apply bg-white border border-[#DCE6F2] rounded-3xl shadow-premium transition-all hover:shadow-premium-hover;
   }
 
   .section-tag {
-    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-purple bg-brand-purple/5 border border-brand-purple/10 mb-6;
+    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 mb-6;
   }
 
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-purple to-brand-purple-light;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary;
   }
 }
 
@@ -130,5 +152,5 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-purple/10 rounded-full hover:bg-brand-purple/30 transition-colors;
+  @apply bg-brand-primary/20 rounded-full hover:bg-brand-primary/40 transition-colors;
 }

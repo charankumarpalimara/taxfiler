@@ -101,20 +101,19 @@ export default function Navbar() {
 
       {/* ── Main Nav Bar ──────────────────────────────────── */}
       <div className={`transition-all duration-300 ${isScrolled
-        ? "bg-white/95 backdrop-blur-xl border-b border-black/5 shadow-sm"
-        : "bg-white/80 backdrop-blur-md border-b border-black/5"
+        ? "bg-white backdrop-blur-xl border-b border-black/5 shadow-sm"
+        : "bg-white backdrop-blur-md border-b border-black/5"
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-300 ${isScrolled ? "py-3" : "py-4"}`}>
 
             {/* Logo */}
-            <a href="/" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300 shadow-md">
-                <span className="font-black text-xl text-white font-heading">T</span>
-              </div>
-              <span className="text-xl font-black tracking-tight text-brand-purple font-heading">
-                Tax<span className="text-brand-orange">Count</span>
-              </span>
+            <a href="/" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center group">
+              <img
+                src="/logo.jpeg"
+                alt="Logo"
+                className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+              />
             </a>
 
             {/* Desktop Nav */}
