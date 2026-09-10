@@ -289,7 +289,7 @@ export default function Navbar() {
                   </div>
                   <h3 className="text-2xl  font-bold mb-4 text-brand-orange">Exclusive Portal Access</h3>
                   <p className="text-white/70 text-sm leading-relaxed mb-8 font-sans">
-                    Join thousands of businesses and individuals who trust TaxCount for their financial compliance and growth.
+                    Join thousands of businesses and individuals who trust NEXGEN Accounting Group for their financial compliance and growth.
                   </p>
 
                   <div className="space-y-4">
@@ -340,7 +340,7 @@ export default function Navbar() {
                       <span className="section-tag mb-4">Registration</span>
                       <h2 className="text-3xl md:text-4xl font-black text-brand-purple mb-4 font-heading leading-[1.1]">
                         Get started with <br />
-                        <span className="text-brand-orange">TaxCount Portal</span>
+                        <span className="text-brand-orange">NEXGEN Portal</span>
                       </h2>
 
                       <p className="text-text-mid font-sans mb-10 leading-relaxed text-sm">
