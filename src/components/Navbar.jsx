@@ -77,13 +77,13 @@ export default function Navbar() {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-2 text-[12px] font-medium text-white/80">
               <div className="flex items-center gap-6">
-                <a href="mailto:info@pumpkintaxco.com" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
+                <a href="mailto:info@nexgenaccountinggroup.com" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
                   <Mail className="w-3 h-3 text-brand-orange" />
-                  info@pumpkintaxco.com
+                  info@nexgenaccountinggroup.com
                 </a>
-                <a href="tel:+18777786754" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
+                <a href="tel:+13348404241" className="flex items-center gap-1.5 hover:text-brand-orange transition-colors">
                   <Phone className="w-3 h-3 text-brand-orange" />
-                  +1 (877) 778-6754
+                  +1 (334) 840-4241
                 </a>
               </div>
               <div className="flex items-center gap-4">

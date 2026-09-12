@@ -200,7 +200,7 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li>
                 <a
-                  href="https://www.google.com/maps/place/12234+Queenston+Blvd+%23200,+Houston,+TX+77095"
+                  href="https://www.google.com/maps/place/6609+Firefly+Ln,+Montgomery,+AL+36116"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-start gap-3 p-2.5 -ml-2.5 rounded-2xl hover:bg-white/10 border border-transparent hover:border-white/15 transition-all text-white/75 hover:text-white"
@@ -209,10 +209,11 @@ export default function Footer() {
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="text-sm font-sans leading-relaxed">
-                    <span className="block text-white font-semibold mb-0.5">Houston Office</span>
+                    <span className="block text-white font-semibold mb-0.5">Montgomery Office</span>
                     <span className="text-white/75 group-hover:text-white/95">
-                      12234 Queenston Blvd., Ste 200<br />
-                      Houston, TX 77095
+                      6609 Firefly Lane<br />
+                      Taylor Lakes Community<br />
+                      Montgomery, AL 36116
                     </span>
                   </div>
                 </a>
@@ -220,7 +221,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="tel:+18777786754"
+                  href="tel:+13348404241"
                   className="group flex items-center gap-3 p-2.5 -ml-2.5 rounded-2xl hover:bg-white/10 border border-transparent hover:border-white/15 transition-all text-white/75 hover:text-white"
                 >
                   <div className="w-9 h-9 rounded-xl bg-brand-accent/15 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all shrink-0 shadow-sm">
@@ -228,14 +229,14 @@ export default function Footer() {
                   </div>
                   <div className="text-sm font-sans">
                     <span className="block text-[11px] uppercase tracking-wider font-bold text-brand-accent">Call Toll-Free</span>
-                    <span className="text-white font-medium">+1 (877) 778-6754</span>
+                    <span className="text-white font-medium">+1 (334) 840-4241</span>
                   </div>
                 </a>
               </li>
 
               <li>
                 <a
-                  href="mailto:info@pumpkintaxco.com"
+                  href="mailto:info@nexgenaccountinggroup.com"
                   className="group flex items-center gap-3 p-2.5 -ml-2.5 rounded-2xl hover:bg-white/10 border border-transparent hover:border-white/15 transition-all text-white/75 hover:text-white"
                 >
                   <div className="w-9 h-9 rounded-xl bg-brand-accent/15 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all shrink-0 shadow-sm">
@@ -243,7 +244,7 @@ export default function Footer() {
                   </div>
                   <div className="text-sm font-sans">
                     <span className="block text-[11px] uppercase tracking-wider font-bold text-brand-accent">Email Us</span>
-                    <span className="text-white font-medium">info@pumpkintaxco.com</span>
+                    <span className="text-white font-medium">info@nexgenaccountinggroup.com</span>
                   </div>
                 </a>
               </li>

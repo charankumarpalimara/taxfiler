@@ -7,20 +7,20 @@ const contactInfo = [
   {
     icon: <MapPin className="w-5 h-5" />,
     label: "Office Location",
-    value: "12234 Queenston Blvd., Ste 200\nHouston, TX 77095",
-    href: "https://www.google.com/maps/place/12234+Queenston+Blvd+%23200,+Houston,+TX+77095",
+    value: "6609 Firefly Lane, Taylor Lakes Community\nMontgomery, AL 36116",
+    href: "https://www.google.com/maps/place/6609+Firefly+Ln,+Montgomery,+AL+36116",
   },
   {
     icon: <Phone className="w-5 h-5" />,
     label: "Phone Number",
-    value: "+1 (877) 778-6754",
-    href: "tel:+18777786754",
+    value: "+1 (334) 840-4241",
+    href: "tel:+13348404241",
   },
   {
     icon: <Mail className="w-5 h-5" />,
     label: "Email Address",
-    value: "info@pumpkintaxco.com",
-    href: "mailto:info@pumpkintaxco.com",
+    value: "info@nexgenaccountinggroup.com",
+    href: "mailto:info@nexgenaccountinggroup.com",
   },
   {
     icon: <Clock className="w-5 h-5" />,
@@ -298,7 +298,7 @@ export default function Contact() {
                         type="tel"
                         required
                         className="w-full px-4 py-3 rounded-xl bg-white border border-[#DCE6F2] text-text-dark text-sm placeholder:text-text-light/60 focus:border-brand-secondary focus:bg-white focus:ring-4 focus:ring-brand-secondary/10 outline-none transition-all"
-                        placeholder="(877) 778-6754"
+                        placeholder="(334) 840-4241"
                       />
                     </div>
                   </div>
