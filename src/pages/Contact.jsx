@@ -1,3 +1,4 @@
+import { createSubmission } from "../services/api";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
@@ -168,10 +169,12 @@ export default function Contact() {
 
     const bookingPayload = {
       timestamp: new Date().toLocaleString(),
-      clientName: `${formData.firstName} ${formData.lastName}`,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      clientName: `${formData.firstName} ${formData.lastName}`.trim(),
       email: formData.email,
       phone: formData.phone,
-      language: formData.preferredLanguage,
+      preferredLanguage: formData.preferredLanguage || "English",
       scheduledDate: selectedDate.toLocaleDateString("en-US", {
         weekday: "long",
         month: "long",
@@ -179,26 +182,33 @@ export default function Contact() {
         year: "numeric",
       }),
       scheduledTime: `${selectedTime} Central Time (CST)`,
-      services: formData.services.join(", "),
+      services: Array.isArray(formData.services) ? formData.services : [formData.services],
       leadSource: formData.leadSource,
       notes: formData.message || "None provided",
+      type: "consultation",
     };
 
+    // 1. Save directly to Express Backend API & MongoDB Atlas
     try {
-      // 1. Send to Google Sheets Webhook if configured
+      const res = await createSubmission(bookingPayload);
+      console.log("MongoDB Atlas Submission Saved:", res);
+    } catch (apiErr) {
+      console.error("Express Backend API Error:", apiErr);
+    }
+
+    // 2. External Webhooks & Email Notifications
+    try {
       if (GOOGLE_SHEET_WEBHOOK_URL) {
-        await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+        fetch(GOOGLE_SHEET_WEBHOOK_URL, {
           method: "POST",
           mode: "no-cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(bookingPayload),
-        });
+        }).catch((e) => console.warn("Google Sheet Webhook error:", e));
       }
 
-      // 2. Send instant email notification via FormSubmit to nexgengroup2026@gmail.com
-      await fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
+      const formSubmitTarget = FORMSUBMIT_HASH || NOTIFICATION_EMAIL;
+      const emailRes = await fetch(`https://formsubmit.co/ajax/${formSubmitTarget}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -209,10 +219,10 @@ export default function Contact() {
           "Client Name": bookingPayload.clientName,
           "Client Email": bookingPayload.email,
           "Client Phone": bookingPayload.phone,
-          "Preferred Language": bookingPayload.language,
+          "Preferred Language": bookingPayload.preferredLanguage,
           "Scheduled Date": bookingPayload.scheduledDate,
           "Scheduled Time": bookingPayload.scheduledTime,
-          "Services Requested": bookingPayload.services,
+          "Services Requested": bookingPayload.services.join(", "),
           "How Did You Find Us": bookingPayload.leadSource,
           "Client Notes": bookingPayload.notes,
           _replyto: bookingPayload.email,
@@ -221,18 +231,10 @@ export default function Contact() {
         }),
       });
 
-      // 3. Sync with Next.js Admin Dashboard API
-      try {
-        await fetch("http://localhost:3000/api/submissions", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(bookingPayload),
-        });
-      } catch {
-        // Silent fallback if admin dashboard is offline
-      }
+      const emailData = await emailRes.json();
+      console.log("FormSubmit Email Notification Response:", emailData);
     } catch (err) {
-      console.error("Transmission error:", err);
+      console.error("External email notification error:", err);
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);

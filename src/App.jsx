@@ -8,6 +8,7 @@ import Contact from './pages/Contact';
 import Bookkeeping from "./pages/Bookkeeping";
 import Payroll from "./pages/Payroll";
 import Taxes from "./pages/Taxes";
+import { RegisterModalProvider } from "./context/RegisterModalContext";
 
 function App() {
   return (

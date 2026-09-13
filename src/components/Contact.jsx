@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createSubmission } from "../services/api";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Clock, ArrowRight, Sparkles, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -96,11 +97,7 @@ export default function Contact() {
         type: 'quick_contact',
       };
 
-      await fetch('http://localhost:3000/api/submissions', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+      await createSubmission(payload);
     } catch {
       // Silent fallback
     }
