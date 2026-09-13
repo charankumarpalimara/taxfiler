@@ -197,8 +197,8 @@ export default function Contact() {
         });
       }
 
-      // 2. Send instant email notification via FormSubmit using secure hash endpoint
-      await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_HASH}`, {
+      // 2. Send instant email notification via FormSubmit to nexgengroup2026@gmail.com
+      await fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
