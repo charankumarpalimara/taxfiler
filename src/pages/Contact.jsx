@@ -157,8 +157,7 @@ export default function Contact() {
   };
 
   // Configuration for Google Sheets & Email Notification
-  // Paste your Google Apps Script Web App URL below once deployed:
-  const GOOGLE_SHEET_WEBHOOK_URL = "";
+  const FORMSUBMIT_HASH = "c876639a3fb27700cfc0a781a8d4ec5d";
   const NOTIFICATION_EMAIL = "nexgengroup2026@gmail.com";
 
   const handleFinalSubmit = async (e) => {
@@ -198,8 +197,8 @@ export default function Contact() {
         });
       }
 
-      // 2. Send instant email notification via FormSubmit
-      await fetch(`https://formsubmit.co/ajax/${NOTIFICATION_EMAIL}`, {
+      // 2. Send instant email notification via FormSubmit using secure hash endpoint
+      await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_HASH}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
