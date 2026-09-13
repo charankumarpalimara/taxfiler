@@ -74,9 +74,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-[#0C3474] via-[#1455B8] to-[#08224D] relative overflow-hidden text-white pt-20 pb-8 border-t border-white/10">
+    <footer className="bg-gradient-to-br from-[#061524] via-[#0B2238] to-[#14385C] relative overflow-hidden text-white pt-20 pb-8 border-t border-white/10">
       {/* Ambient Glow Effects */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/15 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-secondary/20 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-primary/10 rounded-full blur-[160px] pointer-events-none" />
 
@@ -90,8 +90,8 @@ export default function Footer() {
             <Link to="/" className="inline-flex mb-5 group">
               <div className="bg-white rounded-2xl p-2 shadow-lg inline-flex items-center justify-center group-hover:scale-105 transition-all duration-300">
                 <img
-                  src="/logo.jpeg"
-                  alt="Logo"
+                  src="/dark-logo.jpeg"
+                  alt="NexGen Accounting Group Logo"
                   className="h-12 w-auto object-contain rounded-xl"
                 />
               </div>

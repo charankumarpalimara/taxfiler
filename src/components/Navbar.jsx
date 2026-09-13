@@ -110,8 +110,8 @@ export default function Navbar() {
             {/* Logo */}
             <a href="/" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center group">
               <img
-                src="/logo.jpeg"
-                alt="Logo"
+                src="/dark-logo.jpeg"
+                alt="NexGen Accounting Group Logo"
                 className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </a>

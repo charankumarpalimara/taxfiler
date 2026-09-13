@@ -4,43 +4,48 @@
 @source "./**/*.{js,jsx,ts,tsx}";
 
 @theme {
-  /* ── Brand Color Palette ─────────────────── */
-  --color-brand-primary: #1455B8;
-  --color-brand-secondary: #1688E8;
-  --color-brand-accent: #72C900;
+  /* ── Brand Color Palette (Derived from dark-logo.jpeg) ─────────────────── */
+  --color-brand-primary: #0B2238;
+  --color-brand-secondary: #14385C;
+  --color-brand-accent: #C5A059;
 
-  /* Deep professional blue */
-  --color-brand-blue: #1455B8;
-  --color-brand-blue-light: #1688E8;
-  --color-brand-blue-dark: #0E3E85;
+  /* Deep professional navy blue */
+  --color-brand-blue: #0B2238;
+  --color-brand-blue-light: #14385C;
+  --color-brand-blue-dark: #061524;
 
-  /* Growth green */
-  --color-brand-green: #72C900;
-  --color-brand-green-light: #8AE012;
-  --color-brand-green-dark: #5CA300;
+  /* Metallic Gold accent palette */
+  --color-brand-gold: #C5A059;
+  --color-brand-gold-light: #DFBF7A;
+  --color-brand-gold-dark: #9E7B33;
+
+  /* Growth / Accent Gold mappings */
+  --color-brand-green: #C5A059;
+  --color-brand-green-light: #DFBF7A;
+  --color-brand-green-dark: #9E7B33;
 
   /* Theme mappings for existing classes */
-  --color-brand-purple: #1455B8;
-  --color-brand-purple-light: #1688E8;
-  --color-brand-purple-dark: #0E3E85;
+  --color-brand-purple: #0B2238;
+  --color-brand-purple-light: #14385C;
+  --color-brand-purple-dark: #061524;
 
-  --color-brand-orange: #72C900;
-  --color-brand-orange-light: #8AE012;
-  --color-brand-orange-dark: #5CA300;
+  --color-brand-orange: #C5A059;
+  --color-brand-orange-light: #DFBF7A;
+  --color-brand-orange-dark: #9E7B33;
 
-  --color-brand-light: #F7FAFC;
-  --color-brand-dark: #172B4D;
+  --color-brand-light: #F4F7FA;
+  --color-brand-dark: #071728;
 
   /* Typography & Neutrals */
-  --color-text-dark: #172B4D;
-  --color-text-mid: #42526E;
-  --color-text-light: #6B778C;
+  --color-text-dark: #0A192F;
+  --color-text-mid: #334E68;
+  --color-text-light: #627D98;
 
   /* Backgrounds & Borders */
   --color-bg-white: #FFFFFF;
-  --color-bg-light: #F7FAFC;
-  --color-bg-subtle: #EDF2F7;
-  --color-border-subtle: #DCE6F2;
+  --color-bg-light: #F4F7FA;
+  --color-bg-subtle: #EBF1F6;
+  --color-border-subtle: #D0DFE8;
 
   --font-sans: "Inter", "Rubik", system-ui, sans-serif;
   --font-heading: "Outfit", system-ui, sans-serif;
@@ -49,18 +54,15 @@
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
 
-  --shadow-premium: 0 8px 30px rgba(20, 85, 184, 0.06);
-  --shadow-premium-hover: 0 20px 50px rgba(20, 85, 184, 0.14);
+  --shadow-premium: 0 8px 30px rgba(11, 34, 56, 0.08);
+  --shadow-premium-hover: 0 20px 50px rgba(11, 34, 56, 0.16);
 }
 
 /* ── KEYFRAMES ────────────────────────────── */
 @keyframes float {
-
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
-
   50% {
     transform: translateY(-5px);
   }
@@ -70,7 +72,6 @@
   0% {
     background-position: -200% 0;
   }
-
   100% {
     background-position: 200% 0;
   }
@@ -116,29 +117,30 @@
   }
 
   .light-primary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-white border border-brand-secondary/30 text-brand-primary active:scale-95 rounded-xl transition-all hover:bg-brand-secondary/5;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold bg-white border border-brand-accent/30 text-brand-primary active:scale-95 rounded-xl transition-all hover:bg-brand-accent/5;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-brand-primary bg-white border border-[#DCE6F2] rounded-xl transition-all hover:bg-brand-primary/5 active:scale-95 cursor-pointer shadow-sm;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold text-brand-primary bg-white border border-[#D0DFE8] rounded-xl transition-all hover:bg-brand-primary/5 active:scale-95 cursor-pointer shadow-sm;
   }
 
   .btn-orange,
   .btn-accent,
+  .btn-gold,
   .btn-green {
-    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white bg-brand-accent rounded-xl transition-all hover:bg-brand-orange-dark active:scale-95 shadow-lg shadow-brand-accent/25 cursor-pointer;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-white bg-gradient-to-r from-brand-accent to-brand-orange-dark rounded-xl transition-all hover:from-brand-orange-light hover:to-brand-accent active:scale-95 shadow-lg shadow-brand-accent/25 cursor-pointer;
   }
 
   .glass-card {
-    @apply bg-white border border-[#DCE6F2] rounded-3xl shadow-premium transition-all hover:shadow-premium-hover;
+    @apply bg-white border border-[#D0DFE8] rounded-3xl shadow-premium transition-all hover:shadow-premium-hover;
   }
 
   .section-tag {
-    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 mb-6;
+    @apply inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-accent/15 border border-brand-accent/30 mb-6;
   }
 
   .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent;
   }
 }
 
