@@ -215,6 +215,7 @@ export default function Contact() {
           "Services Requested": bookingPayload.services,
           "How Did You Find Us": bookingPayload.leadSource,
           "Client Notes": bookingPayload.notes,
+          _replyto: bookingPayload.email,
           _template: "table",
           _captcha: "false",
         }),
