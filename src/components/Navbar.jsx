@@ -9,8 +9,44 @@ export default function Navbar() {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [modalStep, setModalStep] = useState(1);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [regSuccess, setRegSuccess] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const inputs = form.querySelectorAll('input');
+    const first = inputs[0]?.value || '';
+    const last = inputs[1]?.value || '';
+    const email = inputs[2]?.value || '';
+    const phone = inputs[3]?.value || '';
+
+    try {
+      await fetch('http://localhost:3000/api/registrations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: first,
+          lastName: last,
+          fullName: `${first} ${last}`.trim() || 'New Portal Client',
+          email,
+          phone,
+          portalStatus: 'Pending Review',
+          accountType: 'Business Portal'
+        }),
+      });
+    } catch {
+      // Silent fallback
+    }
+
+    setRegSuccess(true);
+    setTimeout(() => {
+      setIsRegisterModalOpen(false);
+      setRegSuccess(false);
+      setModalStep(1);
+    }, 1800);
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -383,7 +419,16 @@ export default function Navbar() {
                       <h2 className="text-3xl font-black text-brand-purple mb-2 font-heading">Account Details</h2>
                       <p className="text-text-mid text-sm mb-8 font-sans">Fill in your details to create your secure portal access.</p>
 
-                      <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                      {regSuccess ? (
+                        <div className="py-12 text-center">
+                          <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+                            ✓
+                          </div>
+                          <h3 className="text-xl font-bold text-slate-900 mb-1">Account Registered!</h3>
+                          <p className="text-xs text-slate-500">Your portal access has been created. Redirecting...</p>
+                        </div>
+                      ) : (
+                        <form className="space-y-4" onSubmit={handleRegisterSubmit}>
                         <div className="grid grid-cols-2 gap-4">
                           <div className="space-y-1.5">
                             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-1">First Name</label>
@@ -425,6 +470,7 @@ export default function Navbar() {
                           By creating an account, you agree to our Terms of Service and Privacy Policy.
                         </p>
                       </form>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>

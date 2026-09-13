@@ -156,10 +156,10 @@ export default function Contact() {
     setCurrentStep(1);
   };
 
-// Configuration for Google Sheets & Email Notification
-// Paste your Google Apps Script Web App URL below once deployed:
-const GOOGLE_SHEET_WEBHOOK_URL = ""; 
-const NOTIFICATION_EMAIL = "charanpalimara@gmail.com";
+  // Configuration for Google Sheets & Email Notification
+  // Paste your Google Apps Script Web App URL below once deployed:
+  const GOOGLE_SHEET_WEBHOOK_URL = "";
+  const NOTIFICATION_EMAIL = "charanpalimara@gmail.com";
 
   const handleFinalSubmit = async (e) => {
     e.preventDefault();
@@ -220,6 +220,17 @@ const NOTIFICATION_EMAIL = "charanpalimara@gmail.com";
           _captcha: "false",
         }),
       });
+
+      // 3. Sync with Next.js Admin Dashboard API
+      try {
+        await fetch("http://localhost:3000/api/submissions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(bookingPayload),
+        });
+      } catch {
+        // Silent fallback if admin dashboard is offline
+      }
     } catch (err) {
       console.error("Transmission error:", err);
     } finally {

@@ -69,9 +69,42 @@ export default function Contact() {
     return () => clearInterval(timer);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    try {
+      const form = e.target;
+      const inputs = form.querySelectorAll('input, select, textarea');
+      const serviceVal = inputs[4]?.value || 'General Inquiry';
+      const serviceName = serviceVal === 'taxes' ? 'Personal & Corporate Tax Filing' :
+                          serviceVal === 'bookkeeping' ? 'Bookkeeping & Financial Statements' :
+                          serviceVal === 'payroll' ? 'Payroll & Compliance' :
+                          serviceVal === 'planning' ? 'Strategic Tax Planning' : 'Other Inquiry';
+
+      const payload = {
+        firstName: inputs[0]?.value || '',
+        lastName: inputs[1]?.value || '',
+        clientName: `${inputs[0]?.value || ''} ${inputs[1]?.value || ''}`.trim() || 'Website Visitor',
+        email: inputs[2]?.value || '',
+        phone: inputs[3]?.value || '',
+        services: [serviceName],
+        notes: inputs[5]?.value || 'Submitted via homepage quick contact form',
+        scheduledDate: 'Not Scheduled',
+        scheduledTime: 'Direct Message',
+        leadSource: 'Homepage Contact Form',
+        type: 'quick_contact',
+      };
+
+      await fetch('http://localhost:3000/api/submissions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // Silent fallback
+    }
+
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
