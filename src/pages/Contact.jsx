@@ -159,7 +159,7 @@ export default function Contact() {
   // Configuration for Google Sheets & Email Notification
   // Paste your Google Apps Script Web App URL below once deployed:
   const GOOGLE_SHEET_WEBHOOK_URL = "";
-  const NOTIFICATION_EMAIL = "cnexgengroup2026@gmail.com";
+  const NOTIFICATION_EMAIL = "nexgengroup2026@gmail.com";
 
   const handleFinalSubmit = async (e) => {
     e.preventDefault();
