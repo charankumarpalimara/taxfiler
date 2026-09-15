@@ -288,9 +288,13 @@ export default function RegisterModal() {
                             <input
                               type="tel"
                               required
-                              placeholder="+1 (555) 000-0000"
+                              maxLength={10}
+                              placeholder="1234567890"
                               value={regFormData.phone}
-                              onChange={(e) => setRegFormData({ ...regFormData, phone: e.target.value })}
+                              onChange={(e) => {
+                                const digitsOnly = e.target.value.replace(/\D/g, "").slice(0, 10);
+                                setRegFormData({ ...regFormData, phone: digitsOnly });
+                              }}
                               className="w-full pl-10 pr-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:border-brand-purple focus:bg-white focus:outline-none transition-all"
                             />
                           </div>

@@ -36,9 +36,11 @@ export default function Footer() {
 
   const links = {
     services: [
+      { name: "All Services", path: "/services", icon: BookOpen },
       { name: "Bookkeeping", path: "/bookkeeping", icon: BookOpen },
       { name: "Payroll", path: "/payroll", icon: Receipt },
       { name: "Tax Services", path: "/taxes", icon: Calculator },
+      { name: "LLC & Forms", path: "/services#llc-registration", icon: ShieldCheck },
     ],
     company: [
       { name: "Home", path: "/", icon: Home },

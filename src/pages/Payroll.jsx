@@ -21,7 +21,7 @@ const features = [
   { category: "portal", icon: <HeartHandshake className="w-6 h-6" />, title: "Optional Benefits Administration", description: "Simplify benefits management with integrated health insurance, retirement plans, and more.", badge: "Benefits Hub" },
   { category: "portal", icon: <ShieldCheck className="w-6 h-6" />, title: "Improved Security", description: "Benefit from industry-leading security protocols and data encryption.", badge: "256-Bit SSL" },
   { category: "compliance", icon: <UserCheck className="w-6 h-6" />, title: "Dedicated Payroll Specialist", description: "Get guidance and support of a dedicated payroll specialist who understands your unique needs.", badge: "Licensed CPA" },
-  { category: "portal", icon: <Zap className="w-6 h-6" />, title: "24/7 AI-powered Support", description: "Access instant answers and support through our intelligent chatbot or live representatives.", badge: "Zero Wait Time" },
+  { category: "portal", icon: <Zap className="w-6 h-6" />, title: "24/7 Support", description: "Access instant answers and support through our intelligent chatbot or live representatives.", badge: "Zero Wait Time" },
   { category: "processing", icon: <CheckCircle2 className="w-6 h-6" />, title: "Scalability and Flexibility", description: "Our services adapt to your growing business needs and are easy to scale.", badge: "Enterprise Scale" },
 ];
 

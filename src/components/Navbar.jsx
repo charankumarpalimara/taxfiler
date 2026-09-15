@@ -24,6 +24,7 @@ export default function Navbar() {
   }, [location]);
 
   const handleNavClick = (e, path) => {
+    if (!path) return;
     e.preventDefault();
     setIsMobileMenuOpen(false);
     if (path.startsWith("#")) {
@@ -35,6 +36,19 @@ export default function Navbar() {
       } else {
         document.querySelector(path)?.scrollIntoView({ behavior: "smooth" });
       }
+    } else if (path.includes("#")) {
+      const [basePath, hash] = path.split("#");
+      const targetPath = basePath || "/";
+      if (location.pathname !== targetPath) {
+        navigate(path);
+      } else {
+        const elem = document.getElementById(hash);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
     } else {
       navigate(path);
       window.scrollTo(0, 0);
@@ -45,13 +59,14 @@ export default function Navbar() {
     { name: "Home", path: "#home" },
     { name: "About", path: "#about" },
     {
-      name: "Solutions",
-      dropdown: [
-        { name: "Bookkeeping", path: "/bookkeeping" },
-        { name: "Payroll", path: "/payroll" },
-      ],
+      name: "Services",
+      path: "/services",
     },
-    { name: "Tax", path: "/taxes" },
+
+    { name: "Bookkeeping", path: "/bookkeeping" },
+    { name: "Payroll", path: "/payroll" },
+    { name: "Taxes", path: "/taxes" },
+    { name: "Industries", path: "/industries" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -122,9 +137,10 @@ export default function Navbar() {
                 link.dropdown ? (
                   <div key={link.name} className="relative group">
                     <button
-                      className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-semibold text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all"
+                      onClick={(e) => link.path && handleNavClick(e, link.path)}
                       onMouseEnter={() => setOpenDropdown(link.name)}
                       onMouseLeave={() => setOpenDropdown(null)}
+                      className="flex items-center gap-1 px-4 py-2 rounded-xl text-sm font-semibold text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all cursor-pointer"
                     >
                       {link.name}
                       <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover:rotate-180" />
@@ -133,18 +149,21 @@ export default function Navbar() {
                     <div
                       onMouseEnter={() => setOpenDropdown(link.name)}
                       onMouseLeave={() => setOpenDropdown(null)}
-                      className={`absolute top-full left-0 pt-2 z-50 transition-all duration-200 ${openDropdown === link.name ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"}`}
+                      className={`absolute top-full left-0 pt-2 z-50 transition-all duration-200 ${openDropdown === link.name
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 translate-y-2 pointer-events-none"
+                        }`}
                     >
-                      <div className="bg-white border border-black/5 rounded-2xl shadow-xl w-48 overflow-hidden py-2">
+                      <div className="bg-white border border-black/5 rounded-2xl shadow-2xl w-[520px] max-h-[75vh] overflow-y-auto p-3 grid grid-cols-2 gap-1">
                         {link.dropdown.map((item) => (
                           <a
                             key={item.name}
                             href={item.path}
                             onClick={(e) => handleNavClick(e, item.path)}
-                            className="flex items-center gap-2 px-5 py-3 text-sm font-medium text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all"
+                            className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-text-mid hover:text-brand-purple hover:bg-brand-purple/5 transition-all"
                           >
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-                            {item.name}
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0" />
+                            <span className="truncate">{item.name}</span>
                           </a>
                         ))}
                       </div>

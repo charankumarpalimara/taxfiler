@@ -47,8 +47,8 @@
   --color-bg-subtle: #EBF1F6;
   --color-border-subtle: #D0DFE8;
 
-  --font-sans: "Inter", "Rubik", system-ui, sans-serif;
-  --font-heading: "Outfit", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Outfit", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Outfit", "Plus Jakarta Sans", system-ui, sans-serif;
 
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;

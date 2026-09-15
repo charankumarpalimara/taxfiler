@@ -89,15 +89,15 @@ export default function Deliverables() {
         {/* Main Content Layout */}
         <div className="flex flex-col lg:flex-row gap-8 items-start">
 
-          {/* Left Sidebar Cards Container */}
-          <div className="w-full lg:w-4/12 flex flex-col gap-3">
+          {/* Left Sidebar Cards Container (Horizontal Scroll on Mobile, Vertical Stack on Desktop) */}
+          <div className="w-full lg:w-4/12 flex flex-row overflow-x-auto pb-2 lg:pb-0 lg:flex-col gap-3 scrollbar-none snap-x">
             {deliverables.map((category, idx) => {
               const isActive = activeTab === idx;
               return (
                 <button
                   key={idx}
                   onClick={() => setActiveTab(idx)}
-                  className={`w-full text-left p-5 rounded-lg border transition-all duration-300 flex items-center justify-between group cursor-pointer relative overflow-hidden ${isActive
+                  className={`shrink-0 lg:shrink min-w-[240px] sm:min-w-[280px] lg:min-w-0 lg:w-full text-left p-4 sm:p-5 rounded-xl border transition-all duration-300 flex items-center justify-between group cursor-pointer relative overflow-hidden snap-start ${isActive
                     ? "bg-white border-brand-primary shadow-lg ring-1 ring-brand-primary/20"
                     : "bg-white border-[#DCE6F2] hover:border-brand-primary/40 hover:shadow-md"
                     }`}
@@ -111,9 +111,9 @@ export default function Deliverables() {
                     />
                   )}
 
-                  <div className="flex items-center gap-4 min-w-0">
+                  <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
                     <div
-                      className={`w-12 h-12 rounded-xl shrink-0 flex items-center justify-center transition-all duration-300 ${isActive
+                      className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl shrink-0 flex items-center justify-center transition-all duration-300 ${isActive
                         ? "bg-brand-primary text-white shadow-md shadow-brand-primary/20"
                         : "bg-[#EDF2F7] text-brand-primary group-hover:bg-brand-primary group-hover:text-white"
                         }`}
@@ -122,11 +122,11 @@ export default function Deliverables() {
                     </div>
 
                     <div className="min-w-0">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-brand-accent-dark mb-0.5 font-heading">
+                      <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-accent-dark mb-0.5 font-heading">
                         {category.tag}
                       </div>
                       <h3
-                        className={`text-base font-bold font-heading truncate transition-colors ${isActive ? "text-brand-primary" : "text-brand-dark group-hover:text-brand-primary"
+                        className={`text-xs sm:text-sm lg:text-base font-bold font-heading truncate transition-colors ${isActive ? "text-brand-primary" : "text-brand-dark group-hover:text-brand-primary"
                           }`}
                       >
                         {category.title}
@@ -135,7 +135,7 @@ export default function Deliverables() {
                   </div>
 
                   <ChevronRight
-                    className={`w-5 h-5 shrink-0 transition-transform ${isActive ? "text-brand-primary translate-x-1" : "text-text-light/40 group-hover:text-brand-primary"
+                    className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 transition-transform ${isActive ? "text-brand-primary translate-x-1" : "text-text-light/40 group-hover:text-brand-primary"
                       }`}
                   />
                 </button>

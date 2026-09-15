@@ -50,16 +50,20 @@ const socials = [
   },
 ];
 
-// Exactly 3 time slots
-const timeSlots = ["10:00 AM", "02:00 PM", "04:30 PM"];
+// Exactly 3 CST time slots
+const timeSlots = [
+  "08:00 AM - 11:00 AM CST",
+  "11:00 AM - 02:00 PM CST",
+  "02:00 PM - 05:00 PM CST"
+];
 
 const servicesList = [
-  "Business Consulting",
-  "Financial Writeup & Reporting",
-  "Tax Preparation",
+  "individual & Business Tax Filings",
+  "Bookkeeping",
+  "Payroll",
   "Tax Planning",
-  "ERC Tax Credit Consulting",
-  "Exit Strategy Consulting",
+  "Consulation Call",
+  // "Exit Strategy Consulting",
 ];
 
 const leadSources = [
@@ -82,7 +86,7 @@ export default function Contact() {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState(today);
   const [isDateConfirmed, setIsDateConfirmed] = useState(false); // Controls hiding the calendar
-  const [selectedTime, setSelectedTime] = useState("10:00 AM");
+  const [selectedTime, setSelectedTime] = useState("08:00 AM - 11:00 AM CST");
   const [calendarDate, setCalendarDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
 
   // Form State
@@ -128,14 +132,23 @@ export default function Contact() {
     const errs = {};
     if (!formData.firstName.trim()) errs.firstName = "First name is required";
     if (!formData.lastName.trim()) errs.lastName = "Last name is required";
+
+    // Strict Email Format Validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
-      errs.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errs.email = "Please enter a valid email address";
+      errs.email = "Email address is required";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      errs.email = "Please enter a valid email address (e.g. name@example.com)";
     }
+
+    // Phone Number Validation (Exactly 10 digits)
+    const phoneDigits = formData.phone.replace(/\D/g, "");
     if (!formData.phone.trim()) {
       errs.phone = "Phone number is required";
+    } else if (phoneDigits.length !== 10) {
+      errs.phone = "Please enter a valid 10-digit phone number";
     }
+
     if (formData.services.length === 0) {
       errs.services = "Please pick at least one service";
     }
@@ -246,7 +259,7 @@ export default function Contact() {
     setCurrentStep(1);
     setSelectedDate(today);
     setIsDateConfirmed(false);
-    setSelectedTime("10:00 AM");
+    setSelectedTime("08:00 AM - 11:00 AM CST");
     setFormData({
       firstName: "",
       lastName: "",
@@ -846,16 +859,18 @@ export default function Contact() {
                               <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
                               <input
                                 type="tel"
+                                maxLength={10}
                                 value={formData.phone}
                                 onChange={(e) => {
-                                  setFormData({ ...formData, phone: e.target.value });
+                                  const digitsOnly = e.target.value.replace(/\D/g, "").slice(0, 10);
+                                  setFormData({ ...formData, phone: digitsOnly });
                                   if (errors.phone) setErrors({ ...errors, phone: "" });
                                 }}
                                 className={`w-full pl-9 pr-3 py-2.5 rounded-xl bg-slate-50 border ${errors.phone
                                   ? "border-red-400 focus:border-red-500 ring-2 ring-red-100"
                                   : "border-slate-200 focus:border-brand-primary"
                                   } text-xs text-text-dark placeholder:text-slate-400 focus:bg-white focus:outline-none transition-all`}
-                                placeholder="+1 (832) 000-0000"
+                                placeholder="1234567890"
                               />
                             </div>
                             {errors.phone && (
@@ -865,7 +880,7 @@ export default function Contact() {
                         </div>
 
                         {/* Preferred Language */}
-                        <div>
+                        {/* <div>
                           <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                             <Globe className="w-3.5 h-3.5 text-brand-primary" />
                             Preferred Language
@@ -894,7 +909,7 @@ export default function Contact() {
                               );
                             })}
                           </div>
-                        </div>
+                        </div> */}
 
                         {/* Services Grid */}
                         <div>

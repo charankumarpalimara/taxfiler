@@ -8,6 +8,9 @@ import Contact from './pages/Contact';
 import Bookkeeping from "./pages/Bookkeeping";
 import Payroll from "./pages/Payroll";
 import Taxes from "./pages/Taxes";
+import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
+import Industries from "./pages/Industries";
 import { RegisterModalProvider } from "./context/RegisterModalContext";
 
 function App() {
@@ -17,6 +20,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/industries" element={<Industries />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/bookkeeping" element={<Bookkeeping />} />
           <Route path="/payroll" element={<Payroll />} />

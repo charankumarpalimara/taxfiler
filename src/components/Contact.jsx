@@ -327,8 +327,12 @@ export default function Contact() {
                       <input
                         type="tel"
                         required
+                        maxLength={10}
+                        onChange={(e) => {
+                          e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
+                        }}
                         className="w-full px-4 py-3 rounded-xl bg-white border border-[#DCE6F2] text-text-dark text-sm placeholder:text-text-light/60 focus:border-brand-secondary focus:bg-white focus:ring-4 focus:ring-brand-secondary/10 outline-none transition-all"
-                        placeholder="(334) 840-4241"
+                        placeholder="1234567890"
                       />
                     </div>
                   </div>

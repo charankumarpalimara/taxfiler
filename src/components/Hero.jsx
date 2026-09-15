@@ -28,14 +28,14 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-brand-primary tracking-tight mb-8 leading-[1.1] font-heading">
-              Expert <span className="text-brand-accent font-bold">Tax Filing</span> for{" "}
+              Expert <span className="text-brand-accent font-bold">& Your Truster Partners</span> for{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-semibold">
-                Individuals & Businesses
+                U.S Tax & Accoundting Services
               </span>
             </h1>
 
             <p className="text-lg lg:text-xl text-text-mid mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans">
-              Get your taxes filed accurately and on time with our AI-powered platform and expert CPA support. 15+ years of experience in US and International tax compliance.
+              Get your taxes filed accurately and on time with our expert Accountant's & CPA's support. 15+ years of experience in US and International tax compliance.
             </p>
 
             {/* CTAs */}
