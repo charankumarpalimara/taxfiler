@@ -66,6 +66,7 @@ export default function Navbar() {
     { name: "Bookkeeping", path: "/bookkeeping" },
     { name: "Payroll", path: "/payroll" },
     { name: "Taxes", path: "/taxes" },
+    { name: "Forms", path: "/forms" },
     { name: "Industries", path: "/industries" },
     { name: "Contact", path: "/contact" },
   ];

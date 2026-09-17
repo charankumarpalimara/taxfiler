@@ -11,6 +11,7 @@ import Taxes from "./pages/Taxes";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Industries from "./pages/Industries";
+import Forms from "./pages/Forms";
 import { RegisterModalProvider } from "./context/RegisterModalContext";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/forms" element={<Forms />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/bookkeeping" element={<Bookkeeping />} />

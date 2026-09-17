@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 import { createSubmission } from "../services/api";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Clock, ArrowRight, Sparkles, CheckCircle2, MessageSquare } from "lucide-react";
+import { Mail, Phone, Send, Clock, ArrowRight, Sparkles, CheckCircle2, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const contactInfo = [
-  {
-    icon: <MapPin className="w-5 h-5" />,
-    label: "Office Location",
-    value: "6609 Firefly Lane, Taylor Lakes Community\nMontgomery, AL 36116",
-    href: "https://www.google.com/maps/place/6609+Firefly+Ln,+Montgomery,+AL+36116",
-  },
   {
     icon: <Phone className="w-5 h-5" />,
     label: "Phone Number",
@@ -79,9 +73,9 @@ export default function Contact() {
       const inputs = form.querySelectorAll('input, select, textarea');
       const serviceVal = inputs[4]?.value || 'General Inquiry';
       const serviceName = serviceVal === 'taxes' ? 'Personal & Corporate Tax Filing' :
-                          serviceVal === 'bookkeeping' ? 'Bookkeeping & Financial Statements' :
-                          serviceVal === 'payroll' ? 'Payroll & Compliance' :
-                          serviceVal === 'planning' ? 'Strategic Tax Planning' : 'Other Inquiry';
+        serviceVal === 'bookkeeping' ? 'Bookkeeping & Financial Statements' :
+          serviceVal === 'payroll' ? 'Payroll & Compliance' :
+            serviceVal === 'planning' ? 'Strategic Tax Planning' : 'Other Inquiry';
 
       const payload = {
         firstName: inputs[0]?.value || '',
@@ -126,16 +120,16 @@ export default function Contact() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-brand-accent" />
-            Get In Touch
+            Get in Touch
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight mb-4 text-brand-purple">
-            Let's Start a{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary">
-              Conversation
+          <h2 className="text-4xl md:text-5xl font-extrabold font-heading tracking-tight mb-4">
+            <span className="text-brand-primary">Ready to grow </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary font-bold">
+              your business?
             </span>
           </h2>
-          <p className="text-text-mid text-base sm:text-lg max-w-xl mx-auto font-sans leading-relaxed">
-            Have a question or need a custom tax strategy? Fill out the form below and our CPA team will respond within 2 business hours.
+          <p className="text-text-mid text-base sm:text-lg max-w-xl mx-auto font-sans leading-relaxed italic">
+            "Every successful partnership begins with an Introduction."
           </p>
         </motion.div>
 
@@ -192,7 +186,7 @@ export default function Contact() {
             >
               <div>
                 <p className="font-bold font-heading text-sm sm:text-base leading-tight">Visit full contact page</p>
-                <p className="text-white/80 text-xs mt-0.5 font-sans">Interactive map & office directions</p>
+                <p className="text-white/80 text-xs mt-0.5 font-sans">Get in touch with our team</p>
               </div>
               <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-brand-primary transition-colors">
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -372,7 +366,7 @@ export default function Contact() {
                       <span>Sending Message...</span>
                     ) : (
                       <>
-                        <span>Submit Consultation Request</span>
+                        <span>Let's Get Started</span>
                         <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </>
                     )}

@@ -4,37 +4,41 @@ import { Package, UserPlus, UploadCloud, Coffee, Sparkles, CheckCircle2 } from "
 const steps = [
   {
     number: "01",
-    title: "Choose Your Plan",
+    title: "Choose Your Service",
     tag: "Step 01",
-    description: "Select the transparent package that best fits your business size and needs. Flat rate with no hidden fees.",
+    description: "Select the professional solution that fits your goals.",
     icon: <Package className="w-6 h-6" />,
+    perk: "Tailored Solutions",
   },
   {
     number: "02",
-    title: "Connect with Your CPA",
+    title: "Consult With Our Experts",
     tag: "Step 02",
-    description: "Meet your dedicated tax specialist who will review your goals, answer questions, and direct your strategy.",
+    description: "Receive expert advice tailored to your needs.",
     icon: <UserPlus className="w-6 h-6" />,
+    perk: "1-on-1 Advice",
   },
   {
     number: "03",
-    title: "Upload Documents",
+    title: "Submit Your Information",
     tag: "Step 03",
-    description: "Securely upload W-2s, 1099s, or financial ledgers using our 256-bit SSL encrypted digital portal.",
+    description: "Share your details securely and efficiently.",
     icon: <UploadCloud className="w-6 h-6" />,
+    perk: "Encrypted & Secure",
   },
   {
     number: "04",
     title: "Relax & Grow",
     tag: "Step 04",
-    description: "We verify calculations, file your taxes with the IRS, and send milestone updates while you focus on business.",
+    description: "We handle the complexities while you focus on growth.",
     icon: <Coffee className="w-6 h-6" />,
+    perk: "Hassle-Free Growth",
   },
 ];
 
 export default function Process() {
   return (
-    <section id="process" className="py-10 relative overflow-hidden bg-white">
+    <section id="process" className="py-16 sm:py-20 relative overflow-hidden bg-white">
       {/* Background Subtle Tech Grid */}
       <div className="absolute inset-0 opacity-[0.35] pointer-events-none bg-[linear-gradient(to_right,#EDF2F7_1px,transparent_1px),linear-gradient(to_bottom,#EDF2F7_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
 
@@ -49,19 +53,15 @@ export default function Process() {
         >
           <div className="section-tag inline-flex items-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-brand-accent" />
-            <span>How It Works</span>
+            <span>THE NEXGEN PROCESS</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight font-heading leading-[1.15] mb-5">
-            <span className="text-brand-primary">Simple & Efficient</span> <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-bold">
-              4-Step Filing Process.
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight font-heading leading-[1.15] mb-4">
+            <span className="text-brand-primary">Your Financial Success in</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary">
+              4 Simple Steps.
             </span>
           </h2>
-
-          <p className="text-text-mid text-base sm:text-lg font-sans leading-relaxed">
-            Ditch the tax stress. Our streamlined process ensures 100% accuracy, saves valuable time, and gives you ultimate peace of mind.
-          </p>
         </motion.div>
 
         {/* 4 Steps Grid */}
@@ -108,7 +108,7 @@ export default function Process() {
               {/* Bottom Feature Line */}
               <div className="pt-4 mt-6 border-t border-[#DCE6F2] flex items-center gap-2 text-xs font-semibold text-text-dark font-sans">
                 <CheckCircle2 className="w-3.5 h-3.5 text-brand-accent shrink-0" />
-                <span>Fast & Verified</span>
+                <span>{step.perk}</span>
               </div>
             </motion.div>
           ))}
@@ -118,4 +118,5 @@ export default function Process() {
     </section>
   );
 }
+
 

@@ -1,91 +1,87 @@
 import { motion } from "framer-motion";
 import {
+  Award,
   Settings,
-  Users,
-  Zap,
-  MessageSquare,
   ShieldCheck,
+  MessageSquare,
+  Zap,
+  HeartHandshake,
   DollarSign,
-  Headset,
-  BarChart3,
-  Sparkles,
-  CheckCircle2,
-  Lock,
-  Clock,
   TrendingUp,
-  FileText
+  Sparkles,
+  CheckCircle2
 } from "lucide-react";
 
 const advantages = [
   {
     number: "01",
-    title: "Tailored Financial Solutions",
-    tag: "Custom Fit",
-    description: "Industry-specific tax & accounting strategies designed for your exact business model and entity size.",
-    icon: <Settings className="w-6 h-6" />,
-    highlight: "Personalized Roadmap",
+    title: "Expertise You Can Trust",
+    tag: "Certified Team",
+    description: "Our team brings extensive experience in U.S. taxation, bookkeeping, payroll management, and financial compliance, ensuring accurate and reliable service every time.",
+    icon: <Award className="w-6 h-6" />,
+    highlight: "Deep Industry Experience",
   },
   {
     number: "02",
-    title: "Licensed CPA Team",
-    tag: "Expert Advisory",
-    description: "Certified professionals with decades of combined experience in US federal, state, and international tax compliance.",
-    icon: <Users className="w-6 h-6" />,
-    highlight: "15+ Years Avg. Experience",
+    title: "Personalized Solutions",
+    tag: "Custom Fit",
+    description: "Every business is unique. We tailor our services to meet your specific needs, helping you achieve your financial goals with confidence.",
+    icon: <Settings className="w-6 h-6" />,
+    highlight: "Tailored Financial Roadmap",
   },
   {
     number: "03",
-    title: "AI-Powered Efficiency",
-    tag: "24–48h Delivery",
-    description: "Automated document intake and validation tech saves up to 80% of manual tax prep time.",
-    icon: <Zap className="w-6 h-6" />,
-    highlight: "Rapid Turnaround",
+    title: "Accuracy & Compliance",
+    tag: "IRS Standards",
+    description: "We stay current with the latest tax regulations and accounting standards, helping you minimize risks, avoid penalties, and remain fully compliant.",
+    icon: <ShieldCheck className="w-6 h-6" />,
+    highlight: "100% Tax & Rule Adherence",
   },
   {
     number: "04",
     title: "Transparent Communication",
-    tag: "Clear Guidance",
-    description: "No confusing jargon or silent delays—get straightforward answers and regular progress updates.",
+    tag: "Clear & Honest",
+    description: "We believe in clear, honest, and timely communication. You'll always know where your finances stand and receive prompt support whenever you need it.",
     icon: <MessageSquare className="w-6 h-6" />,
-    highlight: "Real-time Dashboards",
+    highlight: "Real-Time Progress Updates",
   },
   {
     number: "05",
-    title: "Bank-Grade Security",
-    tag: "256-Bit SSL",
-    description: "Institutional encryption protocols and encrypted vaults protect your confidential financial records.",
-    icon: <ShieldCheck className="w-6 h-6" />,
-    highlight: "IRS Compliant Storage",
+    title: "Technology-Driven Approach",
+    tag: "Cloud & Automation",
+    description: "By leveraging modern accounting tools and secure cloud-based systems, we deliver efficient, accurate, and streamlined financial management.",
+    icon: <Zap className="w-6 h-6" />,
+    highlight: "Automated & Secure Vaults",
   },
   {
     number: "06",
-    title: "Predictable Flat-Rate",
-    tag: "Zero Hidden Fees",
-    description: "Upfront pricing with itemized options so you always know what you pay before we begin.",
-    icon: <DollarSign className="w-6 h-6" />,
-    highlight: "No Hourly Surprises",
+    title: "Dedicated Client Support",
+    tag: "Long-Term Partner",
+    description: "Your success is our priority. We build long-term relationships by providing responsive service, proactive guidance, and practical solutions.",
+    icon: <HeartHandshake className="w-6 h-6" />,
+    highlight: "Proactive Advisor Guidance",
   },
   {
     number: "07",
-    title: "Year-Round Support",
-    tag: "Always Available",
-    description: "We don't vanish after April. Access dedicated advisors whenever a tax question or audit notice arises.",
-    icon: <Headset className="w-6 h-6" />,
-    highlight: "365-Day Assistance",
+    title: "Cost-Effective Services",
+    tag: "Smart Savings",
+    description: "Receive professional accounting and tax expertise without the overhead cost of maintaining an in-house finance department.",
+    icon: <DollarSign className="w-6 h-6" />,
+    highlight: "Zero In-House Overhead",
   },
   {
     number: "08",
-    title: "Proven Results",
-    tag: "$10M+ Saved",
-    description: "Track record of helping over 10,000 clients minimize tax liabilities and optimize cash flow.",
-    icon: <BarChart3 className="w-6 h-6" />,
-    highlight: "10k+ Filings Done",
+    title: "Your Growth Partner",
+    tag: "Future Ready",
+    description: "Whether you're a startup, small business, or growing enterprise, NexGen Accounting Group is committed to helping you build a stronger financial future.",
+    icon: <TrendingUp className="w-6 h-6" />,
+    highlight: "Scalable Growth Focus",
   },
 ];
 
 export default function WhyChoose() {
   return (
-    <section id="why-choose" className="py-10 relative overflow-hidden bg-white ">
+    <section id="why-choose" className="py-16 sm:py-20 relative overflow-hidden bg-white">
       {/* Background Subtle Grid Texture */}
       <div className="absolute inset-0 opacity-[0.35] pointer-events-none bg-[linear-gradient(to_right,#EDF2F7_1px,transparent_1px),linear-gradient(to_bottom,#EDF2F7_1px,transparent_1px)] bg-[size:3.5rem_3.5rem]" />
 
@@ -100,18 +96,18 @@ export default function WhyChoose() {
         >
           <div className="section-tag inline-flex items-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-brand-accent" />
-            <span>Why Choose NexGen</span>
+            <span>Why Businesses Choose NexGen</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight font-heading leading-[1.15] mb-5">
-            <span className="text-brand-primary">The Key Advantages of</span> <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-bold">
-              Our Financial Expertise.
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight font-heading leading-[1.15] mb-4">
+            <span className="text-brand-primary">Why Businesses Choose</span> <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary">
+              NexGen Accounting Group
             </span>
           </h2>
 
-          <p className="text-text-mid text-base sm:text-lg font-sans leading-relaxed">
-            Combining certified CPA knowledge with modern digital efficiency to give your business an undeniable financial edge.
+          <p className="text-lg sm:text-xl font-bold text-brand-secondary tracking-wide font-heading mt-2">
+            Built on Trust. Driven by Results.
           </p>
         </motion.div>
 
@@ -123,14 +119,14 @@ export default function WhyChoose() {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.06, duration: 0.45 }}
+              transition={{ delay: idx * 0.05, duration: 0.45 }}
               className="group bg-white rounded-3xl p-7 border border-[#DCE6F2] hover:border-brand-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 relative flex flex-col justify-between overflow-hidden"
             >
               {/* Subtle top gradient accent on hover */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-primary/0 to-transparent group-hover:via-brand-primary transition-all duration-500" />
 
               <div>
-                {/* Top Row: Icon + Number & Tag */}
+                {/* Top Row: Icon + Number */}
                 <div className="flex items-center justify-between gap-3 mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 border border-brand-primary/15 text-brand-primary flex items-center justify-center group-hover:bg-brand-primary group-hover:text-white transition-all duration-300 shadow-sm">
                     {item.icon}
@@ -169,4 +165,5 @@ export default function WhyChoose() {
     </section>
   );
 }
+
 

@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 export default function About() {
   const pillars = [
     {
-      title: "Proactive Tax Planning",
-      description: "We analyze your finances year-round to discover legal tax credits and maximize your savings before deadlines.",
+      title: "Strategic Tax Advisory",
+      description: "Proactive planning designed to reduce liabilities and maximize financial opportunities.",
     },
     {
-      title: "Dedicated CPA Support",
-      description: "Direct 1-on-1 access to seasoned accounting professionals who understand your specific industry challenges.",
+      title: "Dedicated Financial Experts",
+      description: "Personalized support from experienced professionals who understand your unique needs.",
     },
     {
-      title: "Bank-Grade Digital Portal",
-      description: "Submit documents safely and track your filing progress in real time with 256-bit SSL encryption.",
+      title: "Secure & Transparent Process",
+      description: "Reliable, confidential, and technology-driven solutions you can trust.",
     },
   ];
 
@@ -90,10 +90,9 @@ export default function About() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-brand-primary tracking-tight mb-5 leading-[1.15] font-heading">
-              More than just accountants. <br className="hidden sm:inline" />
-              We are your{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-bold">
-                strategic growth partners.
+              Financial Expertise. <br className="hidden sm:inline" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary font-bold">
+                Trusted Guidance. Proven Results.
               </span>
             </h2>
 
