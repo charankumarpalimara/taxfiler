@@ -34,8 +34,8 @@ const features = [
     num: "02",
     icon: <FileText className="w-6 h-6" />,
     title: "Monthly P&L & Balance Sheets",
-    description: "Monthly financial reporting delivering actionable clarity into gross margins, cash flow, and operating expenses.",
-    highlights: ["P&L Statements", "Balance Sheet Reconciliation"]
+    description: "Gain actionable financial visibility with executive-ready Profit & Loss statements and Balance Sheets delivered on schedule.",
+    highlights: ["Executive P&L Reports", "Balance Sheet Analysis"]
   },
   {
     num: "03",
@@ -84,7 +84,7 @@ const sampleTransactions = [
 export default function Bookkeeping() {
   return (
     <div className="min-h-screen bg-white pt-24">
-      <SEO 
+      <SEO
         title="Professional Bookkeeping & Financial Reporting | NexGen Accounting Group"
         description="Keep your business finances accurate and audit-ready with monthly bookkeeping, QuickBooks setup, financial statements, and bank reconciliation by CPAs."
         keywords="small business bookkeeping, QuickBooks accounting services, monthly financial statements, bank reconciliation, ledger cleanup, CPA bookkeeping firm, chart of accounts, P&L reporting"

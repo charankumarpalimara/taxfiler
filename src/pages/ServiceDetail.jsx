@@ -344,9 +344,9 @@ export default function ServiceDetail() {
 
           {/* 7. Bottom Call To Action Banner */}
           <div className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-primary rounded-3xl p-8 sm:p-12 text-white text-center relative overflow-hidden shadow-2xl">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 font-heading tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-4 font-heading tracking-tight">
               Ready to Get Started with {service.title}?
-            </h3>
+            </h2>
             <p className="text-white/85 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-sans font-normal leading-relaxed">
               Our licensed CPAs and tax specialists are standing by to prepare your filings with 100% precision and maximum tax savings.
             </p>

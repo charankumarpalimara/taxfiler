@@ -355,9 +355,9 @@ export default function Forms() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
             <div className="max-w-xl text-center md:text-left relative z-10">
-              <h3 className="text-2xl text-white sm:text-3xl font-extrabold mb-2 font-heading tracking-tight">
+              <h2 className="text-2xl text-white sm:text-3xl font-extrabold mb-2 font-heading tracking-tight">
                 Need Help Selecting or Filing the Right Form?
-              </h3>
+              </h2>
               <p className="text-white/90 text-sm sm:text-base font-sans leading-relaxed">
                 Our CPAs can review your tax document requirements and guide you through accurate submission.
               </p>

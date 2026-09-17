@@ -237,9 +237,9 @@ export default function Industries() {
       {/* ── COMPACT BOTTOM CTA BANNER ───────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
         <div className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-primary rounded-3xl p-8 text-white text-center relative overflow-hidden shadow-xl">
-          <h3 className="text-2xl text-white font-extrabold mb-2 font-heading tracking-tight relative z-10">
+          <h2 className="text-2xl text-white font-extrabold mb-2 font-heading tracking-tight relative z-10">
             Need Custom Industry Accounting Support?
-          </h3>
+          </h2>
           <p className="text-white/80 text-sm max-w-xl mx-auto mb-6 font-sans font-normal leading-relaxed relative z-10">
             Our CPA team provides tailored tax minimization and financial advisory across real estate, e-commerce, healthcare, tech, and trade.
           </p>
