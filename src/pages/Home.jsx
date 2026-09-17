@@ -7,10 +7,16 @@ import Packages from "../components/Packages";
 import Deliverables from "../components/Deliverables";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
+import SEO from "../components/SEO";
 
 export default function Home() {
   return (
     <div className="bg-white">
+      <SEO 
+        title="NexGen Accounting Group | Trusted CPA Tax & Accounting Services"
+        description="Expert CPA tax preparation, tax filing, bookkeeping, payroll, and strategic financial consulting for individuals & businesses nationwide. Schedule a free consultation today!"
+        keywords="CPA tax filing, tax preparation services, online tax return, small business accounting, personal tax preparation, CPA firm near me, IRS tax relief, business tax returns, tax refund optimization, licensed Texas CPA, bookkeeping services"
+      />
       <Hero />
       <About />
       <Features />

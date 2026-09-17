@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowRight, Cpu, CreditCard, FileCheck, UserCheck, ShieldCheck, BarChart2, HeartHandshake, Zap, Users, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const categories = [
   { id: "all", label: "All Capabilities", count: 12 },
@@ -35,6 +36,11 @@ const stats = [
 export default function Payroll() {
   return (
     <div className="min-h-screen bg-white pt-24">
+      <SEO 
+        title="Full-Service Payroll Processing & Tax Compliance | NexGen Accounting Group"
+        description="Hassle-free payroll processing, automated tax withholdings, direct deposit, and year-end W-2/1099 reporting for growing small and medium businesses."
+        keywords="small business payroll processing, direct deposit payroll, W-2 1099 filing, payroll tax calculation, employee payroll compliance, payroll accounting, automated payroll"
+      />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative pt-10 pb-10 lg:pt-16 lg:pb-20 overflow-hidden bg-white">

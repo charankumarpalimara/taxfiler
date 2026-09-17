@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import {
   Sparkles,
   CheckCircle2,
@@ -21,6 +22,11 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] pt-24 pb-20 font-sans">
+      <SEO 
+        title="Accounting & Tax Services | NexGen Accounting Group"
+        description="Comprehensive financial solutions including individual & business tax preparation, bookkeeping, payroll management, IRS audit defense, and strategic tax planning."
+        keywords="CPA accounting services, professional tax services, tax filing packages, business accounting solutions, payroll services, bookkeeping options, CPA consultation, tax relief"
+      />
 
       {/* ── HERO SECTION ────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-b from-brand-primary via-brand-secondary to-brand-primary text-white py-12 sm:py-16 lg:py-20">

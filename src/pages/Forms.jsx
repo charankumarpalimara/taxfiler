@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "../components/SEO";
 import {
   FileText,
   Download,
@@ -153,6 +154,11 @@ export default function Forms() {
 
   return (
     <div className="min-h-screen bg-white pt-24">
+      <SEO
+        title="Client Tax Forms & Document Resources | NexGen Accounting Group"
+        description="Access and download client tax intake organizers, Form W-9, tax document checklists, and intake forms for seamless tax filing."
+        keywords="client tax organizer, tax filing document checklist, IRS W-9 form download, tax client intake form, tax preparation documents, tax checklist PDF"
+      />
       {/* ── Hero Section ────────────────────────────────────────────── */}
       <section className="relative pt-10 pb-12 lg:pt-16 lg:pb-16 overflow-hidden bg-white">
         {/* Ambient Glows */}
@@ -233,8 +239,8 @@ export default function Forms() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 ${activeCategory === cat
-                    ? "bg-brand-primary text-white shadow-lg shadow-brand-primary/20 scale-105"
-                    : "bg-white text-text-mid hover:bg-white hover:text-brand-primary border border-[#DCE6F2] shadow-sm"
+                  ? "bg-brand-primary text-white shadow-lg shadow-brand-primary/20 scale-105"
+                  : "bg-white text-text-mid hover:bg-white hover:text-brand-primary border border-[#DCE6F2] shadow-sm"
                   }`}
               >
                 {cat}

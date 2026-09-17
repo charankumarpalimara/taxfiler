@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 import {
   CheckCircle2,
   ArrowRight,
@@ -33,8 +34,8 @@ const features = [
     num: "02",
     icon: <FileText className="w-6 h-6" />,
     title: "Monthly P&L & Balance Sheets",
-    description: "Gain actionable financial visibility with executive-ready Profit & Loss statements and Balance Sheets delivered on schedule.",
-    highlights: ["Executive P&L Reports", "Balance Sheet Analysis"]
+    description: "Monthly financial reporting delivering actionable clarity into gross margins, cash flow, and operating expenses.",
+    highlights: ["P&L Statements", "Balance Sheet Reconciliation"]
   },
   {
     num: "03",
@@ -83,6 +84,11 @@ const sampleTransactions = [
 export default function Bookkeeping() {
   return (
     <div className="min-h-screen bg-white pt-24">
+      <SEO 
+        title="Professional Bookkeeping & Financial Reporting | NexGen Accounting Group"
+        description="Keep your business finances accurate and audit-ready with monthly bookkeeping, QuickBooks setup, financial statements, and bank reconciliation by CPAs."
+        keywords="small business bookkeeping, QuickBooks accounting services, monthly financial statements, bank reconciliation, ledger cleanup, CPA bookkeeping firm, chart of accounts, P&L reporting"
+      />
 
       {/* ── HERO SECTION ─────────────────────────────────────────────── */}
       <section className="relative pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-white">

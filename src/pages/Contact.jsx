@@ -1,5 +1,6 @@
 import { createSubmission } from "../services/api";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "../components/SEO";
 import {
   Mail,
   Phone,
@@ -314,6 +315,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-[#FBFDFF] pt-24 pb-20 overflow-x-hidden">
+      <SEO 
+        title="Contact Us & Book a Free CPA Consultation | NexGen Accounting Group"
+        description="Get in touch with licensed CPAs at NexGen Accounting Group. Schedule a free consultation for tax filing, bookkeeping, or payroll services."
+        keywords="contact CPA firm, free tax consultation, book accounting appointment, CPA near me, tax advisor contact, tax preparation quote, CPA phone number"
+      />
       {/* ── Hero ─────────────────────────────────────── */}
       <section className="relative py-10 lg:py-14 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">

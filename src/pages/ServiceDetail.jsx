@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -21,6 +22,17 @@ import { servicesData } from "../data/servicesData";
 import { useRegisterModal } from "../context/RegisterModalContext";
 import { useEffect } from "react";
 
+const serviceKeywordsMap = {
+  "individual-tax": "individual tax preparation, personal tax return filing, 1040 tax preparation, ITIN W-7 application, FBAR FATCA reporting, tax refund optimization, CPA personal tax",
+  "business-tax": "business tax preparation, 1120S S-Corp tax return, 1065 partnership tax return, 1120 corporate tax, LLC tax filing, small business CPA tax",
+  "tax-planning": "strategic tax planning, tax reduction strategies, wealth advisory, tax avoidance legal methods, corporate tax planning, high net worth tax CPA",
+  "irs-representation": "IRS audit defense, IRS tax relief, Offer in Compromise, IRS back taxes help, tax penalty abatement, CPA representation IRS",
+  "bookkeeping": "small business bookkeeping, QuickBooks clean up, monthly accounting services, bank reconciliation, financial statements CPA, ledger maintenance",
+  "payroll": "small business payroll services, direct deposit payroll, W2 1099 filing, payroll tax compliance, automated payroll processing, employee tax withholding",
+  "entity-formation": "LLC formation, S-Corp election, business registration, EIN registration, corporate structure setup, business start tax consultation",
+  "itin-services": "ITIN application W-7, ITIN renewal, certifying acceptance agent CAA, non resident tax filing, ITIN passport verification without mailing"
+};
+
 export default function ServiceDetail() {
   const { serviceId } = useParams();
   const navigate = useNavigate();
@@ -32,9 +44,22 @@ export default function ServiceDetail() {
     window.scrollTo(0, 0);
   }, [serviceId]);
 
+  const seoTitle = service 
+    ? `${service.title} | NexGen Accounting Group` 
+    : "Service Details | NexGen Accounting Group";
+  
+  const seoDescription = service 
+    ? service.shortDesc || service.longDesc?.slice(0, 160) 
+    : "Professional tax & accounting services by licensed CPAs at NexGen Accounting Group.";
+
+  const seoKeywords = (serviceId && serviceKeywordsMap[serviceId]) 
+    ? serviceKeywordsMap[serviceId] 
+    : "CPA accounting services, tax preparation, bookkeeping, payroll, financial consulting";
+
   if (!service) {
     return (
       <div className="min-h-screen bg-[#F8FAFC] pt-32 pb-20 font-sans flex items-center justify-center">
+        <SEO title="Service Not Found | NexGen Accounting Group" />
         <div className="max-w-md mx-auto text-center px-4 bg-white p-10 rounded-3xl border border-black/5 shadow-xl">
           <HelpCircle className="w-16 h-16 text-brand-accent mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-brand-primary mb-2 font-heading">Service Not Found</h2>
@@ -53,6 +78,11 @@ export default function ServiceDetail() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] font-sans">
+      <SEO 
+        title={seoTitle} 
+        description={seoDescription} 
+        keywords={seoKeywords} 
+      />
 
       {/* ── HERO BANNER ────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061524] via-[#0B2238] to-[#14385C] text-white pt-28 sm:pt-36 pb-16 sm:pb-20">

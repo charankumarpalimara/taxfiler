@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, FileText, Calculator, ShieldCheck, Lightbulb, Clock, BookOpen, Users, Star, CheckCircle2, Sparkles, Check, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const categories = ["All Solutions", "Preparation & Filing", "Strategy & Planning", "Resolution & Defense"];
 
@@ -104,6 +105,11 @@ export default function Taxes() {
 
   return (
     <div className="min-h-screen bg-white pt-24">
+      <SEO 
+        title="Professional Tax Preparation & CPA Filing | NexGen Accounting Group"
+        description="Maximize tax savings and ensure 100% IRS compliance with our CPA tax preparation services for individuals, LLCs, S-Corps, and Corporations."
+        keywords="CPA tax preparation, individual tax returns, 1120S S-Corp filing, 1065 partnership tax, LLC tax filing, federal state tax return, IRS audit representation, ITIN W-7 application, tax planning"
+      />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative pt-10 pb-10 lg:pt-16 lg:pb-20 overflow-hidden bg-white">
