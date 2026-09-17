@@ -30,7 +30,7 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-brand-primary tracking-tight mb-8 leading-[1.1] font-heading">
               Expert <span className="text-brand-accent font-bold">& Your Truster Partners</span> for{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-green-light to-brand-secondary font-semibold">
-                U.S Tax & Accoundting Services
+                U.S Tax & Accounting Services
               </span>
             </h1>
 
