@@ -407,7 +407,7 @@ export default function Forms() {
                       </p>
 
                       {/* Key Deliverables */}
-                      <div className="bg-[#F8FAFC] rounded-2xl p-4 border border-[#EDF2F7] space-y-2 mb-5">
+                      {/* <div className="bg-[#F8FAFC] rounded-2xl p-4 border border-[#EDF2F7] space-y-2 mb-5">
                         <div className="text-[10px] font-extrabold uppercase tracking-widest text-text-light/80 mb-1 font-heading">
                           Key Form Deliverables
                         </div>
@@ -417,7 +417,7 @@ export default function Forms() {
                             <span>{point}</span>
                           </div>
                         ))}
-                      </div>
+                      </div> */}
 
                       {/* Turnaround Time Footer Info */}
                       <div className="pt-3 border-t border-[#EDF2F7] flex items-center justify-between gap-3 text-xs text-text-light font-sans font-medium">
