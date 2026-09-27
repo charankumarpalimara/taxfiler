@@ -20,6 +20,10 @@ export default function Footer() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  if (location.pathname.startsWith("/dashboard")) {
+    return null;
+  }
+
   const handleNavClick = (e, path) => {
     if (path.startsWith("/#") || path.startsWith("#")) {
       e.preventDefault();

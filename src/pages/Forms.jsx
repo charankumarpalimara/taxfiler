@@ -2,163 +2,301 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../components/SEO";
 import {
-  FileText,
-  Download,
-  Search,
   Sparkles,
   ArrowRight,
-  ShieldCheck,
   CheckCircle2,
-  FileSpreadsheet,
-  FileCheck,
-  HelpCircle,
-  ExternalLink,
-  Filter
+  Building2,
+  RefreshCw,
+  FileX,
+  Clock,
+  FileText,
+  ShieldCheck,
+  UserCheck,
+  Copy,
+  Check,
+  Image as ImageIcon,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useRegisterModal } from "../context/RegisterModalContext";
-
-const categories = [
-  "All Forms",
-  "Individual Taxes",
-  "Business & Corporate",
-  "Payroll & HR",
-  "Client Onboarding"
-];
 
 const formsList = [
   {
-    id: "f1",
-    title: "Client Tax Organizer & Checklist 2026",
-    formCode: "NEX-ORG-2026",
-    category: "Client Onboarding",
-    fileType: "Interactive PDF",
-    fileSize: "1.2 MB",
-    description: "Complete organizer to gather income statements, deductions, and personal info before filing your annual tax return.",
-    badge: "Most Used",
-    downloadUrl: "#",
-    popular: true,
+    id: "f-w4",
+    title: "Form W-4 (Employee Withholding)",
+    formCode: "IRS-W4",
+    image: "/images/forms/w4.jpg",
+    prompt: "Modern minimalist 3D render illustration of an official U.S. IRS Form W-4 Employee's Withholding Certificate document lying on a clean white desk, with subtle blue vector graphics, tax checkmark badge, and professional financial aesthetic. Clean studio lighting, isometric view, high resolution.",
+    icon: FileText,
+    accentColor: "from-blue-600 via-sky-500 to-indigo-600",
+    badgeStyle: "bg-blue-50 text-blue-700 border-blue-200/80",
+    iconBg: "bg-blue-50 text-blue-600",
+    fileType: "IRS Federal Form",
+    turnaround: "Instant Download / Fill",
+    description: "Official IRS Employee's Withholding Certificate used by employers to calculate correct federal income tax withholding from employee paychecks.",
+    badge: "Payroll & Tax Withholding",
+    highlights: [
+      "Step-by-step federal withholding calculations",
+      "Multiple jobs & spouse working adjustment",
+      "Claiming dependents & tax credits (Step 3)",
+      "Exemption status & extra withholding options"
+    ]
   },
   {
-    id: "f2",
-    title: "Form W-9 (Request for Taxpayer ID & Certification)",
-    formCode: "IRS W-9",
-    category: "Business & Corporate",
-    fileType: "Official IRS PDF",
-    fileSize: "450 KB",
-    description: "Standard IRS form used by independent contractors and businesses to provide TIN or SSN to payors.",
-    badge: "Official IRS",
-    downloadUrl: "https://www.irs.gov/pub/irs-pdf/fw9.pdf",
-    popular: true,
+    id: "f-w2",
+    title: "Form W-2 Wage & Tax Filing",
+    formCode: "IRS-W2",
+    image: "/images/forms/w2.jpg",
+    prompt: "Modern 3D render illustration of an official IRS Form W-2 Wage and Tax Statement tax document, with green and navy accents, financial charts icon, calculator on wooden office desk, crisp high resolution studio render.",
+    icon: FileText,
+    accentColor: "from-emerald-600 via-teal-500 to-sky-600",
+    badgeStyle: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+    iconBg: "bg-emerald-50 text-emerald-600",
+    fileType: "Employer Payroll Return",
+    turnaround: "1-2 Days Processing",
+    description: "Annual wage and tax statement reporting employee gross earnings, federal income tax withheld, Social Security, Medicare, and state tax contributions.",
+    badge: "Annual Tax Statement",
+    highlights: [
+      "Box 1-6 federal wages & tax withholding",
+      "Social Security & Medicare wage verification",
+      "SSA E-Filing & electronic employee delivery",
+      "State & local tax reporting (Box 15-20)"
+    ]
   },
   {
-    id: "f3",
-    title: "Form W-4 (Employee's Withholding Certificate 2026)",
-    formCode: "IRS W-4",
-    category: "Payroll & HR",
-    fileType: "Official IRS PDF",
-    fileSize: "320 KB",
-    description: "Complete for your employer so that the correct federal income tax is withheld from your pay.",
-    badge: "Official IRS",
-    downloadUrl: "https://www.irs.gov/pub/irs-pdf/fw4.pdf",
-    popular: false,
+    id: "f-1099nec",
+    title: "Form 1099-NEC Contractor Filing",
+    formCode: "IRS-1099-NEC",
+    image: "/images/forms/1099nec.jpg",
+    prompt: "Professional 3D illustration of IRS Form 1099-NEC Nonemployee Compensation tax form, amber and gold theme, contractor compliance icon, modern corporate workspace desk background, high quality.",
+    icon: FileText,
+    accentColor: "from-amber-500 via-orange-500 to-brand-primary",
+    badgeStyle: "bg-amber-50 text-amber-700 border-amber-200/80",
+    iconBg: "bg-amber-50 text-amber-600",
+    fileType: "Information Return",
+    turnaround: "Same Day E-Filing",
+    description: "Required IRS information return for reporting nonemployee compensation of $600 or more paid to independent contractors, freelancers, and vendors.",
+    badge: "Contractor Compliance",
+    highlights: [
+      "Box 1 nonemployee compensation reporting",
+      "TIN validation & W-9 verification check",
+      "Direct IRS & State Tax Agency E-Filing",
+      "Recipient Copy B digital delivery & mailing"
+    ]
   },
   {
-    id: "f4",
-    title: "Form 1040 Individual Tax Return Worksheets",
-    formCode: "IRS 1040-WS",
-    category: "Individual Taxes",
-    fileType: "PDF Worksheet",
-    fileSize: "850 KB",
-    description: "Itemized deduction and credit calculation worksheets for U.S. individual tax returns.",
-    badge: "Individual Tax",
-    downloadUrl: "#",
-    popular: true,
+    id: "f-llc-formation",
+    title: "Certificate of Formation - Limited Liability Company",
+    formCode: "STATE-LLC-FORM",
+    image: "/images/forms/llc_formation.jpg",
+    prompt: "Elegant 3D render illustration of an official State Certificate of Formation for a Limited Liability Company (LLC), with golden wax seal, official parchment certificate style, corporate blue ribbon, studio lighting, top quality.",
+    icon: Building2,
+    accentColor: "from-blue-700 via-indigo-600 to-sky-500",
+    badgeStyle: "bg-[#0E3E85]/10 text-[#0E3E85] border-[#0E3E85]/20",
+    iconBg: "bg-blue-50 text-[#0E3E85]",
+    fileType: "State Formation Intake",
+    turnaround: "1-3 Days Turnaround",
+    description: "Official legal document required to establish a new Limited Liability Company with the Secretary of State across all 50 U.S. jurisdictions.",
+    badge: "Turnkey Setup",
+    highlights: [
+      "State Articles of Organization filing & approval",
+      "Federal EIN / Tax ID Number assignment (CP575)",
+      "Custom LLC Operating Agreement & Founder Bylaws",
+      "Registered Agent compliance setup"
+    ]
   },
   {
-    id: "f5",
-    title: "Form 1120-S S-Corp Tax Preparation Checklist",
-    formCode: "NEX-1120S-CL",
-    category: "Business & Corporate",
-    fileType: "PDF Checklist",
-    fileSize: "640 KB",
-    description: "Comprehensive document request list for S-Corporations preparing Schedule K-1s and 1120-S returns.",
-    badge: "S-Corp Guide",
-    downloadUrl: "#",
-    popular: true,
+    id: "f-boir",
+    title: "Details Required to File BOIR",
+    formCode: "FINCEN-BOIR",
+    image: "/images/forms/llc_formation.jpg",
+    prompt: "3D render illustration of FinCEN BOIR Beneficial Ownership Information Reporting document with federal shield badge, security padlock, identity verification graphics, high resolution office background.",
+    icon: ShieldCheck,
+    accentColor: "from-violet-600 via-purple-600 to-indigo-600",
+    badgeStyle: "bg-purple-50 text-purple-700 border-purple-200/80",
+    iconBg: "bg-purple-50 text-purple-600",
+    fileType: "FinCEN Mandatory Filing",
+    turnaround: "24-48 Hours Compliance",
+    description: "Mandatory Corporate Transparency Act beneficial ownership information reporting with FinCEN detailing entity beneficial owners, company applicants, and control persons.",
+    badge: "Federal BOIR Filing",
+    highlights: [
+      "Beneficial Owner (25%+ equity or substantial control) identification",
+      "Company Applicant identity & passport / driver license verification",
+      "FinCEN ID assignment & secure e-filing submission",
+      "Initial, updated, and corrected BOIR reporting compliance"
+    ]
   },
   {
-    id: "f6",
-    title: "New Business Entity Setup Intake Form",
-    formCode: "NEX-BIZ-INTAKE",
-    category: "Client Onboarding",
-    fileType: "Fillable Form",
-    fileSize: "980 KB",
-    description: "Required intake form for LLC, C-Corp, or Partnership formation, EIN registration, and state filings.",
-    badge: "New Business",
-    downloadUrl: "#",
-    popular: false,
+    id: "f-termination",
+    title: "Certificate of Termination of a Domestic Entity",
+    formCode: "STATE-TERM-CERT",
+    image: "/images/forms/llc_formation.jpg",
+    prompt: "Modern 3D render illustration of official Certificate of Termination document with formal state seal stamp, final tax clearance certificate, and corporate dissolution paper.",
+    icon: FileX,
+    accentColor: "from-rose-600 via-pink-600 to-red-600",
+    badgeStyle: "bg-rose-50 text-rose-700 border-rose-200/80",
+    iconBg: "bg-rose-50 text-rose-600",
+    fileType: "State Termination Filing",
+    turnaround: "2-4 Days Processing",
+    description: "Official state filing required to formally terminate and surrender a domestic entity's legal charter, dissolving entity existence with state tax clearance.",
+    badge: "Entity Termination",
+    highlights: [
+      "State Certificate of Termination / Dissolution preparation",
+      "State Franchise Tax & Sales Tax Clearance Certificates",
+      "Unanimous owner / member consent resolution drafting",
+      "Final Secretary of State filing & acknowledgement certificate"
+    ]
   },
   {
-    id: "f7",
-    title: "Form 941 Employer's Quarterly Federal Tax Return Guide",
-    formCode: "IRS 941-GUIDE",
-    category: "Payroll & HR",
-    fileType: "PDF Reference",
-    fileSize: "510 KB",
-    description: "Reference instructions for quarterly payroll tax reporting of wages paid and taxes withheld.",
-    badge: "Payroll Tax",
-    downloadUrl: "#",
-    popular: false,
+    id: "f-payroll-agreement",
+    title: "Payroll Agreement",
+    formCode: "NEX-PAYROLL-AGMT",
+    image: "/images/forms/w2.jpg",
+    prompt: "3D render illustration of a formal corporate Payroll Agreement document with salary schedules, direct deposit authorization, tax withholding charts, and executive pen.",
+    icon: UserCheck,
+    accentColor: "from-cyan-600 via-teal-500 to-emerald-600",
+    badgeStyle: "bg-teal-50 text-teal-700 border-teal-200/80",
+    iconBg: "bg-teal-50 text-teal-600",
+    fileType: "Employer Payroll Setup",
+    turnaround: "Same Day Setup",
+    description: "Comprehensive payroll setup agreement establishing pay schedules, direct deposit authorizations, officer compensation policies, and tax withholding rules.",
+    badge: "Payroll Setup",
+    highlights: [
+      "Direct Deposit Authorization & Bank Pay Agreements",
+      "Officer Reasonable Salary & Compensation Terms",
+      "Federal, State, and Local Tax Withholding Mandates",
+      "Employee vs Independent Contractor Status Guidelines"
+    ]
   },
   {
-    id: "f8",
-    title: "Form 8829 Home Office Expense Deduction Worksheet",
-    formCode: "IRS 8829-WS",
-    category: "Individual Taxes",
-    fileType: "Excel Calculation Template",
-    fileSize: "1.1 MB",
-    description: "Calculate square footage ratios, utility allocation, and maximum home office tax deductions.",
-    badge: "Deduction Tool",
-    downloadUrl: "#",
-    popular: true,
+    id: "f-itin",
+    title: "Form ITIN (IRS Form W-7)",
+    formCode: "IRS-W7-ITIN",
+    image: "/images/forms/itin.jpg",
+    prompt: "3D render illustration of an official IRS Form W-7 ITIN Application for Individual Taxpayer Identification Number, with passport icon, security lock badge, teal and blue accents on office desk.",
+    icon: ShieldCheck,
+    accentColor: "from-teal-600 via-emerald-600 to-cyan-600",
+    badgeStyle: "bg-teal-50 text-teal-700 border-teal-200/80",
+    iconBg: "bg-teal-50 text-teal-600",
+    fileType: "Federal ID Application",
+    turnaround: "CAA Certified Review",
+    description: "Application for IRS Individual Taxpayer Identification Number for foreign individuals, non-resident alien investors, and dependents ineligible for an SSN.",
+    badge: "Taxpayer ID Setup",
+    highlights: [
+      "Certified Acceptance Agent (CAA) document audit",
+      "Federal 1040 tax return attachment & filing",
+      "Passport & foreign status verification",
+      "ITIN renewal & family dependent processing"
+    ]
   },
   {
-    id: "f9",
-    title: "Bookkeeping Records & Ledger Intake Sheet",
-    formCode: "NEX-BK-INTAKE",
-    category: "Business & Corporate",
-    fileType: "Excel Ledger Template",
-    fileSize: "1.8 MB",
-    description: "Standardized spreadsheet for organizing monthly income, business expenses, and bank statement uploads.",
-    badge: "Bookkeeping",
-    downloadUrl: "#",
-    popular: false,
+    id: "f-ss5",
+    title: "Form SS-5 (Social Security Card)",
+    formCode: "SSA-SS5",
+    image: "/images/forms/ss5.jpg",
+    prompt: "3D render illustration of an official Form SS-5 Application for a Social Security Card, with classic blue Social Security card emblem, pen, clean modern tax desk setting.",
+    icon: UserCheck,
+    accentColor: "from-indigo-600 via-blue-600 to-sky-500",
+    badgeStyle: "bg-indigo-50 text-indigo-700 border-indigo-200/80",
+    iconBg: "bg-indigo-50 text-indigo-600",
+    fileType: "SSA Official Form",
+    turnaround: "Intake & Preparation",
+    description: "Official Social Security Administration application to request an original Social Security card, replacement card, or legal name update.",
+    badge: "Identity Registration",
+    highlights: [
+      "Original & replacement SSN card filing",
+      "Legal name change & citizenship updates",
+      "Required identity & age document checklist",
+      "Pre-filled SSA field office submission package"
+    ]
   },
+  {
+    id: "f-llc-closure",
+    title: "LLC Closure & Dissolution",
+    formCode: "NEX-LLC-CLOSE",
+    image: "/images/forms/llc_formation.jpg",
+    prompt: "Modern 3D render illustration of legal business dissolution document with formal closure stamp and IRS clearance confirmation.",
+    icon: FileX,
+    accentColor: "from-indigo-600 via-purple-600 to-pink-600",
+    badgeStyle: "bg-purple-50 text-purple-700 border-purple-200/80",
+    iconBg: "bg-purple-50 text-purple-600",
+    fileType: "Dissolution Intake",
+    turnaround: "2-5 Days Turnaround",
+    description: "Formal state LLC dissolution filings, final business tax returns, state tax clearances, and complete liability release forms for clean entity shutdown.",
+    badge: "Clean Shutdown",
+    highlights: [
+      "Articles of Dissolution / Cancellation",
+      "Final Federal & State Business Tax Returns",
+      "State Tax Clearance Certificate",
+      "IRS Entity Closure Confirmation"
+    ]
+  },
+  {
+    id: "f-llc-reactivation",
+    title: "LLC Reactivation & Reinstatement",
+    formCode: "NEX-LLC-REACT",
+    image: "/images/forms/llc_formation.jpg",
+    prompt: "Modern 3D illustration of business restoration document with green checkmark seal and state tax clearance certificate.",
+    icon: RefreshCw,
+    accentColor: "from-amber-500 via-orange-500 to-emerald-600",
+    badgeStyle: "bg-amber-50 text-amber-700 border-amber-200/80",
+    iconBg: "bg-amber-50 text-amber-600",
+    fileType: "Reinstatement Intake",
+    turnaround: "3-7 Days Turnaround",
+    description: "Reinstate administratively dissolved LLCs, resolve state tax holds, clear backlogged annual reports, and restore 100% legal good standing.",
+    badge: "Entity Restoration",
+    highlights: [
+      "Reinstatement / Reactivation Application",
+      "Delinquent Annual Report Filings",
+      "State Tax Clearance & Good Standing Cert",
+      "Penalty Abatement Requests"
+    ]
+  },
+  {
+    id: "f-llc-registration",
+    title: "LLC Registration",
+    formCode: "STATE-LLC-REG",
+    image: "/images/forms/llc_formation.jpg",
+    prompt: "3D render illustration of Single-Member & Multi-Member LLC Registration certificate with official state seal, blue corporate branding, IRS EIN confirmation letter, and operating agreement booklet on modern executive desk.",
+    icon: Building2,
+    accentColor: "from-blue-600 via-indigo-600 to-sky-500",
+    badgeStyle: "bg-blue-50 text-blue-700 border-blue-200/80",
+    iconBg: "bg-blue-50 text-blue-600",
+    fileType: "State & Federal Setup",
+    turnaround: "24-48 Hours Turnaround",
+    description: "Fast 24-48 hour Single-Member & Multi-Member LLC formation across all 50 U.S. states, including state filing, official IRS EIN issuance, and Operating Agreement.",
+    badge: "Turnkey LLC Setup",
+    highlights: [
+      "State Articles of Organization E-Filing (All 50 US States)",
+      "Official IRS Federal EIN Confirmation Letter (CP575)",
+      "Single & Multi-Member Customized Operating Agreement",
+      "Registered Agent Service & State Compliance Setup"
+    ]
+  }
 ];
 
 export default function Forms() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All Forms");
-  const { openRegisterModal } = useRegisterModal();
+  const [copiedId, setCopiedId] = useState(null);
+  const [expandedPromptId, setExpandedPromptId] = useState(null);
 
-  const filteredForms = formsList.filter((item) => {
-    const matchesCategory =
-      activeCategory === "All Forms" || item.category === activeCategory;
-    const matchesSearch =
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.formCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const handleCopyPrompt = (id, text) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2500);
+  };
+
+  const togglePrompt = (id) => {
+    setExpandedPromptId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <div className="min-h-screen bg-white pt-24">
       <SEO
-        title="Client Tax Forms & Document Resources | NexGen Accounting Group"
-        description="Access and download client tax intake organizers, Form W-9, tax document checklists, and intake forms for seamless tax filing."
-        keywords="client tax organizer, tax filing document checklist, IRS W-9 form download, tax client intake form, tax preparation documents, tax checklist PDF"
+        title="Tax Forms & LLC Resource Hub | NexGen Accounting Group"
+        description="Access official tax forms and business formation resources including Form W-4, W-2, 1099-NEC, Certificate of Formation LLC, Details Required to File BOIR, Certificate of Termination, Payroll Agreement, ITIN, SS-5, LLC Closure, Reactivation, and LLC Registration."
+        keywords="Form W4, W2 filing, 1099-NEC filing, Certificate of Formation LLC, Details Required to File BOIR, Certificate of Termination of a Domestic Entity, Payroll Agreement, ITIN, SS5, LLC closure, LLC reactivation, LLC registration"
       />
+
       {/* ── Hero Section ────────────────────────────────────────────── */}
       <section className="relative pt-10 pb-12 lg:pt-16 lg:pb-16 overflow-hidden bg-white">
         {/* Ambient Glows */}
@@ -174,7 +312,7 @@ export default function Forms() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/10 border border-brand-primary/20 shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-brand-accent" />
-              Official Tax & Client Resource Hub
+              Official Business & Tax Resource Hub
             </motion.div>
 
             <motion.h1
@@ -183,9 +321,9 @@ export default function Forms() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-primary font-heading tracking-tight leading-[1.15]"
             >
-              Essential Tax Forms & <br />
+              Essential Tax & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-secondary to-brand-primary font-bold">
-                Downloadable Worksheets.
+                Business Formation Forms.
               </span>
             </motion.h1>
 
@@ -195,158 +333,147 @@ export default function Forms() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-text-mid text-base sm:text-lg font-sans leading-relaxed max-w-2xl mx-auto"
             >
-              Access official IRS forms, client organizers, intake questionnaires, and calculation tools to streamline your tax preparation and compliance.
+              Explore official document requirements for Form W-4, W-2, 1099-NEC, LLC Certificate of Formation, ITIN (W-7), SS-5, and entity maintenance.
             </motion.p>
-
-            {/* Search Bar Input */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative max-w-xl mx-auto pt-4"
-            >
-              <div className="relative flex items-center">
-                <Search className="w-5 h-5 absolute left-4 text-text-light/60 pointer-events-none" />
-                <input
-                  type="text"
-                  placeholder="Search forms by name, IRS code, or keyword (e.g. W-9, 1040, Organizer)..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 rounded-2xl bg-white border border-[#DCE6F2] focus:border-brand-primary focus:ring-4 focus:ring-brand-primary/10 outline-none text-sm text-brand-dark shadow-md font-sans transition-all placeholder:text-text-light/60"
-                />
-                {searchTerm && (
-                  <button
-                    onClick={() => setSearchTerm("")}
-                    className="absolute right-4 text-xs font-bold text-text-light hover:text-brand-primary bg-[#EDF2F7] px-2.5 py-1 rounded-lg"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── Main Forms Section ────────────────────────────────────────── */}
-      <section className="py-8 lg:py-12 bg-[#F8FAFC]">
+      {/* ── Main Forms Cards Grid Section ────────────────────────────────────────── */}
+      <section className="py-12 lg:py-16 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {formsList.map((item, idx) => {
+              const IconComponent = item.icon;
+              const isPromptOpen = expandedPromptId === item.id;
+              const isCopied = copiedId === item.id;
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 ${activeCategory === cat
-                  ? "bg-brand-primary text-white shadow-lg shadow-brand-primary/20 scale-105"
-                  : "bg-white text-text-mid hover:bg-white hover:text-brand-primary border border-[#DCE6F2] shadow-sm"
-                  }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+              return (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="bg-white rounded-3xl border border-[#E2E8F0] shadow-sm hover:shadow-2xl hover:border-brand-primary/40 transition-all duration-300 relative flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5"
+                >
+                  {/* Top Accent Gradient Line */}
+                  <div className={`h-1.5 bg-gradient-to-r ${item.accentColor}`} />
 
-          {/* Form Cards Grid */}
-          {filteredForms.length > 0 ? (
-            <motion.div
-              layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7"
-            >
-              <AnimatePresence mode="popLayout">
-                {filteredForms.map((item, idx) => (
-                  <motion.div
-                    layout
-                    key={item.id}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.35, delay: idx * 0.04 }}
-                    className="bg-white rounded-3xl p-7 border border-[#DCE6F2] hover:border-brand-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between overflow-hidden hover:-translate-y-1.5 group"
-                  >
-                    {/* Top gradient line */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-primary/0 to-transparent group-hover:via-brand-primary transition-all duration-500" />
+                  {/* Card Banner Image Header */}
+                  <div className="relative h-48 w-full bg-slate-100 overflow-hidden border-b border-slate-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        // Fallback styling if image path is reloaded
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-                    <div>
-                      {/* Top Badges */}
-                      <div className="flex items-center justify-between gap-3 mb-5">
-                        <div className="flex items-center gap-2">
-                          <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary border border-brand-primary/15 font-heading">
-                            {item.formCode}
-                          </span>
-                          <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#EDF2F7] text-text-mid">
-                            {item.fileType}
-                          </span>
-                        </div>
-                        {item.popular && (
-                          <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-brand-accent/20 text-brand-accent-dark border border-brand-accent/30 font-heading">
-                            {item.badge}
-                          </span>
-                        )}
+                    {/* Form Badges Overlay */}
+                    <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
+                      <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full border shadow-sm backdrop-blur-md bg-white/95 ${item.badgeStyle}`}>
+                        {item.badge}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-slate-900/90 text-white shadow-sm">
+                        {item.formCode}
+                      </span>
+                    </div>
+
+                    {/* Form Icon Overlay */}
+                    <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                      <div className={`w-10 h-10 rounded-xl ${item.iconBg} flex items-center justify-center shadow-lg border border-white/20 backdrop-blur-md`}>
+                        <IconComponent className="w-5 h-5 shrink-0" />
                       </div>
+                      <span className="text-xs font-bold text-white shadow-sm font-heading">
+                        {item.fileType}
+                      </span>
+                    </div>
+                  </div>
 
+                  {/* Card Content Body */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
                       {/* Title */}
-                      <h3 className="text-lg font-bold text-brand-dark mb-2.5 font-heading group-hover:text-brand-primary transition-colors leading-snug">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-brand-dark mb-2.5 font-heading leading-snug group-hover:text-brand-primary transition-colors">
                         {item.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-text-mid text-xs sm:text-sm leading-relaxed font-sans mb-6">
+                      <p className="text-text-mid text-xs sm:text-sm leading-relaxed font-sans mb-5">
                         {item.description}
                       </p>
-                    </div>
 
-                    {/* Bottom Actions Row */}
-                    <div className="pt-4 border-t border-[#EDF2F7] flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-1.5 text-xs text-text-light font-sans font-medium">
-                        <FileCheck className="w-4 h-4 text-brand-accent shrink-0" />
-                        <span>{item.fileSize}</span>
+                      {/* Key Deliverables */}
+                      <div className="bg-[#F8FAFC] rounded-2xl p-4 border border-[#EDF2F7] space-y-2 mb-5">
+                        <div className="text-[10px] font-extrabold uppercase tracking-widest text-text-light/80 mb-1 font-heading">
+                          Key Form Deliverables
+                        </div>
+                        {item.highlights.map((point, pIdx) => (
+                          <div key={pIdx} className="flex items-start gap-2 text-xs text-brand-dark font-sans font-medium">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                            <span>{point}</span>
+                          </div>
+                        ))}
                       </div>
 
-                      {item.downloadUrl.startsWith("http") ? (
-                        <a
-                          href={item.downloadUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-brand-primary bg-brand-primary/10 hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-sm"
-                        >
-                          <span>Open IRS Form</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
-                      ) : (
-                        <button
-                          onClick={() => openRegisterModal(1)}
-                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
-                        >
-                          <span>Request / Fill Online</span>
-                          <Download className="w-3.5 h-3.5" />
-                        </button>
-                      )}
+                      {/* Turnaround Time Footer Info */}
+                      <div className="pt-3 border-t border-[#EDF2F7] flex items-center justify-between gap-3 text-xs text-text-light font-sans font-medium">
+                        <div className="flex items-center gap-1.5">
+                          <Clock className="w-3.5 h-3.5 text-brand-accent shrink-0" />
+                          <span>{item.turnaround}</span>
+                        </div>
+                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#EDF2F7] text-text-mid">
+                          Official Requirement
+                        </span>
+                      </div>
                     </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
-          ) : (
-            <div className="text-center py-16 bg-white rounded-3xl border border-[#DCE6F2] shadow-sm max-w-xl mx-auto p-8">
-              <HelpCircle className="w-12 h-12 text-brand-primary/40 mx-auto mb-4 animate-bounce" />
-              <h3 className="text-xl font-bold text-brand-dark mb-2 font-heading">No Matching Forms Found</h3>
-              <p className="text-text-mid text-sm font-sans mb-6">
-                We couldn't find any form matching "{searchTerm}". Looking for a specific IRS or custom document?
-              </p>
-              <button
-                onClick={() => {
-                  setSearchTerm("");
-                  setActiveCategory("All Forms");
-                }}
-                className="btn-orange text-xs font-bold !px-6 !py-2.5 rounded-xl inline-flex items-center gap-2"
-              >
-                Reset Search Filters
-              </button>
-            </div>
-          )}
 
+                    {/* AI Image Generation Prompt Drawer (User Request Helper) */}
+                    {/* <div className="mt-4 pt-3 border-t border-slate-100">
+                      <button
+                        onClick={() => togglePrompt(item.id)}
+                        type="button"
+                        className="w-full flex items-center justify-between text-[11px] font-semibold text-slate-500 hover:text-brand-primary transition-colors py-1 cursor-pointer"
+                      >
+                        <span className="flex items-center gap-1.5">
+                          <ImageIcon className="w-3.5 h-3.5 text-brand-primary" />
+                          <span>AI Image Generation Prompt</span>
+                        </span>
+                        {isPromptOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                      </button>
+
+                      <AnimatePresence>
+                        {isPromptOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden mt-2"
+                          >
+                            <div className="p-3 bg-slate-900 rounded-xl text-slate-200 text-[11px] font-mono leading-relaxed relative group/prompt">
+                              <p className="pr-6 text-slate-300">{item.prompt}</p>
+                              <button
+                                onClick={() => handleCopyPrompt(item.id, item.prompt)}
+                                type="button"
+                                className="absolute top-2.5 right-2.5 p-1 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                                title="Copy AI Prompt"
+                              >
+                                {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                              </button>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div> */}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -356,10 +483,10 @@ export default function Forms() {
           <div className="bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
             <div className="max-w-xl text-center md:text-left relative z-10">
               <h2 className="text-2xl text-white sm:text-3xl font-extrabold mb-2 font-heading tracking-tight">
-                Need Help Selecting or Filing the Right Form?
+                Need Help Selecting or Filing Any of These Forms?
               </h2>
               <p className="text-white/90 text-sm sm:text-base font-sans leading-relaxed">
-                Our CPAs can review your tax document requirements and guide you through accurate submission.
+                Our CPAs can review your tax document requirements, calculate withholdings, and ensure accurate federal & state filing.
               </p>
             </div>
             <div className="relative z-10 shrink-0">

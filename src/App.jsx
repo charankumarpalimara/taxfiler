@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -12,29 +12,28 @@ import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import Industries from "./pages/Industries";
 import Forms from "./pages/Forms";
-import { RegisterModalProvider } from "./context/RegisterModalContext";
+import Dashboard from "./user-dashboard/UserDashboard";
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:serviceId" element={<ServiceDetail />} />
-          <Route path="/forms" element={<Forms />} />
-          <Route path="/industries" element={<Industries />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/bookkeeping" element={<Bookkeeping />} />
-          <Route path="/payroll" element={<Payroll />} />
-          <Route path="/taxes" element={<Taxes />} />
-        </Routes>
-        <Footer />
-        <WhatsAppButton />
-        <SideBar />
-      </div>
-    </Router>
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:serviceId" element={<ServiceDetail />} />
+        <Route path="/forms" element={<Forms />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/bookkeeping" element={<Bookkeeping />} />
+        <Route path="/payroll" element={<Payroll />} />
+        <Route path="/taxes" element={<Taxes />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+      <Footer />
+      <WhatsAppButton />
+      <SideBar />
+    </div>
   );
 }
 

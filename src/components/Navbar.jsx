@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Mail, Phone, ChevronDown, ChevronRight, ChevronLeft, User, Lock } from "lucide-react";
+import { Menu, X, ArrowRight, Mail, Phone, ChevronDown, ChevronRight, ChevronLeft, User, Lock, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRegisterModal } from "../context/RegisterModalContext";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const { openRegisterModal } = useRegisterModal();
+  const { isAuthenticated, user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,6 +24,10 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
     setOpenDropdown(null);
   }, [location]);
+
+  if (location.pathname.startsWith("/dashboard")) {
+    return null;
+  }
 
   const handleNavClick = (e, path) => {
     if (!path) return;
@@ -185,12 +191,31 @@ export default function Navbar() {
 
             {/* CTA Buttons */}
             <div className="hidden md:flex items-center gap-3 font-sans">
-              <button
-                onClick={() => openRegisterModal(1)}
-                className="btn-orange text-sm !px-5 !py-2.5 cursor-pointer"
-              >
-                Register
-              </button>
+              {isAuthenticated ? (
+                <>
+                  <button
+                    onClick={() => navigate("/dashboard")}
+                    className="px-4 py-2 bg-brand-purple text-white font-bold rounded-xl text-xs sm:text-sm shadow-md hover:bg-brand-purple-light transition-all flex items-center gap-2 cursor-pointer"
+                  >
+                    <User className="w-4 h-4 text-brand-orange" />
+                    <span>My Dashboard</span>
+                  </button>
+                  <button
+                    onClick={() => logout()}
+                    className="p-2.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all cursor-pointer"
+                    title="Sign Out"
+                  >
+                    <LogOut className="w-4 h-4" />
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => openRegisterModal(1)}
+                  className="btn-orange text-sm !px-5 !py-2.5 cursor-pointer"
+                >
+                  Login / Register
+                </button>
+              )}
             </div>
 
             {/* Mobile Toggle */}
@@ -255,16 +280,41 @@ export default function Navbar() {
               ))}
 
               <div className="pt-6 border-t border-black/10 flex flex-col gap-4">
-                <button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    openRegisterModal(1);
-                  }}
-                  className="w-full bg-brand-purple text-white font-bold py-4 rounded-2xl shadow-xl shadow-brand-purple/20 flex items-center justify-center gap-2 font-heading text-lg cursor-pointer"
-                >
-                  Get Started Now
-                  <ChevronRight className="w-5 h-5" />
-                </button>
+                {isAuthenticated ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        navigate("/dashboard");
+                      }}
+                      className="w-full bg-brand-purple text-white font-bold py-3.5 rounded-2xl shadow-xl flex items-center justify-center gap-2 font-heading text-md cursor-pointer"
+                    >
+                      <User className="w-4 h-4 text-brand-orange" />
+                      My Client Dashboard
+                    </button>
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        logout();
+                      }}
+                      className="w-full bg-slate-100 text-slate-700 font-bold py-3 rounded-2xl flex items-center justify-center gap-2 text-sm cursor-pointer"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      openRegisterModal(1);
+                    }}
+                    className="w-full bg-brand-purple text-white font-bold py-4 rounded-2xl shadow-xl shadow-brand-purple/20 flex items-center justify-center gap-2 font-heading text-lg cursor-pointer"
+                  >
+                    Get Started Now
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>
