@@ -402,73 +402,21 @@ export default function Forms() {
                       </h3>
 
                       {/* Description */}
-                      <p className="text-text-mid text-xs sm:text-sm leading-relaxed font-sans mb-5">
+                      <p className="text-text-mid text-xs sm:text-sm leading-relaxed font-sans mb-4">
                         {item.description}
                       </p>
-
-                      {/* Key Deliverables */}
-                      {/* <div className="bg-[#F8FAFC] rounded-2xl p-4 border border-[#EDF2F7] space-y-2 mb-5">
-                        <div className="text-[10px] font-extrabold uppercase tracking-widest text-text-light/80 mb-1 font-heading">
-                          Key Form Deliverables
-                        </div>
-                        {item.highlights.map((point, pIdx) => (
-                          <div key={pIdx} className="flex items-start gap-2 text-xs text-brand-dark font-sans font-medium">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                            <span>{point}</span>
-                          </div>
-                        ))}
-                      </div> */}
-
-                      {/* Turnaround Time Footer Info */}
-                      <div className="pt-3 border-t border-[#EDF2F7] flex items-center justify-between gap-3 text-xs text-text-light font-sans font-medium">
-                        <div className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5 text-brand-accent shrink-0" />
-                          <span>{item.turnaround}</span>
-                        </div>
-                        <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#EDF2F7] text-text-mid">
-                          Official Requirement
-                        </span>
-                      </div>
                     </div>
 
-                    {/* AI Image Generation Prompt Drawer (User Request Helper) */}
-                    {/* <div className="mt-4 pt-3 border-t border-slate-100">
-                      <button
-                        onClick={() => togglePrompt(item.id)}
-                        type="button"
-                        className="w-full flex items-center justify-between text-[11px] font-semibold text-slate-500 hover:text-brand-primary transition-colors py-1 cursor-pointer"
-                      >
-                        <span className="flex items-center gap-1.5">
-                          <ImageIcon className="w-3.5 h-3.5 text-brand-primary" />
-                          <span>AI Image Generation Prompt</span>
-                        </span>
-                        {isPromptOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                      </button>
-
-                      <AnimatePresence>
-                        {isPromptOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden mt-2"
-                          >
-                            <div className="p-3 bg-slate-900 rounded-xl text-slate-200 text-[11px] font-mono leading-relaxed relative group/prompt">
-                              <p className="pr-6 text-slate-300">{item.prompt}</p>
-                              <button
-                                onClick={() => handleCopyPrompt(item.id, item.prompt)}
-                                type="button"
-                                className="absolute top-2.5 right-2.5 p-1 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-                                title="Copy AI Prompt"
-                              >
-                                {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                              </button>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div> */}
+                    {/* Turnaround Time Footer Info - Always Pushed to Bottom */}
+                    <div className="pt-3 mt-auto border-t border-[#EDF2F7] flex items-center justify-between gap-3 text-xs text-text-light font-sans font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-brand-accent shrink-0" />
+                        <span>{item.turnaround}</span>
+                      </div>
+                      <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-[#EDF2F7] text-text-mid">
+                        Official Requirement
+                      </span>
+                    </div>
                   </div>
                 </motion.div>
               );
