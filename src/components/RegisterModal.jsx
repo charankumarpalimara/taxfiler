@@ -157,21 +157,33 @@ export default function RegisterModal() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <motion.div
+          key="register-modal-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              closeRegisterModal();
+            }
+          }}
+        >
           {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+          <div
             onClick={closeRegisterModal}
             className="fixed inset-0 bg-brand-dark/50 backdrop-blur-md"
           />
 
           {/* Modal Card Container */}
           <motion.div
+            key="register-modal-dialog"
             initial={{ scale: 0.95, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
+            onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-4xl max-h-[85vh] sm:max-h-[80vh] bg-white rounded-2xl sm:rounded-[2rem] shadow-2xl overflow-y-auto custom-scrollbar border border-white/20 flex flex-col md:flex-row my-auto z-10"
           >
             {/* Left Panel: Info & Branding */}
@@ -535,7 +547,7 @@ export default function RegisterModal() {
               </AnimatePresence>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

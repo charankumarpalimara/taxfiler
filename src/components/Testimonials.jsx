@@ -8,7 +8,7 @@ const testimonialsRow1 = [
     initials: "R",
     location: "Houston, TX",
     tag: "Small Business Owner",
-    review: "Very knowledgeable, fast and efficient team with great customer service. I would definitely recommend Taxfiler to all my business partners.",
+    review: "Very knowledgeable, fast and efficient team with great customer service. I would definitely recommend NexGen Accounting Group to all my business partners.",
     rating: 5,
     date: "2 weeks ago"
   },
@@ -17,7 +17,7 @@ const testimonialsRow1 = [
     initials: "SC",
     location: "Dallas, TX",
     tag: "Corporate Client",
-    review: "I recently worked with Taxfiler for my company tax preparation, and I couldn't be more satisfied with the professional service I received.",
+    review: "I recently worked with NexGen Accounting Group for my company tax preparation, and I couldn't be more satisfied with the professional service I received.",
     rating: 5,
     date: "1 month ago"
   },
@@ -26,7 +26,7 @@ const testimonialsRow1 = [
     initials: "SK",
     location: "Austin, TX",
     tag: "Personal Tax Filer",
-    review: "Very knowledgeable and helpful. Great service! I strongly recommend Taxfiler for personal tax filing and strategic financial advice.",
+    review: "Very knowledgeable and helpful. Great service! I strongly recommend NexGen Accounting Group for personal tax filing and strategic financial advice.",
     rating: 5,
     date: "3 weeks ago"
   },

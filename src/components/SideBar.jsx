@@ -66,7 +66,7 @@ export default function SideBar() {
           </svg>
         </a>
         <a
-          href="https://www.instagram.com/pumpkin_tax_co/"
+          href="https://www.instagram.com/nexgenaccountinggroup?stkn=djYxY2ZjcXR6a2J4"
           target="_blank"
           rel="noopener noreferrer"
           className="text-text-light hover:text-brand-orange transition-all hover:scale-110"

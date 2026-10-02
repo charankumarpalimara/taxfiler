@@ -66,9 +66,8 @@ export default function SupportTab() {
     {
       header: "Status",
       cell: (t) => (
-        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-          t.status === 'Resolved' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'
-        }`}>
+        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${t.status === 'Resolved' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'
+          }`}>
           {t.status}
         </span>
       ),
@@ -84,9 +83,8 @@ export default function SupportTab() {
         </div>
 
         {msg.text && (
-          <div className={`p-4 rounded-2xl text-xs font-bold flex items-center gap-2 ${
-            msg.type === "success" ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : "bg-red-50 text-red-700 border border-red-200"
-          }`}>
+          <div className={`p-4 rounded-2xl text-xs font-bold flex items-center gap-2 ${msg.type === "success" ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : "bg-red-50 text-red-700 border border-red-200"
+            }`}>
             <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>{msg.text}</span>
           </div>
@@ -110,7 +108,7 @@ export default function SupportTab() {
             </div>
             <div>
               <div className="text-xs font-bold text-slate-900">Dedicated Email Representative</div>
-              <div className="text-xs font-bold text-slate-600 mt-0.5">support@irstaxfiler.com</div>
+              <div className="text-xs font-bold text-slate-600 mt-0.5">info@nexgenaccountinggroup.com</div>
             </div>
           </div>
         </div>
